@@ -1,1 +1,30 @@
-<p>login works!</p>
+<div class="login--bg-triangle-left"></div>
+<div class="login--bg-triangle-right"></div>
+
+<div class="tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-[96%]">
+    <div class="tw-w-466-px tw-flex-col">
+
+        <div class="tw-pb-40-px tw-flex tw-justify-center">
+            <img src="assets/icons/fyle.svg" width="100px" height="20px" />
+        </div>
+        <div class="tw-bg-white tw-rounded-8-px">
+            <div class="tw-p-40-px">
+                <p class="tw-flex tw-justify-center tw-pb-8-px tw-font-700 tw-text-24-px">
+                    Partner's Portal
+                </p>
+                <p class="tw-flex tw-justify-center tw-text-sub-text-color tw-pb-24-px">
+                    Login to your account
+                </p>
+                <!-- TODO: illustration to be updated once ready -->
+                <img src="assets/illustrations/login.png" />
+                <button pButton type="button" class="p-button-raised" (click)="redirectToFyleOAuth()">
+                    Signin With Fyle
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p class="tw-text-sub-text-color tw-flex tw-justify-center">
+    NEVER LOSE TRACK
+</p>

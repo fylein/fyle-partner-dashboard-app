@@ -84,6 +84,7 @@ module.exports = {
         '80-px': '80px',
       },
       margin: {
+        '0-px': '0px',
         '2-px': '2px',
         '4-px': '4px',
         '6-px': '6px',
@@ -144,7 +145,8 @@ module.exports = {
         '64-px': '64px',
         '92-px': '92px',
         '100-px': '100px',
-        '420-px': '420px'
+        '420-px': '420px',
+        '466-px': '466px'
       },
       borderRadius: {
         '4-px': '4px',
@@ -168,6 +170,17 @@ module.exports = {
         'partner-card': '0px 2px 10px rgba(44, 48, 78, 0.1)',
         'expense-stat-card': '0px 4px 4px rgba(0, 0, 0, 0.05);'
       },
+      backgroundImage: {
+        'login-traingle-left': 'linear-gradient(-83.33deg, #e1eeffba 26.8%, #ffe4fbde 97.18%)',
+        'login-traingle-right': 'linear-gradient(270.33deg, #E1EEFF 26.8%, #FFE4FB 97.18%)',
+        'btn-cta': 'linear-gradient(162.38deg, #FF3366 3.01%, #FE5196 111.5%)'
+      },
+      fontFamily: {
+        'aktiv-grotesk': '"aktiv-grotesk", sans-serif'
+      },
+      boxShadow: {
+        'btn-cta-shadow': '0px 4px 4px rgba(44, 48, 78, 0.1)'
+      }
     },
   },
   plugins: [],

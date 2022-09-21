@@ -7,6 +7,9 @@ import { FyleCallbackComponent } from './fyle-callback/fyle-callback.component';
 import { AuthComponent } from './auth.component';
 import { AuthRoutingModule } from './auth-routing.module';
 
+// External libraries
+import { IconSpriteModule } from 'ng-svg-icon-sprite';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { AuthRoutingModule } from './auth-routing.module';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    ButtonModule,
+    IconSpriteModule.forRoot({ path: 'assets/sprites/sprite.svg' })
   ]
 })
 export class AuthModule { }

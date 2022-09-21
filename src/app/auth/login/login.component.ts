@@ -9,6 +9,10 @@ export class LoginComponent implements OnInit {
 
   constructor() { }
 
+  redirectToFyleOAuth(): void {
+    // TODO: implement
+  }
+
   ngOnInit(): void {
   }
 
