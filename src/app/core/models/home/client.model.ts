@@ -9,4 +9,4 @@ export type Client = {
   reports_to_approve_count: number;
   pending_reimbursement_amount: number;
   currency: string;
-};
+}
