@@ -1,0 +1,174 @@
+/** @type {import('tailwindcss').Config} */
+
+const customColors = {
+  white: '#FFFFFF',
+  'table-header': '#DFDFE2',
+  'table-row-hover': '#5C98E5',
+  'red': '#ff0000',
+  'sub-text-color': '#5A5D72',
+  'normal-text-color': '#161528',
+  'slightly-normal-text-color': '#2C304E',
+  'faded-icon': '#A9ACBC',
+  'icon-background': '#EFF5FC',
+  'partner-hover': '#FF668C'
+};
+
+module.exports = {
+  prefix: 'tw-',
+  content: [
+    "./src/**/*.{html,ts}"
+  ],
+  theme: {
+    textColor: {
+      ...customColors
+    },
+    backgroundColor: {
+      ...customColors
+    },
+    fontSize: {
+      '12-px': '12px',
+      '14-px': '14px',
+      '16-px': '16px',
+      '20-px': '20px',
+      '24-px': '24px',
+      '36-px': '36px',
+      '40-px': '40px'
+    },
+    fontWeight: {
+      '100': '100',
+      '200': '200',
+      '300': '300',
+      '400': '400',
+      '500': '500',
+      '600': '600',
+      '700': '700'
+    },
+    letterSpacing: {
+      '.4-px': '.4px',
+      '1.5-px': '1.5px',
+      '1.6-px': '1.6px',
+    },
+    lineHeight: {
+      'normal': 'normal',
+      '1.14': '1.14',
+      '1.2': '1.2',
+      '1.4': '1.4',
+      '1.5': '1.5',
+      '1.6': '1.6',
+      '1.7': '1.7',
+      '1.8': '1.8'
+    },
+    extend: {
+      padding: {
+        '2-px': '2px',
+        '4-px': '4px',
+        '6-px': '6px',
+        '8-px': '8px',
+        '10-px': '10px',
+        '12-px': '12px',
+        '14-px': '14px',
+        '16-px': '16px',
+        '18-px': '18px',
+        '20-px': '20px',
+        '22-px': '22px',
+        '24-px': '24px',
+        '26-px': '26px',
+        '28-px': '28px',
+        '30-px': '30px',
+        '32-px': '32px',
+        '36-px': '36px',
+        '40-px': '40px',
+        '42-px': '42px',
+        '48-px': '48px',
+        '56-px': '56px',
+        '80-px': '80px',
+      },
+      margin: {
+        '2-px': '2px',
+        '4-px': '4px',
+        '6-px': '6px',
+        '8-px': '8px',
+        '10-px': '10px',
+        '12-px': '12px',
+        '14-px': '14px',
+        '16-px': '16px',
+        '20-px': '20px',
+        '22-px': '22px',
+        '24-px': '24px',
+        '26-px': '26px',
+        '28-px': '28px',
+        '30-px': '30px',
+        '32-px': '32px',
+        '36-px': '36px',
+        '40-px': '40px',
+        '48-px': '48px',
+        '56-px': '56px',
+        '80-px': '80px',
+      },
+      height: {
+        '1-px': '1px',
+        '8-px': '8px',
+        '10-px': '10px',
+        '12-px': '12px',
+        '14-px': '14px',
+        '16-px': '16px',
+        '18-px': '18px',
+        '20-px': '20px',
+        '24-px': '24px',
+        '30-px': '30px',
+        '40-px': '40px',
+        '50-px': '50px',
+        '56-px': '56px',
+        '60-px': '60px',
+        '64-px': '64px',
+        '68-px': '68px',
+        '92-px': '92px',
+        '100-px': '100px',
+        '756-px': '756px'
+      },
+      width: {
+        '1-px': '1px',
+        '8-px': '8px',
+        '10-px': '10px',
+        '12-px': '12px',
+        '14-px': '14px',
+        '16-px': '16px',
+        '18-px': '18px',
+        '20-px': '20px',
+        '24-px': '24px',
+        '30-px': '30px',
+        '40-px': '40px',
+        '50-px': '50px',
+        '56-px': '56px',
+        '60-px': '60px',
+        '64-px': '64px',
+        '92-px': '92px',
+        '100-px': '100px',
+        '420-px': '420px'
+      },
+      borderRadius: {
+        '4-px': '4px',
+        '6-px': '6px',
+        '8-px': '8px',
+        '10-px': '10px',
+        '12-px': '12px',
+        '16-px': '16px',
+        '20-px': '20px'
+      },
+      borderWidth: {
+        '0.5-px': '0.5px',
+        '1-px': '1px',
+        '2-px': '2px',
+        '4-px': '4px',
+        '6-px': '6px',
+        '8-px': '8px',
+        '12-px': '12px',
+      },
+      boxShadow: {
+        'partner-card': '0px 2px 10px rgba(44, 48, 78, 0.1)',
+        'expense-stat-card': '0px 4px 4px rgba(0, 0, 0, 0.05);'
+      },
+    },
+  },
+  plugins: [],
+}
