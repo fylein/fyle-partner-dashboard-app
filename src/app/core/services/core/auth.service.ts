@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { ApiService } from './api.service';
 import { StorageService } from './storage.service';
-import { WindowService } from './window.service';
 import { Token } from '../../models/misc/token.model';
 import { MinimalUser } from '../../models/db/user.model';
 import { UserService } from '../misc/user.service';
@@ -14,24 +12,11 @@ import { UserService } from '../misc/user.service';
 })
 export class AuthService {
 
-  private windowReference: Window;
-
   constructor(
     private apiService: ApiService,
     private storageService: StorageService,
-    private userService: UserService,
-    private windowReferenceService: WindowService
-  ) {
-    this.windowReference = this.windowReferenceService.nativeWindow;
-  }
-
-  redirectToFyleOAuth(): void {
-    this.windowReference.location.href = `${environment.fyle_app_url}/app/developers/#/oauth/authorize?client_id=${environment.fyle_client_id}&redirect_uri=${environment.callback_uri}&response_type=code`;
-  }
-
-  redirectToOnboardingLogin(): void {
-    this.windowReference.location.href = `${environment.app_url}/auth/login`;
-  }
+    private userService: UserService
+  ) {}
 
   isLoggedIn(): boolean | null {
     return this.userService.getUserProfile() !== null;
