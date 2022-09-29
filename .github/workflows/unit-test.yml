@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: TypeScript Lint GitHub Action
       uses: actions/setup-node@v1
       with:
         node-version: 14.18
