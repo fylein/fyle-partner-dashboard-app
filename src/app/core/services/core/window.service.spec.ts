@@ -5,7 +5,7 @@ import { WindowService } from './window.service';
 describe('WindowService', () => {
   let service: WindowService;
 
-  let mockWindow = { location: { href: '' } };
+  const mockWindow = { location: { href: '' } };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -20,6 +20,6 @@ describe('WindowService', () => {
 
   it('should redirect to given url', () => {
     expect(service.nativeWindow).toBeTruthy();
-  })
+  });
 
 });

@@ -14,26 +14,10 @@ describe('StorageService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should set data in local storage', () => {
+  it('should set and get data - local storage', () => {
     const data = { name: 'Fyle' };
     service.set('test-data', data);
     const result = service.get('test-data');
     expect(result).toEqual(data);
   });
-
-  // it('Get in localstorage', () => {
-  //   const data = {
-  //     id: '1',
-  //     name: 'Fyle'
-  //   };
-  //   service.set('test-data', data);
-  //   const result = service.get('test-data');
-  //   expect(result).toEqual(data);
-  // });
-
-  // it('remove in localstroage', () => {
-  //   service.remove('test-data');
-  //   const result = service.get('test-data');
-  //   expect(result).toBeNull();
-  // });
 });

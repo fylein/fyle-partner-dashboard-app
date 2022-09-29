@@ -15,16 +15,13 @@ describe('LoginComponent', () => {
   const routerSpy = { navigate: jasmine.createSpy('navigate'), url: '/path' };
 
   beforeEach(async () => {
-    let windowService: WindowService;
-    let authService: AuthService;
-
     const service1 = {
       redirect: () => undefined
     };
 
     const service2 = {
       isLoggedIn: () => true
-    }
+    };
 
     await TestBed.configureTestingModule({
       declarations: [ LoginComponent ],
@@ -38,8 +35,6 @@ describe('LoginComponent', () => {
     .compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);
-    windowService = TestBed.inject(WindowService);
-    authService = TestBed.inject(AuthService);
     router = TestBed.inject(Router);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -54,5 +49,5 @@ describe('LoginComponent', () => {
 
     fixture.detectChanges();
     expect(routerSpy.navigate).toHaveBeenCalledWith(['partner']);
-  })
+  });
 });
