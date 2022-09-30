@@ -17,7 +17,7 @@ export class UserService {
     this.storageService.set('user', userProfile);
   }
 
-  getUserProfile(): MinimalUser {
+  getUserProfile(): MinimalUser | null {
     return this.storageService.get('user');
   }
 }
