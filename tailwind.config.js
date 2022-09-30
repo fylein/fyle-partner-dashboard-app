@@ -59,6 +59,15 @@ module.exports = {
       '1.8': '1.8'
     },
     extend: {
+      animation: {
+        'progress-spinner': 'p-progress-spinner-dash 1.5s ease-in-out infinite, p-progress-spinner-color 6s ease-in-out infinite'
+      },
+      keyframes: {
+        'p-progress-spinner-color': {
+          '0%': { 'stroke': '#ff3863'},
+          '100%': { 'stroke': '#ff3863'}
+        }
+      },
       padding: {
         '2-px': '2px',
         '4-px': '4px',
@@ -171,8 +180,8 @@ module.exports = {
         'expense-stat-card': '0px 4px 4px rgba(0, 0, 0, 0.05);'
       },
       backgroundImage: {
-        'login-traingle-left': 'linear-gradient(-83.33deg, #e1eeffba 26.8%, #ffe4fbde 97.18%)',
-        'login-traingle-right': 'linear-gradient(270.33deg, #E1EEFF 26.8%, #FFE4FB 97.18%)',
+        'auth-traingle-left': 'linear-gradient(-83.33deg, #e1eeffba 26.8%, #ffe4fbde 97.18%)',
+        'auth-traingle-right': 'linear-gradient(270.33deg, #E1EEFF 26.8%, #FFE4FB 97.18%)',
         'btn-cta': 'linear-gradient(162.38deg, #FF3366 3.01%, #FE5196 111.5%)'
       },
       fontFamily: {
