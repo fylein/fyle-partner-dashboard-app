@@ -15,7 +15,7 @@ describe('AuthService', () => {
   const service1 = {
     getUserProfile: () => null,
     storeUserProfile: () => undefined
-  }
+  };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
