@@ -31,3 +31,7 @@ p {
 .p-button:enabled:hover {
   @apply tw-shadow-btn-cta-shadow #{!important};
 }
+
+.p-progress-spinner-circle {
+  @apply tw-animate-progress-spinner #{!important};
+}

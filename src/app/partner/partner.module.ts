@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PartnerRoutingModule } from './partner-routing.module';
+import { PartnerComponent } from './partner.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    PartnerComponent
+  ],
   imports: [
     CommonModule,
     PartnerRoutingModule

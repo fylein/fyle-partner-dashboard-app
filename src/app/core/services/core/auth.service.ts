@@ -35,13 +35,13 @@ export class AuthService {
   }
 
   getAccessToken(): string | null {
-    const user: MinimalUser = this.userService.getUserProfile();
+    const user: MinimalUser | null = this.userService.getUserProfile();
 
     return user ? user.access_token : null;
   }
 
   updateAccessToken(accessToken: string): string | null {
-    const user: MinimalUser = this.userService.getUserProfile();
+    const user: MinimalUser | null = this.userService.getUserProfile();
 
     if (user) {
       user.access_token = accessToken;
@@ -53,7 +53,7 @@ export class AuthService {
   }
 
   getRefreshToken(): string | null {
-    const user: MinimalUser = this.userService.getUserProfile();
+    const user: MinimalUser | null = this.userService.getUserProfile();
 
     return user ? user.refresh_token : null;
   }
