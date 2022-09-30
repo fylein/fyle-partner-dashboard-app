@@ -21,7 +21,7 @@ const routes: Routes = [
     path: '**',
     redirectTo: 'partner',
     pathMatch: 'full'
-  },
+  }
 ];
 
 @NgModule({

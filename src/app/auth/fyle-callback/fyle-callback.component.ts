@@ -52,9 +52,9 @@ export class FyleCallbackComponent implements OnInit {
 
   private login(): void {
     this.route.queryParams.subscribe(params => {
-      if (params['code']) {
-        this.saveUserProfileAndNavigate(params['code']);
-      } else if (params['error']) {
+      if (params.code) {
+        this.saveUserProfileAndNavigate(params.code);
+      } else if (params.error) {
         this.redirectToLogin();
       }
     });
