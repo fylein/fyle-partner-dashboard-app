@@ -10,6 +10,9 @@ import { PaginatorComponent } from './components/helpers/paginator/paginator.com
 import { ClientCardComponent } from './components/home/client-card/client-card.component';
 import { ClientTableComponent } from './components/home/client-table/client-table.component';
 
+// External libraries
+import { IconSpriteModule } from 'ng-svg-icon-sprite';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { ClientTableComponent } from './components/home/client-table/client-tabl
     ClientTableComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    IconSpriteModule.forRoot({ path: 'assets/sprites/sprite.svg' })
   ]
 })
 export class SharedModule { }

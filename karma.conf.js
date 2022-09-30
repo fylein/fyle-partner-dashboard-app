@@ -25,12 +25,22 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/fyle-partner-dashboard-app'),
+      dir: require('path').join(__dirname, './coverage'),
       subdir: '.',
       reporters: [
         { type: 'html' },
-        { type: 'text-summary' }
-      ]
+        { type: 'text-summary' },
+        { type: 'lcovonly'},
+        { type: 'json-summary' }
+      ],
+      check: {
+        global: {
+          statements: 55,
+          branches: 25,
+          functions: 30,
+          lines: 55
+        }
+      }
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
@@ -39,6 +49,12 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    customLaunchers: {
+      ChromeHeadlessCustom: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-gpu']
+      }
+    }
   });
 };

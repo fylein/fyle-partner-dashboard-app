@@ -10,4 +10,8 @@ export class WindowService {
   get nativeWindow(): Window {
     return window;
   }
+
+  redirect(url: string): void {
+    this.nativeWindow.location.href = url;
+  }
 }
