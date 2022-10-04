@@ -5,6 +5,7 @@ import { StorageService } from './storage.service';
 import { Token } from '../../models/misc/token.model';
 import { MinimalUser } from '../../models/db/user.model';
 import { UserService } from '../misc/user.service';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -14,6 +15,7 @@ export class AuthService {
 
   constructor(
     private apiService: ApiService,
+    private router: Router,
     private storageService: StorageService,
     private userService: UserService
   ) {}
@@ -24,6 +26,7 @@ export class AuthService {
 
   logout(): void {
     this.storageService.remove('user');
+    this.router.navigate(['auth/login']);
   }
 
   login(code: string): Observable<Token> {
