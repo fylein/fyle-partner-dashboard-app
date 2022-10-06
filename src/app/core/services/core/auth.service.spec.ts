@@ -4,6 +4,7 @@ import { HttpTestingController, HttpClientTestingModule } from '@angular/common/
 import { UserService } from '../misc/user.service';
 import { loginResponse, minimalUser, tokenResponse } from '../../interceptors/jwt.fixture';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -11,6 +12,7 @@ describe('AuthService', () => {
   let httpMock: HttpTestingController;
   let userService: UserService;
   const API_BASE_URL = environment.api_url;
+  const routerSpy = { navigate: jasmine.createSpy('navigate'), url: '/auth/login' };
 
   const service1 = {
     getUserProfile: () => null,
@@ -22,7 +24,8 @@ describe('AuthService', () => {
       imports: [HttpClientTestingModule],
       providers: [
         AuthService,
-        { provide: UserService, useValue: service1}
+        { provide: UserService, useValue: service1},
+        { provide: Router, useValue: routerSpy }
       ]
     });
     injector = getTestBed();
@@ -111,5 +114,6 @@ describe('AuthService', () => {
   it('should check login status and logout', () => {
     spyOn(service, 'isLoggedIn').and.returnValue(true);
     service.checkLoginStatusAndLogout();
+    expect(routerSpy.navigate).toHaveBeenCalledWith(['auth/login']);
   });
 });

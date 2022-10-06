@@ -1,1 +1,47 @@
-<p>profile-dropdown works!</p>
+<div class="tw-right-3 tw-absolute tw-rounded-4-px tw-shadow-help-section tw-text-slightly-normal-text-color tw-text-14-px tw-w-354-px">
+    <div class="tw-flex">
+        <div class="tw-pt-24-px tw-px-16-px tw-pb-20-px">
+            <div class="tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-48-px tw-w-48-px tw-rounded-48-px tw-bg-slightly-normal-text-color">
+                <p class="tw-text-white tw-text-20-px">
+                    {{ user.full_name[0] }}
+                </p>
+            </div>
+        </div>
+        <div class="tw-pt-26-px">
+            <p class="tw-text-18-px" [pTooltip]="user.full_name" [tooltipDisabled]="user.full_name.length > 20 === false" tooltipPosition="bottom">
+                {{ user.full_name | trimCharacter: 20 }}
+            </p>
+            <p class="tw-text-14-px tw-text-sub-text-color">
+                Partner Dashboard
+            </p>
+        </div>
+    </div>
+
+    <p class="tw-mx-16-px tw-h-1-px tw-bg-table-header"></p>
+
+    <div class="tw-flex tw-justify-between">
+        <div class="tw-flex">
+            <div class="tw-h-36-px tw-w-36-px tw-mt-28-px tw-mr-12-px tw-ml-16-px tw-rounded-4-px tw-border-1-px tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-sub-text-color tw-text-12-px">
+                {{ currency }}
+            </div>
+            <div class="tw-pt-38-px tw-text-sub-text-color tw-text-14-px tw-flex">
+                {{ user.org_name }}
+                <div class="tw-pt-4-px tw-pl-8-px" (click)="openPrimaryOrg()">
+                    <svg-icon-sprite src="open-in-new-tab" width="14px" class="tw-text-faded-icon tw-cursor-pointer"></svg-icon-sprite>
+                </div>
+            </div>
+        </div>
+        <div class="tw-mt-34-px tw-bg-slightly-normal-text-color tw-text-white tw-rounded-tl-16-px tw-rounded-bl-16-px tw-w-70-px tw-flex tw-justify-center tw-items-center tw-text-12-px">
+            Primary
+        </div>
+    </div>
+
+    <p class="tw-mt-38-px tw-mb-20-px tw-h-1-px tw-bg-table-header"></p>
+
+    <div class="tw-flex tw-justify-center tw-items-center tw-pb-20-px">
+        <div class="tw-flex tw-cursor-pointer" (click)="logout()">
+            <svg-icon-sprite src="sign-out" width="18px" class="tw-text-sign-out"></svg-icon-sprite>
+            <p class="tw-text-sign-out tw-text-14-px tw-pl-6-px">Sign Out</p>
+        </div>
+    </div>
+</div>

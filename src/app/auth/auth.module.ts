@@ -10,8 +10,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 // External libraries
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
 import { ButtonModule } from 'primeng/button';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { ToastModule } from 'primeng/toast';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,9 +22,8 @@ import { ToastModule } from 'primeng/toast';
   imports: [
     CommonModule,
     AuthRoutingModule,
+    SharedModule,
     ButtonModule,
-    ProgressSpinnerModule,
-    ToastModule,
     IconSpriteModule.forRoot({ path: 'assets/sprites/sprite.svg' })
   ]
 })

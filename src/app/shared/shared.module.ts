@@ -12,6 +12,9 @@ import { ClientTableComponent } from './components/home/client-table/client-tabl
 
 // External libraries
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { TooltipModule } from 'primeng/tooltip';
+import { TrimCharacterPipe } from './pipes/trim-character.pipe';
 
 
 @NgModule({
@@ -24,11 +27,19 @@ import { IconSpriteModule } from 'ng-svg-icon-sprite';
     SimpleSearchTextComponent,
     PaginatorComponent,
     ClientCardComponent,
-    ClientTableComponent
+    ClientTableComponent,
+    TrimCharacterPipe
   ],
   imports: [
     CommonModule,
+    ProgressSpinnerModule,
+    TooltipModule,
     IconSpriteModule.forRoot({ path: 'assets/sprites/sprite.svg' })
+  ],
+  exports: [
+    LoaderComponent,
+    HeaderComponent,
+    TrimCharacterPipe
   ]
 })
 export class SharedModule { }

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MessageService } from 'primeng/api';
 
 import { HelpDropdownComponent } from './help-dropdown.component';
 
@@ -8,7 +9,8 @@ describe('HelpDropdownComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HelpDropdownComponent ]
+      declarations: [ HelpDropdownComponent ],
+      providers: [MessageService]
     })
     .compileComponents();
 
@@ -17,7 +19,11 @@ describe('HelpDropdownComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should copy support email to clipboard', () => {
+    expect(component.copyToClipboard()).toBeUndefined();
   });
 });

@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   redirectToFyleOAuth(): void {
-    this.windowService.redirect(`${environment.fyle_app_url}/app/developers/#/oauth/authorize?client_id=${environment.fyle_client_id}&redirect_uri=${environment.callback_uri}&response_type=code`);
+    this.windowService.redirect(`${environment.fyle_app_url}/app/developers/#/oauth/authorize?client_id=${environment.fyle_client_id}&redirect_uri=${environment.callback_uri}&response_type=code&is_partner=true`);
   }
 
   ngOnInit(): void {
