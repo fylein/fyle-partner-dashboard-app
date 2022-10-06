@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { InputTextModule } from 'primeng/inputtext';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 
@@ -27,6 +28,7 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastModule,
+    InputTextModule,
     IconSpriteModule.forRoot({ path: 'assets/sprites/sprite.svg' })
   ],
   providers: [

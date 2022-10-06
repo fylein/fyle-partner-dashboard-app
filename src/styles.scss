@@ -54,7 +54,16 @@ p {
   &.p-tooltip-bottom {
     .p-tooltip-arrow {
       @apply
-      tw-border-b-[#2C304E]  #{!important};
+      tw-border-b-[#2C304E] #{!important};
     }
   }
 }
+
+.p-inputtext {
+  @apply tw-text-14-px tw-h-42-px tw-w-302-px tw-border-1-px tw-border-solid tw-rounded-4-px tw-border-table-header #{!important};
+}
+
+.p-input-icon-left > i:first-of-type {
+  @apply tw-text-faded-icon #{!important};
+}
+
