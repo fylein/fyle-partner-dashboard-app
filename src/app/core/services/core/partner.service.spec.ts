@@ -3,33 +3,55 @@ import { getTestBed, TestBed } from '@angular/core/testing';
 import { PartnerService } from './partner.service';
 
 import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
-import { ApiService } from './api.service';
-import { of } from 'rxjs';
+import { partnerOrgResponse } from './partner.fixture';
+import { environment } from 'src/environments/environment';
 
 describe('PartnerService', () => {
   let service: PartnerService;
   let injector: TestBed;
   let httpMock: HttpTestingController;
-
-  const service1 = {
-    get: () => of(null),
-    put: () => of(null)
-  };
+  const API_BASE_URL = environment.api_url;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [
-        PartnerService,
-        { provide: ApiService, useValue: service1}
+        PartnerService
       ]
     });
     injector = getTestBed();
-    service = TestBed.inject(PartnerService);
+    service = injector.inject(PartnerService);
     httpMock = injector.inject(HttpTestingController);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('should get Partner Org', () => {
+    service.getPartnerOrg(partnerOrgResponse.primary_org_id).subscribe(value => {
+      expect(value).toEqual(partnerOrgResponse);
+    });
+
+    const req = httpMock.expectOne({
+      method: 'GET',
+      url: `${API_BASE_URL}/partner/?primary_org_id=${partnerOrgResponse.primary_org_id}`
+    });
+    expect(req.request.params.get('primary_org_id')).toEqual(partnerOrgResponse.primary_org_id);
+
+    req.flush(partnerOrgResponse);
+  });
+
+  it('should create Partner Org', () => {
+    service.createPartnerOrg().subscribe(value => {
+      expect(value).toEqual(partnerOrgResponse);
+    });
+
+    const req = httpMock.expectOne({
+      method: 'PUT',
+      url: `${API_BASE_URL}/partner/`
+    });
+
+    req.flush(partnerOrgResponse);
   });
 });

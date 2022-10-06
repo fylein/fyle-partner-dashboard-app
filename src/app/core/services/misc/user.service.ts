@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from '../core/api.service';
 import { StorageService } from '../core/storage.service';
 import { MinimalUser } from '../../models/db/user.model';
 
@@ -9,8 +8,7 @@ import { MinimalUser } from '../../models/db/user.model';
 export class UserService {
 
   constructor(
-    private storageService: StorageService,
-    private apiService: ApiService
+    private storageService: StorageService
   ) { }
 
   storeUserProfile(userProfile: MinimalUser): void {
