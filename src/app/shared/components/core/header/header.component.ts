@@ -10,7 +10,7 @@ import { UserService } from 'src/app/core/services/misc/user.service';
 export class HeaderComponent implements OnInit {
 
   user: MinimalUser;
-  
+
   showHelpDropDown: boolean;
 
   showProfileDropDown: boolean;

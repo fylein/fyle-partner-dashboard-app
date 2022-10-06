@@ -22,7 +22,9 @@
             <p class="tw-pl-6-px tw-pt-20-px tw-pr-6-px tw-text-sub-text-color" [pTooltip]="user.full_name" [tooltipDisabled]="user.full_name.length > 20 === false" tooltipPosition="bottom">
                 {{ user.full_name | trimCharacter: 20 }}
             </p>
-            <svg-icon-sprite src="arrow-down" width="16px" height="10px" class="tw-pt-28-px tw-text-sub-text-color"></svg-icon-sprite>
+
+            <svg-icon-sprite *ngIf="!showProfileDropDown" src="arrow-down" width="16px" height="10px" class="tw-pt-28-px tw-text-sub-text-color"></svg-icon-sprite>
+            <svg-icon-sprite *ngIf="showProfileDropDown" src="arrow-up" width="16px" height="10px" class="tw-pt-28-px tw-text-sub-text-color"></svg-icon-sprite>
         </div>
     </div>
 </div>
