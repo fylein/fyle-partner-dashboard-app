@@ -2,7 +2,6 @@
     <div class="tw-h-282-px tw-w-[100%] tw-bg-partner-bg-1 tw-absolute tw-z-[-1]"></div>
     <div class="tw-h-192-px tw-w-[100%] tw-bg-partner-bg-2 tw-absolute tw-top-40 tw-z-[-1]"></div>
     <div class="tw-pt-40-px tw-px-42-px">
-        <!-- TODO: tw-h-756-px -->
         <div class="tw-bg-white tw-shadow-partner-card tw-rounded-12-px">
             <div class="tw-h-74-px tw-flex tw-items-center tw-justify-between">
                 <div class="tw-flex">
@@ -17,18 +16,18 @@
                     </div>
                 </div>
                 <div class="tw-flex">
-                    <div class="p-input-icon-left">
+                    <div class="p-input-icon-left" [formGroup]="form">
                         <i class="pi pi-search"></i>
                         <input type="text" placeholder="Search"
-                            class="p-inputtext p-component p-element ng-valid ng-touched ng-dirty">
+                            class="p-inputtext p-component p-element ng-valid ng-touched ng-dirty" formControlName="search">
                     </div>
                     <div class="tw-pl-22-px tw-pr-24-px tw-text-12-px">
-                        <div class="tw-bg-section-hover tw-rounded-8-px tw-w-160-px tw-h-40-px tw-flex tw-items-center">
+                        <div class="tw-bg-section-hover tw-rounded-8-px tw-h-40-px tw-flex tw-items-center">
                             <div class="tw-pl-6-px tw-pr-8-px">
                                 <div [ngClass]="isDetailViewActive ? 'tw-bg-white' : 'tw-bg-section-hover'"
                                     class="tw-h-30-px tw-flex tw-items-center tw-rounded-6-px tw-cursor-pointer"
                                     (click)="switchView(ClientView.DETAIL)">
-                                    <div>
+                                    <div class="tw-pl-10-px">
                                         <svg-icon-sprite width="20px" src="detail-view"
                                             [ngClass]="isDetailViewActive ? 'tw-text-normal-text-color' : 'tw-text-sub-text-color'">
                                         </svg-icon-sprite>
@@ -39,11 +38,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tw-pl-6-px tw-pr-8-px">
+                            <div class="tw-pr-8-px">
                                 <div [ngClass]="!isDetailViewActive ? 'tw-bg-white' : 'tw-bg-section-hover'"
                                     class="tw-h-30-px tw-flex tw-items-center tw-rounded-6-px tw-cursor-pointer"
                                     (click)="switchView(ClientView.TABLE)">
-                                    <div>
+                                    <div class="tw-pl-10-px">
                                         <svg-icon-sprite width="20px" src="table-view"
                                             [ngClass]="!isDetailViewActive ? 'tw-text-normal-text-color' : 'tw-text-sub-text-color'">
                                         </svg-icon-sprite>
@@ -58,46 +57,9 @@
                     </div>
                 </div>
             </div>
+            <p class="tw-mt-20-px tw-mb-24-px tw-w-[97%] tw-h-1-px tw-bg-table-header"></p>
 
-            <!-- TODO: temp tw-pb-40-px -->
-            <div *ngFor="let clientRedirectionType of clientRedirectionTypes" class="tw-pb-40-px">
-                <div class="tw-ml-24-px tw-mb-24-px">
-                    <p class="tw-mt-20-px tw-mb-24-px tw-w-[97%] tw-h-1-px tw-bg-table-header"></p>
-                    <div class="tw-flex">
-                        <div class="tw-p-14-px tw-bg-icon-background">
-                            <svg-icon-sprite src="client" width="20px" height="20px" class="tw-text-sub-text-color">
-                            </svg-icon-sprite>
-                        </div>
-                        <div class="tw-ml-12-px">
-                            <p class="tw-font-500 tw-pb-4-px hover:tw-text-partner-hover tw-cursor-pointer">Goldman
-                                Sachs Group Inc.</p>
-                            <div class="tw-flex tw-text-sub-text-color">
-                                <p>Active Users: <span class="tw-text-normal-text-color">12</span></p>
-                                <!-- TOOD: August -->
-                                <svg-icon-sprite pTooltip="Active users of August" tooltipPosition="bottom" src="info"
-                                    width="16px" height="16px"
-                                    class="tw-mt-4-px tw-ml-4-px tw-mr-12-px tw-text-table-row-hover"></svg-icon-sprite>
-                                <span>.</span>
-                                <p class="tw-ml-12-px">Total Users: <span class="tw-text-normal-text-color">12</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tw-px-24-px tw-flex">
-                    <div *ngFor="let clientRedirectionType of clientRedirectionTypes"
-                        class="hover:tw-bg-card-hover hover:tw-cursor-pointer tw-flex tw-mr-24-px tw-grow tw-h-68-px tw-border-1-px tw-border-r-table-header tw-shadow-expense-stat-card tw-items-center">
-                        <p class="tw-pr-12-px tw-pl-16-px tw-font-700 tw-text-20-px">12</p>
-                        <p class="tw-m-12-px tw-h-44-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
-                        <div class="tw-flex tw-text-slightly-normal-text-color tw-text-14-px">
-                            <p>{{ clientRedirectionType }}</p>
-                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px"
-                                class="tw-ml-6-px tw-mt-2-px tw-text-faded-icon tw-cursor-pointer"></svg-icon-sprite>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <app-client-card [clients]="clients"></app-client-card>
         </div>
     </div>
 </div>

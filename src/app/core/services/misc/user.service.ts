@@ -18,4 +18,12 @@ export class UserService {
   getUserProfile(): MinimalUser | null {
     return this.storageService.get('user');
   }
+
+  storeClusterDomain(clusterDomain?: string): void {
+    this.storageService.set('clusterDomain', clusterDomain);
+  }
+
+  getClusterDomain(): string {
+    return this.storageService.get('clusterDomain');
+  }
 }

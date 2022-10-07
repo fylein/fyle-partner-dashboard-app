@@ -39,6 +39,8 @@ import { TrimCharacterPipe } from './pipes/trim-character.pipe';
   exports: [
     LoaderComponent,
     HeaderComponent,
+    ClientCardComponent,
+    ClientTableComponent,
     TrimCharacterPipe
   ]
 })
