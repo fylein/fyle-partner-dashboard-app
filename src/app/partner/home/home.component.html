@@ -1,4 +1,4 @@
-<div *ngIf="!isLoading">
+<div>
     <div class="tw-h-282-px tw-w-[100%] tw-bg-partner-bg-1 tw-absolute tw-z-[-1]"></div>
     <div class="tw-h-192-px tw-w-[100%] tw-bg-partner-bg-2 tw-absolute tw-top-40 tw-z-[-1]"></div>
     <div [formGroup]="form" class="tw-pt-40-px tw-px-42-px">
@@ -6,13 +6,23 @@
             <div class="tw-h-74-px tw-flex tw-items-center tw-justify-between">
                 <div class="tw-flex">
                     <div class="tw-pr-14-px tw-pl-24-px tw-text-20-px tw-font-500">
-                        My Clients ({{ allClients.length }})
+                        <p *ngIf="!isLoading">
+                            My Clients ({{ allClients.length }})
+                        </p>
+                        <div *ngIf="isLoading" class="tw-flex">
+                            <p class="tw-w-92-px tw-whitespace-nowrap">
+                                My Clients
+                            </p>
+                            <p-skeleton class="tw-pl-10-px tw-w-40-px" height="25px" shape="rectangle"></p-skeleton>
+                        </div>
                     </div>
 
                     <p class="tw-mr-24-px tw-h-30-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
 
-                    <div class="tw-text-sub-text-color">
-                        {{ totalActiveUsers }} Active users
+                    <div class="tw-text-sub-text-color tw-flex">
+                        {{ totalActiveUsers }}
+                        <p-skeleton *ngIf="isLoading" class="tw-pr-10-px tw-w-40-px" height="25px" shape="rectangle"></p-skeleton>
+                        Active users
                     </div>
                 </div>
                 <div class="tw-flex">
@@ -62,7 +72,7 @@
                 <img src="assets/illustrations/zero-state-search.svg">
             </div>
 
-            <app-client-card [clients]="clients"></app-client-card>
+            <app-client-card [isLoading]="isLoading" [clients]="clients"></app-client-card>
         </div>
     </div>
 </div>

@@ -24,6 +24,8 @@ export class ClientCardComponent implements OnInit {
 
   @Input() clients: Client[];
 
+  @Input() isLoading: boolean;
+
   private readonly redirectionUrlMap = {
     [ClientRedirectionType.INCOMPLETE_CARD_EXPENSES]: RedirectLink.INCOMPLETE_CARD_EXPENSES,
     [ClientRedirectionType.REPORTS_TO_APPROVE]: RedirectLink.REPORTS_TO_APPROVE,
