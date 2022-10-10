@@ -1,0 +1,35 @@
+.client-card {
+    @apply tw-pb-40-px;
+
+    &--client-header-detail {
+        @apply tw-ml-24-px tw-mb-24-px;
+    }
+
+    &--client-header-detail-section {
+        @apply tw-ml-12-px;
+    }
+
+    &--separator {
+        @apply tw-mt-20-px tw-mb-24-px tw-w-[97%] tw-h-1-px tw-bg-table-header;
+    }
+
+    &--stat-section {
+        @apply tw-px-24-px tw-flex;
+    }
+
+    &--stat-card {
+        @apply tw-flex tw-mr-24-px tw-grow tw-w-100-vh tw-h-68-px tw-border-1-px tw-border-r-table-header tw-shadow-expense-stat-card tw-items-center;
+    }
+
+    &--resource-name {
+        @apply tw-pr-12-px tw-pl-16-px tw-font-700 tw-text-20-px;
+    }
+
+    &--resource-divider {
+        @apply tw-m-12-px tw-h-44-px tw-w-1-px tw-rounded-4-px tw-bg-table-header;
+    }
+
+    &--resource-redirection {
+        @apply tw-flex tw-text-slightly-normal-text-color tw-text-14-px;
+    }
+}

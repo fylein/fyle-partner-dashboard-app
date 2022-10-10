@@ -13,7 +13,8 @@ const customColors = {
   'partner-hover': '#FF668C',
   'section-hover': '#F5F5F5',
   'hyper-link': '#0062FF',
-  'sign-out': '#DA1E28'
+  'sign-out': '#DA1E28',
+  'card-hover': '#FAFCFF'
 };
 
 module.exports = {
@@ -124,6 +125,7 @@ module.exports = {
         '48-px': '48px',
         '56-px': '56px',
         '80-px': '80px',
+        '282-px': '282px'
       },
       height: {
         '1-px': '1px',
@@ -139,15 +141,21 @@ module.exports = {
         '36-px': '36px',
         '40-px': '40px',
         '42-px': '42px',
+        '44-px': '44px',
         '48-px': '48px',
         '50-px': '50px',
         '56-px': '56px',
         '60-px': '60px',
         '64-px': '64px',
         '68-px': '68px',
+        '74-px': '74px',
         '92-px': '92px',
         '100-px': '100px',
-        '756-px': '756px'
+        '192-px': '192px',
+        '282-px': '282px',
+        '756-px': '756px',
+        '66-vh': '66vh',
+        '72-vh': '72vh'
       },
       width: {
         '1-px': '1px',
@@ -163,6 +171,7 @@ module.exports = {
         '36-px': '36px',
         '40-px': '40px',
         '42-px': '42px',
+        '46-px': '46px',
         '48-px': '48px',
         '50-px': '50px',
         '56-px': '56px',
@@ -171,10 +180,14 @@ module.exports = {
         '70-px': '70px',
         '92-px': '92px',
         '100-px': '100px',
+        '160-px': '160px',
+        '200-px': '200px',
         '246-px': '246px',
+        '302-px': '302px',
         '354-px': '354px',
         '420-px': '420px',
-        '466-px': '466px'
+        '466-px': '466px',
+        '100-vh': '100vh'
       },
       borderRadius: {
         '4-px': '4px',
@@ -195,10 +208,15 @@ module.exports = {
         '8-px': '8px',
         '12-px': '12px',
       },
+      borderColor: {
+        'table-header': customColors['table-header'],
+      },
       backgroundImage: {
         'auth-traingle-left': 'linear-gradient(-83.33deg, #e1eeffba 26.8%, #ffe4fbde 97.18%)',
         'auth-traingle-right': 'linear-gradient(270.33deg, #E1EEFF 26.8%, #FFE4FB 97.18%)',
-        'btn-cta': 'linear-gradient(162.38deg, #FF3366 3.01%, #FE5196 111.5%)'
+        'btn-cta': 'linear-gradient(162.38deg, #FF3366 3.01%, #FE5196 111.5%)',
+        'partner-bg-1': 'linear-gradient(97.33deg, #E1EEFF 26.8%, #FFE4FB 97.18%)',
+        'partner-bg-2': 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)'
       },
       fontFamily: {
         'aktiv-grotesk': '"aktiv-grotesk", sans-serif'

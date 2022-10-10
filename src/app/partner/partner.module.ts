@@ -5,6 +5,8 @@ import { PartnerRoutingModule } from './partner-routing.module';
 import { PartnerComponent } from './partner.component';
 import { SharedModule } from '../shared/shared.module';
 
+// External libraries
+import { IconSpriteModule } from 'ng-svg-icon-sprite';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     PartnerRoutingModule,
-    SharedModule
+    SharedModule,
+    IconSpriteModule.forRoot({ path: 'assets/sprites/sprite.svg' })
   ]
 })
 export class PartnerModule { }
