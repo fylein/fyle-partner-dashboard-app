@@ -17,8 +17,6 @@ export class ProfileDropdownComponent implements OnInit {
 
   currency: string;
 
-  clusterDomain: string;
-
   constructor(
     private authService: AuthService,
     private partnerService: PartnerService,
@@ -26,7 +24,7 @@ export class ProfileDropdownComponent implements OnInit {
   ) { }
 
   openPrimaryOrg(): void {
-    const url = `${this.clusterDomain}${RedirectLink.FYLE_ADMIN}?org_id=${this.user.org_id}`;
+    const url = `${environment.fyle_app_url}${RedirectLink.FYLE_ADMIN}?org_id=${this.user.org_id}`;
     this.windowService.openInNewTab(url);
   }
 
@@ -37,7 +35,6 @@ export class ProfileDropdownComponent implements OnInit {
   private setupPage(): void {
     this.partnerService.getPartnerOrg(this.user.org_id).subscribe(partnerOrg => {
       this.currency = partnerOrg.currency;
-      this.clusterDomain = partnerOrg.cluster_domain;
     });
   }
 

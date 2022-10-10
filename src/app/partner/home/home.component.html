@@ -1,22 +1,22 @@
 <div *ngIf="!isLoading">
     <div class="tw-h-282-px tw-w-[100%] tw-bg-partner-bg-1 tw-absolute tw-z-[-1]"></div>
     <div class="tw-h-192-px tw-w-[100%] tw-bg-partner-bg-2 tw-absolute tw-top-40 tw-z-[-1]"></div>
-    <div class="tw-pt-40-px tw-px-42-px">
+    <div [formGroup]="form" class="tw-pt-40-px tw-px-42-px">
         <div class="tw-bg-white tw-shadow-partner-card tw-rounded-12-px">
             <div class="tw-h-74-px tw-flex tw-items-center tw-justify-between">
                 <div class="tw-flex">
                     <div class="tw-pr-14-px tw-pl-24-px tw-text-20-px tw-font-500">
-                        My Clients (04)
+                        My Clients ({{ allClients.length }})
                     </div>
 
                     <p class="tw-mr-24-px tw-h-30-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
 
                     <div class="tw-text-sub-text-color">
-                        300 Active users
+                        {{ totalActiveUsers }} Active users
                     </div>
                 </div>
                 <div class="tw-flex">
-                    <div class="p-input-icon-left" [formGroup]="form">
+                    <div class="p-input-icon-left">
                         <i class="pi pi-search"></i>
                         <input type="text" placeholder="Search"
                             class="p-inputtext p-component p-element ng-valid ng-touched ng-dirty" formControlName="search">
@@ -58,6 +58,9 @@
                 </div>
             </div>
             <p class="tw-mt-20-px tw-mb-24-px tw-w-[97%] tw-h-1-px tw-bg-table-header"></p>
+            <div *ngIf="form.value.search && clients.length === 0" class="tw-justify-center tw-items-center tw-flex tw-pt-[10%]">
+                <img src="assets/illustrations/zero-state-search.svg">
+            </div>
 
             <app-client-card [clients]="clients"></app-client-card>
         </div>

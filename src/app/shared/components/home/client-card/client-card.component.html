@@ -1,3 +1,4 @@
+<!-- TODO: check zero state after implmenting pagination -->
 <div class="max-xl:tw-h-66-vh tw-h-72-vh tw-overflow-y-scroll">
     <div *ngFor="let client of clients; let i = index" class="tw-pb-40-px">
         <div class="tw-ml-24-px tw-mb-24-px">
@@ -8,20 +9,19 @@
                     </svg-icon-sprite>
                 </div>
                 <div class="tw-ml-12-px">
-                    <p class="tw-font-500 tw-pb-4-px hover:tw-text-partner-hover tw-cursor-pointer" (click)="openOrg(client.org_id)">
-                        {{ client.org_name }}
+                    <p class="tw-font-500 tw-pb-4-px hover:tw-text-partner-hover tw-cursor-pointer" (click)="openOrg(client.id)">
+                        {{ client.name }}
                     </p>
                     <div class="tw-flex tw-text-sub-text-color">
                         <p>Active Users: <span class="tw-text-normal-text-color">
-                            {{ client.active_users_count }}
+                            {{ client.billed_users_count }}
                         </span></p>
-                        <!-- TOOD: August -->
-                        <svg-icon-sprite pTooltip="Active users of August" tooltipPosition="bottom" src="info"
+                        <svg-icon-sprite pTooltip="Active users of {{ currentMonth }}" tooltipPosition="bottom" src="info"
                             width="16px" height="16px"
                             class="tw-mt-4-px tw-ml-4-px tw-mr-12-px tw-text-table-row-hover"></svg-icon-sprite>
                         <span>.</span>
                         <p class="tw-ml-12-px">Total Users: <span class="tw-text-normal-text-color">
-                            {{ client.total_users_count }}
+                            {{ client.enabled_users_count }}
                         </span>
                         </p>
                     </div>
@@ -31,10 +31,10 @@
 
         <div class="tw-px-24-px tw-flex">
             <div *ngFor="let clientRedirectionType of clientRedirectionTypes; let i = index;"
-                class="hover:tw-bg-card-hover hover:tw-cursor-pointer tw-flex tw-mr-24-px tw-grow tw-h-68-px tw-border-1-px tw-border-r-table-header tw-shadow-expense-stat-card tw-items-center"
-                (click)="redirect(clientRedirectionType, client.org_id)">
+                class="hover:tw-bg-card-hover hover:tw-cursor-pointer tw-flex tw-mr-24-px tw-grow tw-w-100-vh tw-h-68-px tw-border-1-px tw-border-r-table-header tw-shadow-expense-stat-card tw-items-center"
+                (click)="redirect(clientRedirectionType, client.id)">
                 <p class="tw-pr-12-px tw-pl-16-px tw-font-700 tw-text-20-px">
-                    {{ client[clientCardMap[clientRedirectionType]] }}
+                    {{ clientRedirectionType === ClientRedirectionType.PENDING_REIMBURSEMENTS ? '$': '' }}{{ client[clientCardMap[clientRedirectionType]] }}
                 </p>
                 <p class="tw-m-12-px tw-h-44-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
                 <div class="tw-flex tw-text-slightly-normal-text-color tw-text-14-px">
