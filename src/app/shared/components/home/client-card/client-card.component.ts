@@ -44,7 +44,7 @@ export class ClientCardComponent implements OnInit {
   }
 
   redirect(clientRedirectionType: ClientRedirectionType, org_id: string): void {
-    const url = `${environment.fyle_app_url}${this.redirectionUrlMap[clientRedirectionType]}?org_id=${org_id}`;
+    const url = `${environment.fyle_app_url}${this.redirectionUrlMap[clientRedirectionType]}&org_id=${org_id}`;
     this.windowService.openInNewTab(url);
   }
 
