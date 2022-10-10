@@ -47,7 +47,8 @@ export class ClientCardComponent implements OnInit {
 
   redirect(clientRedirectionType: ClientRedirectionType, org_id: string): void {
     const url = `${environment.fyle_app_url}${this.redirectionUrlMap[clientRedirectionType]}&org_id=${org_id}`;
-    this.windowService.openInNewTab(url);
+    // Hack alert - org_id needs to be passed exactly as 2nd query param for Incomplete Card Expense :(
+    this.windowService.openInNewTab(url.replace('$ORG_ID', org_id));
   }
 
   ngOnInit(): void {
