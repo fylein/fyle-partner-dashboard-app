@@ -24,6 +24,7 @@ export type Client = {
   pending_reimbursement_amount: number;
   pending_users_count: number;
   updated_at: Date;
+  showViewinFyle?: boolean;
 };
 
 export type ClientResponse = {
@@ -40,4 +41,10 @@ export interface ClientCardMap {
   [ClientRedirectionType.INCOMPLETE_CARD_EXPENSES]: 'incomplete_card_expenses_count',
   [ClientRedirectionType.REPORTS_TO_APPROVE]: 'approval_pending_reports_count',
   [ClientRedirectionType.PENDING_REIMBURSEMENTS]: 'pending_reimbursement_amount'
+}
+
+export interface TableColumn {
+  field: string;
+  header: string
+  sort: boolean;
 }

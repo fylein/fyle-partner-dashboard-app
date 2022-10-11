@@ -15,6 +15,7 @@ import { IconSpriteModule } from 'ng-svg-icon-sprite';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TooltipModule } from 'primeng/tooltip';
 import { SkeletonModule } from 'primeng/skeleton';
+import { TableModule } from 'primeng/table';
 import { TrimCharacterPipe } from './pipes/trim-character.pipe';
 
 
@@ -36,6 +37,7 @@ import { TrimCharacterPipe } from './pipes/trim-character.pipe';
     ProgressSpinnerModule,
     TooltipModule,
     SkeletonModule,
+    TableModule,
     IconSpriteModule.forRoot({ path: 'assets/sprites/sprite.svg' })
   ],
   exports: [

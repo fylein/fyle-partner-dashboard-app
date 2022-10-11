@@ -32,10 +32,12 @@ p {
   @apply tw-shadow-btn-cta-shadow #{!important};
 }
 
+// Spinner
 .p-progress-spinner-circle {
   @apply tw-animate-progress-spinner #{!important};
 }
 
+// Tooltip
 .p-tooltip .p-tooltip-text {
   @apply
   tw-bg-slightly-normal-text-color
@@ -59,6 +61,7 @@ p {
   }
 }
 
+// Input text
 .p-inputtext {
   @apply tw-text-14-px tw-h-42-px tw-w-302-px tw-border-1-px tw-border-solid tw-rounded-4-px tw-border-table-header #{!important};
 }
@@ -67,3 +70,31 @@ p {
   @apply tw-text-faded-icon #{!important};
 }
 
+// Table
+.p-datatable .p-sortable-column:focus {
+  @apply tw-shadow-none #{!important};
+}
+
+.p-datatable .p-sortable-column.p-highlight {
+  @apply tw-text-sort-icon tw-bg-sort-bg #{!important};
+}
+
+.p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
+  @apply tw-text-sort-icon #{!important};
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  @apply tw-pt-12-px tw-pr-0 tw-pb-12-px tw-pl-22-px tw-text-12-px tw-text-slightly-normal-text-color tw-bg-section-hover tw-border-1-px tw-border-r-0 tw-border-table-header #{!important};
+}
+
+.pi-sort-alt:before {
+  @apply tw-hidden;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  @apply tw-h-70-px tw-py-26-px tw-pl-22-px tw-text-14-px #{!important};
+}
+
+.p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover {
+  @apply tw-bg-card-hover #{!important};
+}

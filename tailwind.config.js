@@ -14,7 +14,11 @@ const customColors = {
   'section-hover': '#F5F5F5',
   'hyper-link': '#0062FF',
   'sign-out': '#DA1E28',
-  'card-hover': '#FAFCFF'
+  'card-hover': '#FAFCFF',
+  'client-logo': '#000000',
+  'sort-icon': '#343a40',
+  'sort-bg': '#f8f9fa',
+  'table-icon-border': '#EAEAEB'
 };
 
 module.exports = {
@@ -148,6 +152,7 @@ module.exports = {
         '60-px': '60px',
         '64-px': '64px',
         '68-px': '68px',
+        '70-px': '70px',
         '74-px': '74px',
         '92-px': '92px',
         '100-px': '100px',
@@ -156,6 +161,9 @@ module.exports = {
         '756-px': '756px',
         '66-vh': '66vh',
         '72-vh': '72vh'
+      },
+      minHeight: {
+        '70-px': '70px'
       },
       width: {
         '1-px': '1px',
@@ -188,6 +196,10 @@ module.exports = {
         '420-px': '420px',
         '466-px': '466px',
         '100-vh': '100vh'
+      },
+      minWidth: {
+        '160-px': '160px',
+        '300-px': '300px'
       },
       borderRadius: {
         '4-px': '4px',

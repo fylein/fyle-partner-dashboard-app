@@ -1,0 +1,9 @@
+.client-table {
+    &--view-in-fyle {
+        @apply tw-text-table-row-hover tw-pl-16-px tw-cursor-pointer;
+    }
+
+    &--header {
+        @apply tw-flex-row tw-whitespace-nowrap;
+    }
+}

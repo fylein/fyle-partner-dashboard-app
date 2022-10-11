@@ -67,12 +67,13 @@
                     </div>
                 </div>
             </div>
-            <p class="tw-mt-20-px tw-mb-24-px tw-w-[97%] tw-h-1-px tw-bg-table-header"></p>
+            <p class="tw-mt-20-px tw-mb-24-px tw-ml-24-px tw-w-[97%] tw-h-1-px tw-bg-table-header"></p>
             <div *ngIf="form.value.search && clients.length === 0" class="tw-justify-center tw-items-center tw-flex tw-pt-[10%]">
                 <img src="assets/illustrations/zero-state-search.svg">
             </div>
 
-            <app-client-card [isLoading]="isLoading" [clients]="clients"></app-client-card>
+            <app-client-card *ngIf="isDetailViewActive" [isLoading]="isLoading" [clients]="clients"></app-client-card>
+            <app-client-table *ngIf="!isDetailViewActive" [isLoading]="isLoading" [clients]="clients"></app-client-table>
         </div>
     </div>
 </div>
