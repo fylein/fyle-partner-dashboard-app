@@ -1,12 +1,12 @@
 <div class="tw-ml-24-px tw-w-[97%] max-xl:tw-h-66-vh tw-h-72-vh tw-overflow-y-scroll">
-    <p-table [columns]="columns" [value]="clients" [scrollable]="true" scrollHeight="65vh" [rowHover]="true" sortMode="single" sortField="name">
+    <p-table *ngIf="!isLoading" [columns]="columns" [value]="clients" [scrollable]="true" scrollHeight="65vh" [rowHover]="true" sortMode="single" sortField="name">
         <ng-template pTemplate="header">
-            <tr class="!tw-border-r-1-px !tw-border-r-table-header tw-border-r-solid">
-                <th pSortableColumn="name" class="tw-min-w-300-px">
+            <tr class="client-table--client-name">
+                <th pSortableColumn="name" class="client-table--client-name-col">
                     Client Name
                     <p-sortIcon field="name"></p-sortIcon>
                 </th>
-                <th pSortableColumn="billed_users_count" class="client-table--header tw-min-w-160-px">
+                <th pSortableColumn="billed_users_count" class="client-table--header client-table--active-users">
                     Active Users
                     <p-sortIcon field="billed_users_count"></p-sortIcon>
                     <img src="assets/icons/info.svg" /></th>
@@ -34,7 +34,7 @@
         </ng-template>
         <ng-template pTemplate="body" let-client>
             <tr (mouseenter)="showOrHideViewInFyle(client, true)" (mouseleave)="showOrHideViewInFyle(client, false)">
-                <td class="tw-min-w-300-px">
+                <td class="client-table--client-name-col">
                     <img *ngIf="!hideLogo && client.logo_file_id" [src]="client.logo_file.download_url" width="46px" height="46px" class="tw-mr-26-px" />
                     <div *ngIf="!hideLogo && !client.logo_file_id" class="tw-p-14-px tw-bg-section-hover tw-border-1-px tw-border-table-icon-border tw-mr-26-px">
                         <svg-icon-sprite src="client-table-view" width="20px" height="20px" class="tw-text-client-logo">
@@ -42,7 +42,7 @@
                     </div>
                     {{ client.name }}
                 </td>
-                <td class="tw-min-w-160-px">
+                <td class="client-table--active-users">
                     {{ client.billed_users_count }}
                 </td>
                 <td>
@@ -65,6 +65,56 @@
                     {{ client.pending_reimbursement_amount | currency: client.currency }}
                     <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.PENDING_REIMBURSEMENTS, client.id)">View</a>
                 </td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <!-- Shimmers -->
+    <p-table *ngIf="isLoading" [columns]="columns" [value]="[0, 1, 2, 3, 4, 5, 6, 7]" [scrollable]="true" scrollHeight="65vh" [rowHover]="true" sortMode="single" sortField="name">
+        <ng-template pTemplate="header">
+            <tr class="client-table--client-name">
+                <th pSortableColumn="name" class="client-table--client-name-col">
+                    Client Name
+                    <p-sortIcon field="name"></p-sortIcon>
+                </th>
+                <th pSortableColumn="billed_users_count" class="client-table--header client-table--active-users">
+                    Active Users
+                    <p-sortIcon field="billed_users_count"></p-sortIcon>
+                    <img src="assets/icons/info.svg" /></th>
+                <th pSortableColumn="enabled_users_count" class="client-table--header">
+                    Total Users
+                    <p-sortIcon field="enabled_users_count"></p-sortIcon>
+                </th>
+                <th pSortableColumn="pending_users_count" class="client-table--header">
+                    Pending Invitation
+                    <p-sortIcon field="pending_users_count"></p-sortIcon>
+                </th>
+                <th pSortableColumn="incomplete_expenses_count" class="client-table--header">
+                    Incomplete Expenses
+                    <p-sortIcon field="incomplete_expenses_count" class="client-table--header"></p-sortIcon>
+                </th>
+                <th pSortableColumn="approval_pending_reports_count" class="client-table--header">
+                    Reports to Approve
+                    <p-sortIcon field="approval_pending_reports_count" class="client-table--header"></p-sortIcon>
+                </th>
+                <th pSortableColumn="pending_reimbursement_amount" class="client-table--header">
+                    Pending Reimbursements
+                    <p-sortIcon field="pending_reimbursement_amount"></p-sortIcon>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body">
+            <tr>
+                <td class="client-table--client-name-col tw-flex">
+                    <p-skeleton class="tw-w-46-px" height="46px" shape="rectangle"></p-skeleton>
+                    <p-skeleton class="tw-ml-34-px tw-w-160-px" height="18px" shape="rectangle"></p-skeleton>
+                </td>
+                <td><p-skeleton class="client-table--shimmer-col" height="18px" shape="rectangle"></p-skeleton></td>
+                <td><p-skeleton class="client-table--shimmer-col" height="18px" shape="rectangle"></p-skeleton></td>
+                <td><p-skeleton class="client-table--shimmer-col" height="18px" shape="rectangle"></p-skeleton></td>
+                <td><p-skeleton class="client-table--shimmer-col" height="18px" shape="rectangle"></p-skeleton></td>
+                <td><p-skeleton class="client-table--shimmer-col" height="18px" shape="rectangle"></p-skeleton></td>
+                <td><p-skeleton class="client-table--shimmer-col" height="18px" shape="rectangle"></p-skeleton></td>
             </tr>
         </ng-template>
     </p-table>

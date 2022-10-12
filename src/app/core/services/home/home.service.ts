@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Cacheable } from 'ts-cacheable';
-import { ClientRedirectionType, RedirectLink } from '../../models/enum/enum.model';
+import { ClientRedirectionType, ClientView, RedirectLink } from '../../models/enum/enum.model';
 import { ClientResponse, PaginationProperties } from '../../models/home/client.model';
 import { ApiService } from '../core/api.service';
+import { StorageService } from '../core/storage.service';
 import { WindowService } from '../core/window.service';
 
 @Injectable({
@@ -23,6 +24,7 @@ export class HomeService {
 
   constructor(
     private apiService: ApiService,
+    private storageService: StorageService,
     private windowService: WindowService
   ) { }
 
@@ -35,5 +37,14 @@ export class HomeService {
     const url = `${environment.fyle_app_url}${this.redirectionUrlMap[clientRedirectionType]}&org_id=${org_id}`;
     // Hack alert - org_id needs to be passed exactly as 2nd query param for Incomplete Expense :(
     this.windowService.openInNewTab(url.replace('$ORG_ID', org_id));
+  }
+
+  storeActiveView(activeView: ClientView): void {
+    this.storageService.set('active-view', activeView);
+  }
+
+  getActiveView(): ClientView {
+    const activeView: ClientView | null = this.storageService.get('active-view');
+    return activeView ? activeView : ClientView.DETAIL;
   }
 }

@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   isLoading: boolean = true;
 
-  isDetailViewActive: boolean = true;
+  isDetailViewActive: boolean = this.homeService.getActiveView() === ClientView.DETAIL ? true : false;
 
   ClientView = ClientView;
 
@@ -42,6 +42,8 @@ export class HomeComponent implements OnInit {
     } else {
       this.isDetailViewActive = false;
     }
+
+    this.homeService.storeActiveView(clientView);
   }
 
   private setupSearchListener(): void {
