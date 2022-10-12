@@ -16,7 +16,7 @@ export const clientOrgResponse: ClientResponse = {
             domain: 'fyle.in',
             enabled_users_count: 234,
             id: 'org234234',
-            incomplete_card_expenses_count: 23,
+            incomplete_expenses_count: 23,
             is_verified: true,
             logo_file: {
                 content_type: 'image/png',
