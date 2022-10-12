@@ -1,5 +1,5 @@
 <div class="tw-ml-24-px tw-w-[97%] max-xl:tw-h-66-vh tw-h-72-vh tw-overflow-y-scroll">
-    <p-table [columns]="columns" [value]="clients" [scrollable]="true" scrollHeight="80vh" [rowHover]="true" sortMode="single" sortField="name">
+    <p-table [columns]="columns" [value]="clients" [scrollable]="true" scrollHeight="65vh" [rowHover]="true" sortMode="single" sortField="name">
         <ng-template pTemplate="header">
             <tr class="!tw-border-r-1-px !tw-border-r-table-header tw-border-r-solid">
                 <th pSortableColumn="name" class="tw-min-w-300-px">
@@ -19,7 +19,7 @@
                     <p-sortIcon field="pending_users_count"></p-sortIcon>
                 </th>
                 <th pSortableColumn="incomplete_expenses_count" class="client-table--header">
-                    Incomplete Card Expenses
+                    Incomplete Expenses
                     <p-sortIcon field="incomplete_expenses_count" class="client-table--header"></p-sortIcon>
                 </th>
                 <th pSortableColumn="approval_pending_reports_count" class="client-table--header">
@@ -44,27 +44,27 @@
                 </td>
                 <td class="tw-min-w-160-px">
                     {{ client.billed_users_count }}
-                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle">View</a>
+                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.ACTIVE_USERS, client.id)">View</a>
                 </td>
                 <td>
                     {{ client.enabled_users_count }}
-                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle">View</a>
+                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.TOTAL_USERS, client.id)">View</a>
                 </td>
                 <td>
                     {{ client.pending_users_count }}
-                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle">View</a>
+                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.PENDING_INVITATION, client.id)">View</a>
                 </td>
                 <td>
                     {{ client.incomplete_expenses_count }}
-                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle">View</a>
+                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.INCOMPLETE_EXPENSES, client.id)">View</a>
                 </td>
                 <td>
                     {{ client.approval_pending_reports_count }}
-                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle">View</a>
+                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.REPORTS_TO_APPROVE, client.id)">View</a>
                 </td>
                 <td>
                     {{ client.pending_reimbursement_amount | currency: client.currency }}
-                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle">View</a>
+                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.PENDING_REIMBURSEMENTS, client.id)">View</a>
                 </td>
             </tr>
         </ng-template>

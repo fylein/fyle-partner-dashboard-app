@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ClientRedirectionType } from 'src/app/core/models/enum/enum.model';
 import { Client, TableColumn } from 'src/app/core/models/home/client.model';
+import { HomeService } from 'src/app/core/services/home/home.service';
 
 @Component({
   selector: 'app-client-table',
@@ -16,6 +18,8 @@ export class ClientTableComponent implements OnInit {
   @Input() form: FormGroup;
 
   @Input() hideLogo: boolean;
+
+  ClientRedirectionType = ClientRedirectionType;
 
   columns: TableColumn[] = [
     {
@@ -40,7 +44,7 @@ export class ClientTableComponent implements OnInit {
     },
     {
       field: 'incomplete_expenses_count',
-      header: 'Incomplete Card Expenses',
+      header: 'Incomplete Expenses',
       sort: true
     },
     {
@@ -55,10 +59,16 @@ export class ClientTableComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(
+    private homeService: HomeService
+  ) { }
 
   showOrHideViewInFyle(client: Client, isRowHovered: boolean) {
     client.showViewinFyle = isRowHovered;
+  }
+
+  redirect(clientRedirectionType: ClientRedirectionType, org_id: string): void {
+    this.homeService.redirect(clientRedirectionType, org_id);
   }
 
   ngOnInit(): void {

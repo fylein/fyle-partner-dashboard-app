@@ -40,7 +40,10 @@ export type PaginationProperties = {
 export interface ClientCardMap {
   [ClientRedirectionType.INCOMPLETE_EXPENSES]: 'incomplete_expenses_count',
   [ClientRedirectionType.REPORTS_TO_APPROVE]: 'approval_pending_reports_count',
-  [ClientRedirectionType.PENDING_REIMBURSEMENTS]: 'pending_reimbursement_amount'
+  [ClientRedirectionType.PENDING_REIMBURSEMENTS]: 'pending_reimbursement_amount',
+  [ClientRedirectionType.ACTIVE_USERS]: 'billed_users_count',
+  [ClientRedirectionType.TOTAL_USERS]: 'enabled_users_count',
+  [ClientRedirectionType.PENDING_INVITATION]: 'pending_users_count'
 }
 
 export interface TableColumn {
