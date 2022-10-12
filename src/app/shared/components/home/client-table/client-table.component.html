@@ -35,8 +35,8 @@
         <ng-template pTemplate="body" let-client>
             <tr (mouseenter)="showOrHideViewInFyle(client, true)" (mouseleave)="showOrHideViewInFyle(client, false)">
                 <td class="tw-min-w-300-px">
-                    <img *ngIf="client.logo_file_id" [src]="client.logo_file.download_url" width="46px" height="46px" class="tw-mr-26-px" />
-                    <div *ngIf="!client.logo_file_id" class="tw-p-14-px tw-bg-section-hover tw-border-1-px tw-border-table-icon-border tw-mr-26-px">
+                    <img *ngIf="!hideLogo && client.logo_file_id" [src]="client.logo_file.download_url" width="46px" height="46px" class="tw-mr-26-px" />
+                    <div *ngIf="!hideLogo && !client.logo_file_id" class="tw-p-14-px tw-bg-section-hover tw-border-1-px tw-border-table-icon-border tw-mr-26-px">
                         <svg-icon-sprite src="client-table-view" width="20px" height="20px" class="tw-text-client-logo">
                         </svg-icon-sprite>
                     </div>
@@ -69,4 +69,8 @@
             </tr>
         </ng-template>
     </p-table>
+
+    <div *ngIf="form.value.search && clients.length === 0" class="tw-justify-center tw-items-center tw-flex tw-pt-[10%]">
+        <app-zero-state-with-illustration></app-zero-state-with-illustration>
+    </div>
 </div>

@@ -45,6 +45,7 @@ import { TrimCharacterPipe } from './pipes/trim-character.pipe';
     HeaderComponent,
     ClientCardComponent,
     ClientTableComponent,
+    ZeroStateWithIllustrationComponent,
     TrimCharacterPipe
   ]
 })

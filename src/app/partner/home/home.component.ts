@@ -29,6 +29,8 @@ export class HomeComponent implements OnInit {
     search: []
   });
 
+  hideLogo: boolean;
+
   constructor(
     private formBuilder: FormBuilder,
     private homeService: HomeService
@@ -62,6 +64,8 @@ export class HomeComponent implements OnInit {
       this.clients = clients.data;
       this.allClients = clients.data;
       this.totalActiveUsers = clients.data.map(client => client.billed_users_count).reduce((sum: number, current: number) => sum + current, 0);
+
+      this.hideLogo = clients.data.find(client => client.logo_file_id && client.logo_file?.download_url) ? false : true;
 
       this.setupSearchListener();
       this.isLoading = false;

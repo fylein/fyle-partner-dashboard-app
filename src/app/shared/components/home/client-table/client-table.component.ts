@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Client, TableColumn } from 'src/app/core/models/home/client.model';
 
 @Component({
@@ -11,6 +12,10 @@ export class ClientTableComponent implements OnInit {
   @Input() clients: Client[];
 
   @Input() isLoading: boolean;
+
+  @Input() form: FormGroup;
+
+  @Input() hideLogo: boolean;
 
   columns: TableColumn[] = [
     {
