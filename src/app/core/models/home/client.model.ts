@@ -16,7 +16,7 @@ export type Client = {
   domain: string;
   enabled_users_count: number;
   id: string;
-  incomplete_card_expenses_count: number;
+  incomplete_expenses_count: number;
   is_verified: boolean;
   logo_file: ClientLogo;
   logo_file_id: string;
@@ -38,7 +38,7 @@ export type PaginationProperties = {
 };
 
 export interface ClientCardMap {
-  [ClientRedirectionType.INCOMPLETE_CARD_EXPENSES]: 'incomplete_card_expenses_count',
+  [ClientRedirectionType.INCOMPLETE_CARD_EXPENSES]: 'incomplete_expenses_count',
   [ClientRedirectionType.REPORTS_TO_APPROVE]: 'approval_pending_reports_count',
   [ClientRedirectionType.PENDING_REIMBURSEMENTS]: 'pending_reimbursement_amount'
 }
