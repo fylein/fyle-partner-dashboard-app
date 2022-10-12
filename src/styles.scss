@@ -84,7 +84,7 @@ p {
 }
 
 .p-datatable .p-datatable-thead > tr > th {
-  @apply tw-pt-12-px tw-pr-0 tw-pb-12-px tw-pl-22-px tw-text-12-px tw-text-slightly-normal-text-color tw-bg-section-hover tw-border-1-px tw-border-r-0 tw-border-table-header #{!important};
+  @apply tw-pt-12-px tw-pr-0 tw-pb-12-px tw-pl-22-px tw-text-12-px tw-text-slightly-normal-text-color tw-bg-section-hover tw-border-1-px tw-border-r-0 tw-border-table-header tw-z-[-1] #{!important};
 }
 
 .pi-sort-alt:before {

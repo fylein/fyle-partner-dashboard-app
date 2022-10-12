@@ -44,7 +44,6 @@
                 </td>
                 <td class="tw-min-w-160-px">
                     {{ client.billed_users_count }}
-                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.ACTIVE_USERS, client.id)">View</a>
                 </td>
                 <td>
                     {{ client.enabled_users_count }}
