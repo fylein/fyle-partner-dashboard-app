@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   ClientView = ClientView;
 
-  clientRedirectionTypes: ClientRedirectionType[] = [ClientRedirectionType.INCOMPLETE_CARD_EXPENSES, ClientRedirectionType.REPORTS_TO_APPROVE, ClientRedirectionType.PENDING_REIMBURSEMENTS];
+  clientRedirectionTypes: ClientRedirectionType[] = [ClientRedirectionType.INCOMPLETE_EXPENSES, ClientRedirectionType.REPORTS_TO_APPROVE, ClientRedirectionType.PENDING_REIMBURSEMENTS];
 
   clients: Client[];
 

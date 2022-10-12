@@ -12,12 +12,12 @@ import { environment } from 'src/environments/environment';
 })
 export class ClientCardComponent implements OnInit {
 
-  clientRedirectionTypes: ClientRedirectionType[] = [ClientRedirectionType.INCOMPLETE_CARD_EXPENSES, ClientRedirectionType.REPORTS_TO_APPROVE, ClientRedirectionType.PENDING_REIMBURSEMENTS];
+  clientRedirectionTypes: ClientRedirectionType[] = [ClientRedirectionType.INCOMPLETE_EXPENSES, ClientRedirectionType.REPORTS_TO_APPROVE, ClientRedirectionType.PENDING_REIMBURSEMENTS];
 
   ClientRedirectionType = ClientRedirectionType;
 
   clientCardMap: ClientCardMap = {
-    [ClientRedirectionType.INCOMPLETE_CARD_EXPENSES]: 'incomplete_expenses_count',
+    [ClientRedirectionType.INCOMPLETE_EXPENSES]: 'incomplete_expenses_count',
     [ClientRedirectionType.REPORTS_TO_APPROVE]: 'approval_pending_reports_count',
     [ClientRedirectionType.PENDING_REIMBURSEMENTS]: 'pending_reimbursement_amount'
   };
@@ -27,7 +27,7 @@ export class ClientCardComponent implements OnInit {
   @Input() isLoading: boolean;
 
   private readonly redirectionUrlMap = {
-    [ClientRedirectionType.INCOMPLETE_CARD_EXPENSES]: RedirectLink.INCOMPLETE_CARD_EXPENSES,
+    [ClientRedirectionType.INCOMPLETE_EXPENSES]: RedirectLink.INCOMPLETE_EXPENSES,
     [ClientRedirectionType.REPORTS_TO_APPROVE]: RedirectLink.REPORTS_TO_APPROVE,
     [ClientRedirectionType.PENDING_REIMBURSEMENTS]: RedirectLink.PENDING_REIMBURSEMENTS
   };

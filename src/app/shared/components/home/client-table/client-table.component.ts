@@ -34,7 +34,7 @@ export class ClientTableComponent implements OnInit {
       sort: true
     },
     {
-      field: 'incomplete_card_expenses_count',
+      field: 'incomplete_expenses_count',
       header: 'Incomplete Card Expenses',
       sort: true
     },

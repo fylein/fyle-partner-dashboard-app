@@ -18,9 +18,9 @@
                     Pending Invitation
                     <p-sortIcon field="pending_users_count"></p-sortIcon>
                 </th>
-                <th pSortableColumn="incomplete_card_expenses_count" class="client-table--header">
+                <th pSortableColumn="incomplete_expenses_count" class="client-table--header">
                     Incomplete Card Expenses
-                    <p-sortIcon field="incomplete_card_expenses_count" class="client-table--header"></p-sortIcon>
+                    <p-sortIcon field="incomplete_expenses_count" class="client-table--header"></p-sortIcon>
                 </th>
                 <th pSortableColumn="approval_pending_reports_count" class="client-table--header">
                     Reports to Approve
@@ -55,7 +55,7 @@
                     <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle">View</a>
                 </td>
                 <td>
-                    {{ client.incomplete_card_expenses_count }}
+                    {{ client.incomplete_expenses_count }}
                     <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle">View</a>
                 </td>
                 <td>
