@@ -17,7 +17,7 @@ export class ClientCardComponent implements OnInit {
   ClientRedirectionType = ClientRedirectionType;
 
   clientCardMap: ClientCardMap = {
-    [ClientRedirectionType.INCOMPLETE_CARD_EXPENSES]: 'incomplete_card_expenses_count',
+    [ClientRedirectionType.INCOMPLETE_CARD_EXPENSES]: 'incomplete_expenses_count',
     [ClientRedirectionType.REPORTS_TO_APPROVE]: 'approval_pending_reports_count',
     [ClientRedirectionType.PENDING_REIMBURSEMENTS]: 'pending_reimbursement_amount'
   };
