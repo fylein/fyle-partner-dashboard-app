@@ -83,6 +83,7 @@ module.exports = {
         '5-px': '5px',
         '6-px': '6px',
         '8-px': '8px',
+        '9-px': '9px',
         '10-px': '10px',
         '12-px': '12px',
         '14-px': '14px',
@@ -142,6 +143,7 @@ module.exports = {
         '20-px': '20px',
         '24-px': '24px',
         '30-px': '30px',
+        '32-px': '32px',
         '36-px': '36px',
         '40-px': '40px',
         '42-px': '42px',
@@ -159,8 +161,8 @@ module.exports = {
         '192-px': '192px',
         '282-px': '282px',
         '756-px': '756px',
-        '66-vh': '66vh',
-        '72-vh': '72vh'
+        '62-vh': '62vh',
+        '68-vh': '68vh'
       },
       minHeight: {
         '70-px': '70px'
@@ -176,6 +178,7 @@ module.exports = {
         '20-px': '20px',
         '24-px': '24px',
         '30-px': '30px',
+        '32-px': '32px',
         '36-px': '36px',
         '40-px': '40px',
         '42-px': '42px',
@@ -189,6 +192,7 @@ module.exports = {
         '80-px': '80px',
         '92-px': '92px',
         '100-px': '100px',
+        '120-px': '120px',
         '160-px': '160px',
         '200-px': '200px',
         '246-px': '246px',
@@ -203,6 +207,7 @@ module.exports = {
         '300-px': '300px'
       },
       borderRadius: {
+        '0-px': '0px',
         '4-px': '4px',
         '6-px': '6px',
         '8-px': '8px',

@@ -22,3 +22,11 @@ export enum ClientRedirectionType {
     TOTAL_USERS = 'Total Users ',
     PENDING_INVITATION = 'Pending Invitation'
 }
+
+export enum PageNavigation {
+    CHANGE = 'CHANGE',
+    FORWARD = 'FORWARD',
+    BACKWARD = 'BACKWARD',
+    FIRST = 'FIRST',
+    LAST = 'LAST'
+}

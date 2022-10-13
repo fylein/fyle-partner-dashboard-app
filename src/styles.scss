@@ -63,7 +63,7 @@ p {
 
 // Input text
 .p-inputtext {
-  @apply tw-text-14-px tw-h-42-px tw-w-302-px tw-border-1-px tw-border-solid tw-rounded-4-px tw-border-table-header #{!important};
+  @apply tw-text-14-px tw-border-table-header #{!important};
 }
 
 .p-input-icon-left > i:first-of-type {
@@ -97,4 +97,20 @@ p {
 
 .p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover {
   @apply tw-bg-card-hover #{!important};
+}
+
+.p-dropdown .p-dropdown-label {
+  @apply tw-h-32-px tw-text-12-px #{!important};
+
+  &.p-inputtext {
+    @apply tw-mb-10-px #{!important};
+  }
+}
+
+.p-dropdown .p-dropdown-trigger {
+  @apply tw-w-0 tw-pr-16-px #{!important};
+}
+
+.p-dropdown-panel .p-dropdown-items {
+  @apply tw-text-12-px #{!important};
 }

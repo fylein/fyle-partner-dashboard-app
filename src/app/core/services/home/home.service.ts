@@ -3,7 +3,8 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Cacheable } from 'ts-cacheable';
 import { ClientRedirectionType, ClientView, RedirectLink } from '../../models/enum/enum.model';
-import { ClientResponse, PaginationProperties } from '../../models/home/client.model';
+import { ClientResponse } from '../../models/home/client.model';
+import { Paginator } from '../../models/misc/paginator.model';
 import { ApiService } from '../core/api.service';
 import { StorageService } from '../core/storage.service';
 import { WindowService } from '../core/window.service';
@@ -28,8 +29,7 @@ export class HomeService {
     private windowService: WindowService
   ) { }
 
-  @Cacheable()
-  getClients(paginationProperties: PaginationProperties): Observable<ClientResponse> {
+  getClients(paginationProperties: Paginator): Observable<ClientResponse> {
     return this.apiService.get(`/partner/orgs/`, paginationProperties);
   }
 

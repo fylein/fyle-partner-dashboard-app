@@ -1,47 +1,48 @@
-<!-- TODO: check zero state after implmenting pagination -->
-<div class="max-xl:tw-h-66-vh tw-h-72-vh tw-overflow-y-scroll">
-    <div *ngFor="let client of clients; let i = index" class="client-card">
-        <div class="client-card--client-header-detail">
-            <p *ngIf="i !== 0" class="client-card--separator"></p>
-            <div class="tw-flex">
-                <div *ngIf="!client.logo_file_id" class="tw-p-14-px tw-bg-icon-background">
-                    <svg-icon-sprite src="client" width="20px" height="20px" class="tw-text-sub-text-color">
-                    </svg-icon-sprite>
-                </div>
-                <img *ngIf="client.logo_file_id" [src]="client.logo_file.download_url" width="45px" height="45px">
-                <div class="client-card--client-header-detail-section">
-                    <p class="tw-font-500 tw-pb-4-px hover:tw-text-partner-hover tw-cursor-pointer" (click)="openOrg(client.id)">
-                        {{ client.name }}
-                    </p>
-                    <div class="tw-flex tw-text-sub-text-color">
-                        <p>Active Users: <span class="tw-text-normal-text-color">
-                            {{ client.billed_users_count }}
-                        </span></p>
-                        <svg-icon-sprite pTooltip="Active users of {{ currentMonth }}" tooltipPosition="bottom" src="info"
-                            width="16px" height="16px"
-                            class="tw-mt-4-px tw-ml-4-px tw-mr-12-px tw-text-table-row-hover"></svg-icon-sprite>
-                        <span>.</span>
-                        <p class="client-card--client-header-detail-section">Total Users: <span class="tw-text-normal-text-color">
-                            {{ client.enabled_users_count }}
-                        </span>
+<div class="max-xl:tw-h-62-vh tw-h-68-vh tw-overflow-y-scroll">
+    <div *ngIf="!isLoading">
+        <div *ngFor="let client of clients; let i = index" class="client-card">
+            <div class="client-card--client-header-detail">
+                <p *ngIf="i !== 0" class="client-card--separator"></p>
+                <div class="tw-flex">
+                    <div *ngIf="!client.logo_file_id" class="tw-p-14-px tw-bg-icon-background">
+                        <svg-icon-sprite src="client" width="20px" height="20px" class="tw-text-sub-text-color">
+                        </svg-icon-sprite>
+                    </div>
+                    <img *ngIf="client.logo_file_id" [src]="client.logo_file.download_url" width="45px" height="45px">
+                    <div class="client-card--client-header-detail-section">
+                        <p class="tw-font-500 tw-pb-4-px hover:tw-text-partner-hover tw-cursor-pointer" (click)="openOrg(client.id)">
+                            {{ client.name }}
                         </p>
+                        <div class="tw-flex tw-text-sub-text-color">
+                            <p>Active Users: <span class="tw-text-normal-text-color">
+                                {{ client.billed_users_count }}
+                            </span></p>
+                            <svg-icon-sprite pTooltip="Active users of {{ currentMonth }}" tooltipPosition="bottom" src="info"
+                                width="16px" height="16px"
+                                class="tw-mt-4-px tw-ml-4-px tw-mr-12-px tw-text-table-row-hover"></svg-icon-sprite>
+                            <span>.</span>
+                            <p class="client-card--client-header-detail-section">Total Users: <span class="tw-text-normal-text-color">
+                                {{ client.enabled_users_count }}
+                            </span>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="client-card--stat-section">
-            <div *ngFor="let clientRedirectionType of clientRedirectionTypes; let i = index;"
-                class="hover:tw-bg-card-hover hover:tw-cursor-pointer client-card--stat-card"
-                (click)="redirect(clientRedirectionType, client.id)">
-                <p class="client-card--resource-name">
-                    {{ clientRedirectionType === ClientRedirectionType.PENDING_REIMBURSEMENTS ? (client[clientCardMap[clientRedirectionType]] | currency: client.currency) : '' }}{{ client[clientCardMap[clientRedirectionType]] }}
-                </p>
-                <p class="client-card--resource-divider"></p>
-                <div class="client-card--resource-redirection">
-                    <p>{{ clientRedirectionType }}</p>
-                    <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px"
-                        class="tw-ml-6-px tw-mt-2-px tw-text-faded-icon tw-cursor-pointer"></svg-icon-sprite>
+            <div class="client-card--stat-section">
+                <div *ngFor="let clientRedirectionType of clientRedirectionTypes; let i = index;"
+                    class="hover:tw-bg-card-hover hover:tw-cursor-pointer client-card--stat-card"
+                    (click)="redirect(clientRedirectionType, client.id)">
+                    <p class="client-card--resource-name">
+                        {{ clientRedirectionType === ClientRedirectionType.PENDING_REIMBURSEMENTS ? (client[clientCardMap[clientRedirectionType]] | currency: client.currency) : '' }}{{ client[clientCardMap[clientRedirectionType]] }}
+                    </p>
+                    <p class="client-card--resource-divider"></p>
+                    <div class="client-card--resource-redirection">
+                        <p>{{ clientRedirectionType }}</p>
+                        <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px"
+                            class="tw-ml-6-px tw-mt-2-px tw-text-faded-icon tw-cursor-pointer"></svg-icon-sprite>
+                    </div>
                 </div>
             </div>
         </div>

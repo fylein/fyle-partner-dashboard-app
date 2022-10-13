@@ -1,6 +1,7 @@
-import { ClientResponse, PaginationProperties } from "../../models/home/client.model";
+import { ClientResponse } from "../../models/home/client.model";
+import { Paginator } from "../../models/misc/paginator.model";
 
-export const paginationProperties: PaginationProperties = {
+export const paginationProperties: Paginator = {
     limit: 50,
     offset: 0
 };

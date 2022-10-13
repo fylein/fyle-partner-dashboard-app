@@ -32,11 +32,6 @@ export type ClientResponse = {
   data: Client[];
 };
 
-export type PaginationProperties = {
-  limit: number,
-  offset: number
-};
-
 export interface ClientCardMap {
   [ClientRedirectionType.INCOMPLETE_EXPENSES]: 'incomplete_expenses_count',
   [ClientRedirectionType.REPORTS_TO_APPROVE]: 'approval_pending_reports_count',
