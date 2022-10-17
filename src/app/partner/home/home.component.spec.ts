@@ -16,7 +16,9 @@ describe('HomeComponent', () => {
   let formBuilder: FormBuilder;
 
   const service1 = {
-    getClients: () => of(clientOrgResponse)
+    getClients: () => of(clientOrgResponse),
+    getActiveView: () => ClientView.DETAIL,
+    storeActiveView: () => null
   };
 
   beforeEach(async () => {
