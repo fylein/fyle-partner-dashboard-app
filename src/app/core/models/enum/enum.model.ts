@@ -1,9 +1,12 @@
 export enum RedirectLink {
     FYLE_HELP = 'https://help.fylehq.com/en/collections/215867-integrations-with-fyle',
     FYLE_ADMIN = '/app/admin/#/admin_tasks',
-    INCOMPLETE_CARD_EXPENSES = '/app/admin/#/company_expenses?search_model=W3siZXhwZW5zZV9zdGF0ZSI6W3sibGFiZWwiOiJVbnJlcG9ydGVkIiwidmFsdWUiOiJDT01QTEVURSIsIiQkaGFzaEtleSI6Im9iamVjdDoyNDIyIn1dfSx7ImV4cGVuc2VfYWNjb3VudF90eXBlIjpbeyJsYWJlbCI6IkNvcnBvcmF0ZSBDYXJkIiwidmFsdWUiOiJQRVJTT05BTF9DT1JQT1JBVEVfQ1JFRElUX0NBUkRfQUNDT1VOVCIsIiQkaGFzaEtleSI6Im9iamVjdDoyNzU2In1dfV0%3D&org_id=$ORG_ID&search_query=#list-view-content-header-id',
+    INCOMPLETE_EXPENSES = '/app/admin/#/company_expenses?search_model=W3siZXhwZW5zZV9zdGF0ZSI6W3sibGFiZWwiOiJJbmNvbXBsZXRlIiwidmFsdWUiOiJEUkFGVCIsIiQkaGFzaEtleSI6Im9iamVjdDo4MzQifV19XQ%3D%3D&org_id=$ORG_ID&search_query=#list-view-content-header-id',
     REPORTS_TO_APPROVE = '/app/admin/#/company_reports/?state=approvals',
-    PENDING_REIMBURSEMENTS = '/app/admin/#/company_payments?state=processing'
+    PENDING_REIMBURSEMENTS = '/app/admin/#/company_payments?state=processing',
+    ACTIVE_USERS = '/app/admin/#/company_users/current_users?search_model=W3sib3Vfc3RhdHVzIjpbeyJsYWJlbCI6IkFjdGl2ZSIsInZhbHVlIjoiXCJBQ1RJVkVcIiIsIiQkaGFzaEtleSI6Im9iamVjdDo2MTEifV19XQ%3D%3D',
+    TOTAL_USERS = '/app/admin/#/company_users/current_users?search_model=W3sib3Vfc3RhdHVzIjpbeyJsYWJlbCI6IkFjdGl2ZSIsInZhbHVlIjoiXCJBQ1RJVkVcIiIsIiQkaGFzaEtleSI6Im9iamVjdDo4NDUifSx7ImxhYmVsIjoiUGVuZGluZyIsInZhbHVlIjoiXCJQRU5ESU5HX0RFVEFJTFNcIiIsIiQkaGFzaEtleSI6Im9iamVjdDo4NTIifV19XQ%3D%3D',
+    PENDING_INVITATION = '/app/admin/#/company_users/current_users?search_model=W3sib3Vfc3RhdHVzIjpbeyJsYWJlbCI6IlBlbmRpbmciLCJ2YWx1ZSI6IlwiUEVORElOR19ERVRBSUxTXCIiLCIkJGhhc2hLZXkiOiJvYmplY3Q6MTI0MiJ9XX1d'
 }
 
 export enum ClientView {
@@ -12,7 +15,18 @@ export enum ClientView {
 }
 
 export enum ClientRedirectionType {
-    INCOMPLETE_CARD_EXPENSES = 'Incomplete Card Expenses',
+    INCOMPLETE_EXPENSES = 'Incomplete Expenses',
     REPORTS_TO_APPROVE = 'Reports To Approve',
-    PENDING_REIMBURSEMENTS = 'Pending Reimbursements'
+    PENDING_REIMBURSEMENTS = 'Pending Reimbursements',
+    ACTIVE_USERS = 'Active Users',
+    TOTAL_USERS = 'Total Users ',
+    PENDING_INVITATION = 'Pending Invitation'
+}
+
+export enum PageNavigation {
+    CHANGE = 'CHANGE',
+    FORWARD = 'FORWARD',
+    BACKWARD = 'BACKWARD',
+    FIRST = 'FIRST',
+    LAST = 'LAST'
 }

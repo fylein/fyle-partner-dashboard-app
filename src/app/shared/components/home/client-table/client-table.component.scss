@@ -1,0 +1,25 @@
+.client-table {
+    &--view-in-fyle {
+        @apply tw-text-table-row-hover tw-pl-16-px tw-cursor-pointer;
+    }
+
+    &--header {
+        @apply tw-flex-row tw-whitespace-nowrap;
+    }
+
+    &--client-name {
+        @apply tw-border-r-1-px tw-border-r-table-header;
+    }
+
+    &--active-users {
+        @apply tw-min-w-160-px;
+    }
+
+    &--client-name-col {
+        @apply tw-min-w-300-px;
+    }
+
+    &--shimmer-col {
+        @apply tw-w-80-px;
+    }
+}

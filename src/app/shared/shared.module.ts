@@ -15,7 +15,10 @@ import { IconSpriteModule } from 'ng-svg-icon-sprite';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TooltipModule } from 'primeng/tooltip';
 import { SkeletonModule } from 'primeng/skeleton';
+import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown';
 import { TrimCharacterPipe } from './pipes/trim-character.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -36,6 +39,10 @@ import { TrimCharacterPipe } from './pipes/trim-character.pipe';
     ProgressSpinnerModule,
     TooltipModule,
     SkeletonModule,
+    TableModule,
+    DropdownModule,
+    FormsModule,
+    ReactiveFormsModule,
     IconSpriteModule.forRoot({ path: 'assets/sprites/sprite.svg' })
   ],
   exports: [
@@ -43,6 +50,8 @@ import { TrimCharacterPipe } from './pipes/trim-character.pipe';
     HeaderComponent,
     ClientCardComponent,
     ClientTableComponent,
+    ZeroStateWithIllustrationComponent,
+    PaginatorComponent,
     TrimCharacterPipe
   ]
 })

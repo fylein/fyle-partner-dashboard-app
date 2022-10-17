@@ -1,0 +1,9 @@
+.paginator {
+    &--center {
+        @apply tw-flex tw-items-center;
+    }
+
+    &--control {
+        @apply tw-cursor-pointer tw-w-30-px tw-h-32-px tw-border-1-px tw-justify-center;
+    }
+}
