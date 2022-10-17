@@ -45,64 +45,67 @@ export class PaginatorComponent implements OnInit, OnChanges {
     });
   }
 
-  onPageChangeHandler(event: PageNavigation): void | false {
-    // TODO: Refactor code in this function, move all validations to another func, move input change to another function
-    if (event === PageNavigation.CHANGE) {
+  manualPageChangeHandler(): void | false {
+    try {
       if (this.form.controls.page.value) {
-        if (this.form.controls.page.value > this.totalPageCount || this.form.controls.page.value < 1) {
-          return false;
-        }
+        this.validatePageNavigation(this.form.controls.page.value > this.totalPageCount || this.form.controls.page.value < 1);
         return this.pageChangeEvent.emit({
           limit: this.limit,
           offset: (this.form.controls.page.value *  this.limit) - this.limit
         });
       }
-
-      return false;
+    } catch (error) {
+      // Do nothing
     }
 
-    let offset: number = this.form.get('offset')?.value;
-    const currentPage = this.form.value.page;
-    let newPage: number = 0;
-    if (event === PageNavigation.FORWARD) {
-      if (this.form.value.page >= this.totalPageCount) {
-        return false;
+    return false;
+  }
+
+  private validatePageNavigation(assertion: boolean): void {
+    if (assertion) {
+      throw 'Invalid Navigation';
+    }
+  }
+
+  onPageChangeHandler(event: PageNavigation): void | false {
+    try {
+      let offset: number = this.form.get('offset')?.value;
+      const currentPage = this.form.value.page;
+      let newPage: number = 0;
+      if (event === PageNavigation.FORWARD) {
+        this.validatePageNavigation(this.form.value.page >= this.totalPageCount);
+        newPage = currentPage + 1;
+        offset = this.form.get('offset')?.value + this.limit;
+      } else if (event === PageNavigation.BACKWARD) {
+        this.validatePageNavigation(this.form.value.page <= 1);
+        newPage = currentPage - 1;
+        offset = this.form.get('offset')?.value - this.limit;
       }
-      newPage = currentPage + 1;
-      offset = this.form.get('offset')?.value + this.limit;
-    } else if (event === PageNavigation.BACKWARD) {
-      if (this.form.value.page <= 1) {
-        return false;
+
+      if (event === PageNavigation.FIRST) {
+        this.validatePageNavigation(this.form.value.page === 1);
+        newPage = 1;
+        offset = 0;
       }
-      newPage = currentPage - 1;
-      offset = this.form.get('offset')?.value - this.limit;
-    }
 
-    if (event === PageNavigation.FIRST) {
-      if (this.form.value.page === 1) {
-        return false;
+      if (event === PageNavigation.LAST) {
+        this.validatePageNavigation(this.form.value.page === this.totalPageCount);
+        newPage = this.totalPageCount;
+        offset = (this.totalPageCount * this.limit) - this.limit;
       }
-      newPage = 1;
-      offset = 0;
-    }
 
-    if (event === PageNavigation.LAST) {
-      if (this.form.value.page === this.totalPageCount) {
-        return false;
+      if (event === PageNavigation.BACKWARD || event === PageNavigation.FORWARD || event === PageNavigation.FIRST || event === PageNavigation.LAST) {
+        this.form.get('offset')?.setValue(offset);
+        this.form.get('page')?.setValue(newPage);
       }
-      newPage = this.totalPageCount;
-      offset = (this.totalPageCount * this.limit) - this.limit;
-    }
 
-    if (event === PageNavigation.BACKWARD || event === PageNavigation.FORWARD || event === PageNavigation.FIRST || event === PageNavigation.LAST) {
-      this.form.get('offset')?.setValue(offset);
-      this.form.get('page')?.setValue(newPage);
+      this.pageChangeEvent.emit({
+        limit: this.form.get('pageLimit')?.value,
+        offset: offset
+      });
+    } catch (error) {
+      // Do nothing
     }
-
-    this.pageChangeEvent.emit({
-      limit: this.form.get('pageLimit')?.value,
-      offset: offset
-    });
 
     return false;
   }

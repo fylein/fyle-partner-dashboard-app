@@ -1,5 +1,5 @@
 <div class="tw-ml-24-px tw-w-[97%] max-xl:tw-h-62-vh tw-h-68-vh tw-overflow-y-scroll">
-    <p-table *ngIf="!isLoading" [columns]="columns" [value]="clients" [scrollable]="true" scrollHeight="65vh" [rowHover]="true" sortMode="single" sortField="name">
+    <p-table *ngIf="!isLoading" [columns]="columns" [value]="clients" [scrollable]="true" [rowHover]="true" sortMode="single" sortField="name">
         <ng-template pTemplate="header">
             <tr class="client-table--client-name">
                 <th pSortableColumn="name" class="client-table--client-name-col">
@@ -70,7 +70,7 @@
     </p-table>
 
     <!-- Shimmers -->
-    <p-table *ngIf="isLoading" [columns]="columns" [value]="[0, 1, 2, 3, 4, 5, 6, 7]" [scrollable]="true" scrollHeight="65vh" [rowHover]="true" sortMode="single" sortField="name">
+    <p-table *ngIf="isLoading" [columns]="columns" [value]="[0, 1, 2, 3, 4, 5, 6, 7, 8]" [scrollable]="true" [rowHover]="true" sortMode="single" sortField="name">
         <ng-template pTemplate="header">
             <tr class="client-table--client-name">
                 <th pSortableColumn="name" class="client-table--client-name-col">
@@ -119,7 +119,7 @@
         </ng-template>
     </p-table>
 
-    <div *ngIf="form.value.search && clients.length === 0" class="tw-justify-center tw-items-center tw-flex tw-pt-[10%]">
+    <div *ngIf="form.value.search && clients?.length === 0" class="tw-justify-center tw-items-center tw-flex tw-pt-[10%]">
         <app-zero-state-with-illustration></app-zero-state-with-illustration>
     </div>
 </div>

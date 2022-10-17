@@ -67,15 +67,10 @@
                 </div>
             </div>
             <p class="tw-mt-20-px tw-mb-24-px tw-ml-24-px tw-w-[97%] tw-h-1-px tw-bg-table-header"></p>
-            <div *ngIf="isDetailViewActive && form.value.search && clients.length === 0" class="tw-justify-center tw-items-center tw-flex tw-pt-[10%]">
-                <!-- TODO: check height with zero state on simple search -->
-                <app-zero-state-with-illustration></app-zero-state-with-illustration>
-            </div>
 
-            <app-client-card *ngIf="isDetailViewActive" [isLoading]="isLoading" [clients]="clients"></app-client-card>
+            <app-client-card *ngIf="isDetailViewActive" [form]="form" [isLoading]="isLoading" [clients]="clients"></app-client-card>
             <app-client-table *ngIf="!isDetailViewActive" [form]="form" [isLoading]="isLoading" [hideLogo]="hideLogo" [clients]="clients"></app-client-table>
 
-            <!-- TODO: align with design for both the view -->
             <app-paginator [totalCount]="clientsCount" [limit]="limit" [offset]="offset" (pageChangeEvent)="setupPage($event)"></app-paginator>
         </div>
     </div>

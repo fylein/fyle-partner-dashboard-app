@@ -103,7 +103,7 @@ p {
   @apply tw-h-32-px tw-text-12-px #{!important};
 
   &.p-inputtext {
-    @apply tw-mb-10-px #{!important};
+    @apply tw-px-3 tw-py-2 #{!important};
   }
 }
 

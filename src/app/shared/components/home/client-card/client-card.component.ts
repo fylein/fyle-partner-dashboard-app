@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ClientRedirectionType, RedirectLink } from 'src/app/core/models/enum/enum.model';
 import { Client, ClientCardMap } from 'src/app/core/models/home/client.model';
 import { WindowService } from 'src/app/core/services/core/window.service';
@@ -29,6 +30,8 @@ export class ClientCardComponent implements OnInit {
   @Input() clients: Client[];
 
   @Input() isLoading: boolean;
+
+  @Input() form: FormGroup;
 
   private readonly months: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 

@@ -80,4 +80,8 @@
         </div>
     </div>
    </div>
+
+   <div *ngIf="form.value.search && clients?.length === 0" class="tw-justify-center tw-items-center tw-flex tw-pt-[10%]">
+    <app-zero-state-with-illustration></app-zero-state-with-illustration>
+</div>
 </div>
