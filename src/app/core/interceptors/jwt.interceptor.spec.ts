@@ -5,7 +5,7 @@ import { JwtInterceptor } from './jwt.interceptor';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { environment } from 'src/environments/environment';
 import { ApiService } from '../services/core/api.service';
-import { from, Observable, of, throwError } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import { AuthService } from '../services/core/auth.service';
 import { tokenResponse, loginResponse, dummyErrorResponse } from './jwt.fixture';
 

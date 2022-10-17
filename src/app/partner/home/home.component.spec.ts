@@ -4,7 +4,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 import { of } from 'rxjs';
 import { ClientView } from 'src/app/core/models/enum/enum.model';
-import { clientOrgResponse } from 'src/app/core/services/home/home.fixture';
+import { clientOrgResponse, clientOrgResponseWithoutLogo, paginationProperties } from 'src/app/core/services/home/home.fixture';
 import { HomeService } from 'src/app/core/services/home/home.service';
 
 import { HomeComponent } from './home.component';
@@ -17,7 +17,7 @@ describe('HomeComponent', () => {
 
   const service1 = {
     getClients: () => of(clientOrgResponse),
-    getActiveView: () => ClientView.DETAIL,
+    getActiveView: () => ClientView.TABLE,
     storeActiveView: () => null
   };
 
@@ -47,7 +47,7 @@ describe('HomeComponent', () => {
   });
 
   it('should switch view', () => {
-    expect(component.isDetailViewActive).toBeTrue();
+    expect(component.isDetailViewActive).toBeFalse();
     component.switchView(ClientView.TABLE);
     expect(component.isDetailViewActive).toBeFalse();
 
@@ -65,5 +65,11 @@ describe('HomeComponent', () => {
 
     component.form.controls.search.setValue(null);
     expect(component.clients.length).toBe(1);
+  });
+
+  it('should hide Fyle logo if there are no logo present in any rows', () => {
+    spyOn(homeService, 'getClients').and.returnValue(of(clientOrgResponseWithoutLogo));
+    component.setupPage(paginationProperties);
+    expect(component.hideLogo).toBeTrue();
   });
 });

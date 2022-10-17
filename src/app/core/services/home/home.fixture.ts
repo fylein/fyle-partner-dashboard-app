@@ -34,3 +34,26 @@ export const clientOrgResponse: ClientResponse = {
         }
     ]
 };
+
+export const clientOrgResponseWithoutLogo: ClientResponse = {
+    count: 50,
+    data: [
+        {
+            approval_pending_reports_count: 21,
+            billed_users_count: 24,
+            created_at: new Date(),
+            currency: 'EUR',
+            domain: 'fylehq.com',
+            enabled_users_count: 1234,
+            id: 'orkjasd',
+            incomplete_expenses_count: 213,
+            is_verified: true,
+            logo_file: null,
+            logo_file_id: null,
+            name: 'Fyle for Logo',
+            pending_reimbursement_amount: 2234,
+            pending_users_count: 4322,
+            updated_at: new Date()
+        }
+    ]
+};

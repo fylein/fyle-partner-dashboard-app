@@ -18,8 +18,8 @@ export type Client = {
   id: string;
   incomplete_expenses_count: number;
   is_verified: boolean;
-  logo_file: ClientLogo;
-  logo_file_id: string;
+  logo_file: ClientLogo | null;
+  logo_file_id: string | null;
   name: string;
   pending_reimbursement_amount: number;
   pending_users_count: number;

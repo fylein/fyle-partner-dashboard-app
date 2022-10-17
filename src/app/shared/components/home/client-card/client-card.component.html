@@ -8,7 +8,7 @@
                         <svg-icon-sprite src="client" width="20px" height="20px" class="tw-text-sub-text-color">
                         </svg-icon-sprite>
                     </div>
-                    <img *ngIf="client.logo_file_id" [src]="client.logo_file.download_url" width="45px" height="45px">
+                    <img *ngIf="client.logo_file_id" [src]="client.logo_file?.download_url" width="45px" height="45px">
                     <div class="client-card--client-header-detail-section">
                         <p class="tw-font-500 tw-pb-4-px hover:tw-text-partner-hover tw-cursor-pointer" (click)="openOrg(client.id)">
                             {{ client.name }}
