@@ -49,6 +49,14 @@ describe('PaginatorComponent', () => {
     expect(component.pageChangeEvent.emit).toHaveBeenCalled();
   });
 
+  it('should error out for invalid manual page change', () => {
+    spyOn(component.pageChangeEvent, 'emit');
+
+    component.form.controls.page.setValue(1000);
+
+    expect(component.manualPageChangeHandler()).toBeFalse();
+  });
+
   it('should assert for a given condition and throw exception', () => {
     expect(function(){
       (component as any).validatePageNavigation(true);
