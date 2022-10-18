@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
   private setupSearchListener(): void {
     this.form.controls.search.valueChanges.subscribe((searchTerm: string) => {
       if (searchTerm) {
-        this.clients = this.clients.filter(client => client.name.toLowerCase().includes(searchTerm.toLowerCase()));
+        this.clients = this.allClients.filter(client => client.name.toLowerCase().includes(searchTerm.toLowerCase()));
       } else {
         this.clients = this.allClients.concat();
       }
