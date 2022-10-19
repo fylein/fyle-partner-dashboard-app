@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CurrencyPipe } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +33,7 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     IconSpriteModule.forRoot({ path: 'assets/sprites/sprite.svg' })
   ],
   providers: [
+    CurrencyPipe,
     MessageService,
     {
       provide: JWT_OPTIONS,

@@ -19,6 +19,7 @@ import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
 import { TrimCharacterPipe } from './pipes/trim-character.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FyCurrencyPipe } from './pipes/fy-currency.pipe';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PaginatorComponent,
     ClientCardComponent,
     ClientTableComponent,
-    TrimCharacterPipe
+    TrimCharacterPipe,
+    FyCurrencyPipe
   ],
   imports: [
     CommonModule,
@@ -52,7 +54,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ClientTableComponent,
     ZeroStateWithIllustrationComponent,
     PaginatorComponent,
-    TrimCharacterPipe
+    TrimCharacterPipe,
+    FyCurrencyPipe
   ]
 })
 export class SharedModule { }
