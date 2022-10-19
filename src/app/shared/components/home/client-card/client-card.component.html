@@ -35,7 +35,7 @@
                     class="hover:tw-bg-card-hover hover:tw-cursor-pointer client-card--stat-card"
                     (click)="redirect(clientRedirectionType, client.id)">
                     <p class="client-card--resource-name">
-                        {{ clientRedirectionType === ClientRedirectionType.PENDING_REIMBURSEMENTS ? (client[clientCardMap[clientRedirectionType]] | currency: client.currency) : '' }}{{ client[clientCardMap[clientRedirectionType]] }}
+                        {{ clientRedirectionType === ClientRedirectionType.PENDING_REIMBURSEMENTS ? (client[clientCardMap[clientRedirectionType]] | currency: client.currency) : client[clientCardMap[clientRedirectionType]] }}
                     </p>
                     <p class="client-card--resource-divider"></p>
                     <div class="client-card--resource-redirection">
