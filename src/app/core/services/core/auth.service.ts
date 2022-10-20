@@ -6,6 +6,7 @@ import { Token } from '../../models/misc/token.model';
 import { MinimalUser } from '../../models/db/user.model';
 import { UserService } from '../misc/user.service';
 import { Router } from '@angular/router';
+import * as Sentry from '@sentry/angular';
 
 
 @Injectable({
@@ -25,6 +26,7 @@ export class AuthService {
   }
 
   logout(): void {
+    Sentry.configureScope(scope => scope.setUser(null));
     this.storageService.remove('user');
     this.router.navigate(['auth/login']);
   }

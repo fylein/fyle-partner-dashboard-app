@@ -5,6 +5,7 @@ import { MinimalUser } from '../core/models/db/user.model';
 import { PartnerService } from '../core/services/core/partner.service';
 import { WindowService } from '../core/services/core/window.service';
 import { UserService } from '../core/services/misc/user.service';
+import * as Sentry from '@sentry/angular';
 
 @Component({
   selector: 'app-partner',
@@ -47,7 +48,13 @@ export class PartnerComponent implements OnInit {
 
   private setupPartnerOrg(): void {
     this.user = this.userService.getUserProfile();
-    this.getOrCreatePartnerOrg().then(() => {
+    this.getOrCreatePartnerOrg().then((partnerOrg: PartnerOrg | void) => {
+      if (partnerOrg) {
+        Sentry.setUser({
+          email: this.user?.email,
+          workspaceId: partnerOrg.id
+        });
+      }
       this.isLoading = false;
       this.navigate();
     });
