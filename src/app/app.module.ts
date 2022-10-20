@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
+
+import * as Sentry from '@sentry/angular';
 
 // Angular libraries
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -17,6 +19,7 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { InputTextModule } from 'primeng/inputtext';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { GlobalErrorHandler } from './app.error-handling';
 
 
 @NgModule({
@@ -44,6 +47,16 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
+    },
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler
+    },
+    {
+      provide: ErrorHandler,
+      useValue: Sentry.createErrorHandler({
+        showDialog: false
+      })
     }
   ],
   bootstrap: [AppComponent]
