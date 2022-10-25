@@ -36,8 +36,8 @@
             <tr (mouseenter)="showOrHideViewInFyle(client, true)" (mouseleave)="showOrHideViewInFyle(client, false)">
                 <td class="client-table--client-name-col">
                     <img *ngIf="!hideLogo && client.logo_file_id" [src]="client.logo_file.download_url" width="46px" height="46px" class="tw-mr-26-px" />
-                    <div *ngIf="!hideLogo && !client.logo_file_id" class="tw-p-14-px tw-bg-section-hover tw-border-1-px tw-border-table-icon-border tw-mr-26-px">
-                        <svg-icon-sprite src="client-table-view" width="20px" height="20px" class="tw-text-client-logo">
+                    <div *ngIf="!hideLogo && !client.logo_file_id" class="tw-p-14-px tw-bg-icon-background tw-rounded-4-px tw-mr-26-px">
+                        <svg-icon-sprite src="client" width="20px" height="20px" class="tw-text-sub-text-color">
                         </svg-icon-sprite>
                     </div>
                     {{ client.name }}
@@ -119,7 +119,7 @@
         </ng-template>
     </p-table>
 
-    <div *ngIf="form.value.search && clients?.length === 0" class="tw-justify-center tw-items-center tw-flex tw-pt-[10%]">
+    <div *ngIf="form.value.search && clients?.length === 0" class="max-xl:tw-h-62-vh tw-h-68-vh tw-justify-center tw-items-center tw-flex">
         <app-zero-state-with-illustration></app-zero-state-with-illustration>
     </div>
 </div>

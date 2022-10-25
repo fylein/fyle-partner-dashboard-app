@@ -3,8 +3,8 @@
     <div class="tw-h-192-px tw-w-[100%] tw-bg-partner-bg-2 tw-absolute tw-top-40 tw-z-[-1]"></div>
     <div [formGroup]="form" class="tw-pt-40-px tw-px-42-px">
         <div class="tw-bg-white tw-shadow-partner-card tw-rounded-12-px">
-            <div class="tw-h-74-px tw-flex tw-items-center tw-justify-between">
-                <div class="tw-flex">
+            <div class="tw-flex tw-justify-between">
+                <div class="tw-flex tw-items-center tw-pt-24-px">
                     <div class="tw-pr-14-px tw-pl-24-px tw-text-20-px tw-font-500">
                         <p *ngIf="!isLoading">
                             My Clients ({{ clientsCount }})
@@ -24,11 +24,13 @@
                         <p-skeleton *ngIf="isLoading" class="tw-pr-10-px tw-w-120-px" height="25px" shape="rectangle"></p-skeleton>
                     </div>
                 </div>
-                <div class="tw-flex">
+                <div class="tw-flex tw-pt-16-px">
                     <div class="p-input-icon-left">
                         <i class="pi pi-search"></i>
                         <input type="text" placeholder="Search"
                             class="p-inputtext p-component p-element ng-valid ng-touched ng-dirty tw-w-302-px !tw-h-42-px !tw-border-solid !tw-rounded-4-px" formControlName="search">
+                        <svg-icon-sprite *ngIf="form.value.search && form.value.search.length > 0" src="clear" width="14px" height="14px" class="tw-text-faded-icon tw-absolute tw-top-14-px tw-right-12-px tw-cursor-pointer" (click)="clearSearch()">
+                        </svg-icon-sprite>
                     </div>
                     <div class="tw-pl-22-px tw-pr-24-px tw-text-12-px">
                         <div class="tw-bg-section-hover tw-rounded-8-px tw-h-40-px tw-flex tw-items-center">
@@ -66,7 +68,7 @@
                     </div>
                 </div>
             </div>
-            <p class="tw-mt-20-px tw-mb-24-px tw-ml-24-px tw-w-[97%] tw-h-1-px tw-bg-table-header"></p>
+            <p class="tw-mt-24-px tw-mb-24-px tw-ml-24-px tw-w-[97%] tw-h-1-px tw-bg-table-header"></p>
 
             <app-client-card *ngIf="isDetailViewActive" [form]="form" [isLoading]="isLoading" [clients]="clients"></app-client-card>
             <app-client-table *ngIf="!isDetailViewActive" [form]="form" [isLoading]="isLoading" [hideLogo]="hideLogo" [clients]="clients"></app-client-table>

@@ -45,6 +45,10 @@ export class HomeComponent implements OnInit {
     private paginatorService: PaginatorService
   ) { }
 
+  clearSearch(): void {
+    this.form.reset();
+  }
+
   switchView(clientView: ClientView): void {
     if (clientView === ClientView.DETAIL) {
       this.isDetailViewActive = true;

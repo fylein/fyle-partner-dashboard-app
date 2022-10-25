@@ -228,6 +228,7 @@ module.exports = {
       },
       borderColor: {
         'table-header': customColors['table-header'],
+        'sub-text-color': customColors['sub-text-color']
       },
       backgroundImage: {
         'auth-traingle-left': 'linear-gradient(-83.33deg, #e1eeffba 26.8%, #ffe4fbde 97.18%)',
@@ -245,8 +246,15 @@ module.exports = {
         'expense-stat-card': '0px 4px 4px rgba(0, 0, 0, 0.05);',
         'help-section': '0px 8px 40px rgba(215, 215, 215, 0.73)'
       },
+      dropShadow: {
+        'paginator': '0px 2px 10px rgba(44, 48, 78, 0.1)'
+      },
       screens: {
         'max-xl': {'max': '1440px'}
+      },
+      spacing: {
+        '12-px': '12px',
+        '14-px': '14px',
       }
     },
   },

@@ -1,6 +1,4 @@
 .client-card {
-    @apply tw-pb-40-px;
-
     &--client-header-detail {
         @apply tw-ml-24-px tw-mb-24-px;
     }
@@ -18,11 +16,11 @@
     }
 
     &--stat-card {
-        @apply tw-flex tw-mr-24-px tw-grow tw-w-100-vh tw-h-68-px tw-border-1-px tw-border-r-table-header tw-shadow-expense-stat-card tw-items-center;
+        @apply tw-flex tw-mr-24-px tw-grow tw-w-100-vh tw-h-68-px tw-border-1-px tw-border-r-table-header tw-shadow-expense-stat-card tw-items-center tw-rounded-6-px;
     }
 
     &--resource-name {
-        @apply tw-pr-12-px tw-pl-16-px tw-font-700 tw-text-20-px;
+        @apply tw-pl-16-px tw-font-700 tw-text-20-px;
     }
 
     &--resource-divider {

@@ -1,10 +1,10 @@
 <div class="max-xl:tw-h-62-vh tw-h-68-vh tw-overflow-y-scroll">
     <div *ngIf="!isLoading">
-        <div *ngFor="let client of clients; let i = index" class="client-card">
+        <div *ngFor="let client of clients; let i = index">
             <div class="client-card--client-header-detail">
                 <p *ngIf="i !== 0" class="client-card--separator"></p>
                 <div class="tw-flex">
-                    <div *ngIf="!client.logo_file_id" class="tw-p-14-px tw-bg-icon-background">
+                    <div *ngIf="!client.logo_file_id" class="tw-p-14-px tw-bg-icon-background tw-rounded-4-px">
                         <svg-icon-sprite src="client" width="20px" height="20px" class="tw-text-sub-text-color">
                         </svg-icon-sprite>
                     </div>
@@ -14,14 +14,14 @@
                             {{ client.name }}
                         </p>
                         <div class="tw-flex tw-text-sub-text-color">
-                            <p>Active Users: <span class="tw-text-normal-text-color">
+                            <p class="tw-text-14-px">Active Users: <span class="tw-text-16-px tw-text-normal-text-color tw-font-500">
                                 {{ client.billed_users_count }}
                             </span></p>
                             <svg-icon-sprite pTooltip="Active users of {{ currentMonth }}" tooltipPosition="bottom" src="info"
                                 width="16px" height="16px"
-                                class="tw-mt-4-px tw-ml-4-px tw-mr-12-px tw-text-table-row-hover"></svg-icon-sprite>
-                            <span>.</span>
-                            <p class="client-card--client-header-detail-section">Total Users: <span class="tw-text-normal-text-color">
+                                class="tw-text-faded-icon tw-mt-4-px tw-ml-4-px tw-mr-12-px hover:tw-text-table-row-hover"></svg-icon-sprite>
+                            <p class="tw-mt-[-4px]">.</p>
+                            <p class="tw-text-14-px client-card--client-header-detail-section">Total Users: <span class="tw-text-16-px tw-text-normal-text-color tw-font-500">
                                 {{ client.enabled_users_count }}
                             </span>
                             </p>
@@ -81,7 +81,7 @@
     </div>
    </div>
 
-   <div *ngIf="form.value.search && clients?.length === 0" class="tw-justify-center tw-items-center tw-flex tw-pt-[10%]">
+   <div *ngIf="form.value.search && clients?.length === 0" class="tw-justify-center tw-items-center tw-flex max-xl:tw-h-62-vh tw-h-68-vh">
     <app-zero-state-with-illustration></app-zero-state-with-illustration>
 </div>
 </div>
