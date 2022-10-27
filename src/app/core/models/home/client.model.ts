@@ -38,7 +38,8 @@ export interface ClientCardMap {
   [ClientRedirectionType.PENDING_REIMBURSEMENTS]: 'pending_reimbursement_amount',
   [ClientRedirectionType.ACTIVE_USERS]: 'billed_users_count',
   [ClientRedirectionType.TOTAL_USERS]: 'enabled_users_count',
-  [ClientRedirectionType.PENDING_INVITATION]: 'pending_users_count'
+  [ClientRedirectionType.PENDING_INVITATION]: 'pending_users_count',
+  [ClientRedirectionType.FYLE_ADMIN]: 'id'
 }
 
 export interface TableColumn {

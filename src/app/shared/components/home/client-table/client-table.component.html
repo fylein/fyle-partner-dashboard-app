@@ -26,7 +26,7 @@
                     Reports to Approve
                     <p-sortIcon field="approval_pending_reports_count" class="client-table--header"></p-sortIcon>
                 </th>
-                <th pSortableColumn="pending_reimbursement_amount" class="client-table--header">
+                <th pSortableColumn="pending_reimbursement_amount" class="client-table--header client-table--pending-reimbursements">
                     Pending Reimbursements
                     <p-sortIcon field="pending_reimbursement_amount"></p-sortIcon>
                 </th>
@@ -47,23 +47,54 @@
                 </td>
                 <td>
                     {{ client.enabled_users_count }}
-                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.TOTAL_USERS, client.id)">View</a>
+                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.TOTAL_USERS, client.id)">
+                        View
+                        <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
+                        <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer">
+                        </svg-icon-sprite>
+                    </a>
                 </td>
                 <td>
                     {{ client.pending_users_count }}
-                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.PENDING_INVITATION, client.id)">View</a>
+                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.PENDING_INVITATION, client.id)">
+                        View
+                        <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
+                        <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer">
+                        </svg-icon-sprite>
+                    </a>
                 </td>
                 <td>
                     {{ client.incomplete_expenses_count }}
-                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.INCOMPLETE_EXPENSES, client.id)">View</a>
+                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.INCOMPLETE_EXPENSES, client.id)">
+                        View
+                        <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
+                        <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer">
+                        </svg-icon-sprite>
+                    </a>
                 </td>
                 <td>
                     {{ client.approval_pending_reports_count }}
-                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.REPORTS_TO_APPROVE, client.id)">View</a>
+                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.REPORTS_TO_APPROVE, client.id)">
+                        View
+                        <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
+                        <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer">
+                        </svg-icon-sprite>
+                    </a>
                 </td>
-                <td>
+                <td class="client-table--pending-reimbursements">
                     {{ client.pending_reimbursement_amount | currency: client.currency }}
-                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.PENDING_REIMBURSEMENTS, client.id)">View</a>
+                    <a class="client-table--view-in-fyle tw-justify-between tw-w-150-px" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.PENDING_REIMBURSEMENTS, client.id)">
+                        <div class="tw-flex tw-items-center">
+                            View
+                            <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
+                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer">
+                            </svg-icon-sprite>
+                        </div>
+                        <div class="tw-border-table-header tw-border-1-px tw-bg-white tw-rounded-4-px tw-w-38-px tw-h-38-px tw-flex tw-items-center tw-justify-center" (click)="redirect(ClientRedirectionType.FYLE_ADMIN, client.id)">
+                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-open-org tw-cursor-pointer">
+                            </svg-icon-sprite>
+                        </div>
+                    </a>
                 </td>
             </tr>
         </ng-template>
@@ -97,7 +128,7 @@
                     Reports to Approve
                     <p-sortIcon field="approval_pending_reports_count" class="client-table--header"></p-sortIcon>
                 </th>
-                <th pSortableColumn="pending_reimbursement_amount" class="client-table--header">
+                <th pSortableColumn="pending_reimbursement_amount" class="client-table--header client-table--pending-reimbursements">
                     Pending Reimbursements
                     <p-sortIcon field="pending_reimbursement_amount"></p-sortIcon>
                 </th>
