@@ -38,7 +38,7 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-client>
-            <tr (mouseenter)="showOrHideViewInFyle(client, true)" (mouseleave)="showOrHideViewInFyle(client, false)">
+            <tr>
                 <td class="client-table--client-name-col">
                     <img *ngIf="!hideLogo && client.logo_file_id" [src]="client.logo_file.download_url" width="46px" height="46px" class="tw-mr-26-px" />
                     <div *ngIf="!hideLogo && !client.logo_file_id" class="tw-p-14-px tw-bg-icon-background tw-rounded-4-px tw-mr-26-px">
@@ -50,45 +50,45 @@
                 <td class="client-table--active-users">
                     {{ client.billed_users_count }}
                 </td>
-                <td>
+                <td class="client-table--row">
                     {{ client.enabled_users_count }}
-                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.TOTAL_USERS, client.id)">
+                    <a class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.TOTAL_USERS, client.id)">
                         View
                         <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
                         <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer">
                         </svg-icon-sprite>
                     </a>
                 </td>
-                <td>
+                <td class="client-table--row">
                     {{ client.pending_users_count }}
-                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.PENDING_INVITATION, client.id)">
+                    <a class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.PENDING_INVITATION, client.id)">
                         View
                         <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
                         <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer">
                         </svg-icon-sprite>
                     </a>
                 </td>
-                <td>
+                <td class="client-table--row">
                     {{ client.incomplete_expenses_count }}
-                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.INCOMPLETE_EXPENSES, client.id)">
+                    <a class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.INCOMPLETE_EXPENSES, client.id)">
                         View
                         <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
                         <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer">
                         </svg-icon-sprite>
                     </a>
                 </td>
-                <td>
+                <td class="client-table--row">
                     {{ client.approval_pending_reports_count }}
-                    <a class="client-table--view-in-fyle" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.REPORTS_TO_APPROVE, client.id)">
+                    <a class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.REPORTS_TO_APPROVE, client.id)">
                         View
                         <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
                         <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer">
                         </svg-icon-sprite>
                     </a>
                 </td>
-                <td class="client-table--pending-reimbursements">
+                <td class="client-table--pending-reimbursements client-table--row">
                     {{ client.pending_reimbursement_amount | currency: client.currency }}
-                    <a class="client-table--view-in-fyle tw-justify-between tw-w-150-px" *ngIf="client.showViewinFyle" (click)="redirect(ClientRedirectionType.PENDING_REIMBURSEMENTS, client.id)">
+                    <a class="client-table--redirection client-table--view-in-fyle tw-justify-between tw-w-150-px" (click)="redirect(ClientRedirectionType.PENDING_REIMBURSEMENTS, client.id)">
                         <div class="tw-flex tw-items-center">
                             View
                             <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>

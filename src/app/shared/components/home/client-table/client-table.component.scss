@@ -26,4 +26,12 @@
     &--shimmer-col {
         @apply tw-w-80-px;
     }
+
+    &--redirection {
+        visibility: hidden;
+    }
+
+    &--row:hover &--redirection {
+        visibility: visible;
+    }
 }
