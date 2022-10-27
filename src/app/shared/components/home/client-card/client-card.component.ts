@@ -36,7 +36,7 @@ export class ClientCardComponent implements OnInit {
 
   private readonly months: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-  currentMonth: string = this.months[new Date().getMonth()];
+  readonly currentMonth: string = this.months[new Date().getMonth()];
 
   constructor(
     private homeService: HomeService,

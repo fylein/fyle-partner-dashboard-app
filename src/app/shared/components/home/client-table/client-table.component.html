@@ -7,9 +7,14 @@
                     <p-sortIcon field="name"></p-sortIcon>
                 </th>
                 <th pSortableColumn="billed_users_count" class="client-table--header client-table--active-users">
-                    Active Users
+                    <p class="tw-flex">
+                        <span class="tw-pr-10-px">Active Users</span>
+                        <svg-icon-sprite pTooltip="Active users of {{ currentMonth }}" tooltipPosition="bottom" src="info"
+                            width="16px" height="16px"
+                            class="tw-text-faded-icon hover:tw-text-table-row-hover"></svg-icon-sprite>
+                    </p>
                     <p-sortIcon field="billed_users_count"></p-sortIcon>
-                    <img src="assets/icons/info.svg" /></th>
+                </th>
                 <th pSortableColumn="enabled_users_count" class="client-table--header">
                     Total Users
                     <p-sortIcon field="enabled_users_count"></p-sortIcon>
@@ -109,9 +114,13 @@
                     <p-sortIcon field="name"></p-sortIcon>
                 </th>
                 <th pSortableColumn="billed_users_count" class="client-table--header client-table--active-users">
-                    Active Users
+                    <p class="tw-flex">
+                        <span class="tw-pr-10-px">Active Users</span>
+                        <svg-icon-sprite pTooltip="Active users of {{ currentMonth }}" tooltipPosition="bottom" src="info"
+                            width="16px" height="16px"
+                            class="tw-text-faded-icon hover:tw-text-table-row-hover"></svg-icon-sprite>
+                    </p>
                     <p-sortIcon field="billed_users_count"></p-sortIcon>
-                    <img src="assets/icons/info.svg" /></th>
                 <th pSortableColumn="enabled_users_count" class="client-table--header">
                     Total Users
                     <p-sortIcon field="enabled_users_count"></p-sortIcon>

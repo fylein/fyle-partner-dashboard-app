@@ -59,6 +59,10 @@ export class ClientTableComponent implements OnInit {
     }
   ];
 
+  private readonly months: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  readonly currentMonth: string = this.months[new Date().getMonth()];
+
   constructor(
     private homeService: HomeService
   ) { }

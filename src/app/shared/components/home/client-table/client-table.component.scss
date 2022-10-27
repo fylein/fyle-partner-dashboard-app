@@ -12,7 +12,7 @@
     }
 
     &--active-users {
-        @apply tw-min-w-160-px;
+        @apply tw-min-w-160-px tw-flex;
     }
 
     &--pending-reimbursements {
