@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-import { ProgressPhase } from '../../models/enum/enum.model';
 
 import { TrackingService } from './tracking.service';
 
@@ -19,28 +18,26 @@ describe('TrackingService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('onQBOLanding function check', () => {
-    expect(service.onQBOLanding(ProgressPhase.ONBOARDING)).toBeUndefined();
+  it('should track Sign In event', () => {
+    expect(service.onSignIn('ashwin.t@fyle.in', 1, 'Fyle org', 'ora2d3afg4g')).toBeUndefined();
   });
 
-  it('onQBOAccountDisconnect function check', () => {
-    expect(service.onQBOAccountDisconnect()).toBeUndefined();
+  it('should track Sign Up event', () => {
+    expect(service.onSignUp('ashwin.t@fyle.in', 1, 'Fyle org', 'ora2d3afg4g')).toBeUndefined();
   });
 
-  it('onDateFilter function check', () => {
-    const property = {
-      filterType: "existing",
-      startDate: new Date(),
-      endDate: new Date()
-    };
-    expect(service.onDateFilter({filterType: 'existing', startDate: new Date(), endDate: new Date()})).toBeUndefined();
-  });
-
-  it('onSignIn function check', () => {
-    expect(service.onSignIn('fyle', 2, 'fyle', 'fyle')).toBeUndefined();
-  });
-
-  it('onSignUp function check', () => {
-    expect(service.onSignUp('fyle', 2, 'fyle', 'fyle')).toBeUndefined();
+  it('should flatten the payload', () => {
+    const payload = [
+      {
+        duration: 1
+      },
+      {
+        duration: 2
+      }
+    ];
+    expect((service as any).flattenObject(payload)).toEqual({
+      '0.duration': 1,
+      '1.duration': 2
+    });
   });
 });
