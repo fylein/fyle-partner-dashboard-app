@@ -1,4 +1,4 @@
-<div class="tw-shadow-partner-card">
+<div [ngClass]="showFooterShadow ? 'tw-shadow-partner-card': ''">
     <div [formGroup]="form" class="tw-h-50-px tw-rounded-4-px tw-text-12-px tw-text-slightly-normal-text-color tw-flex tw-justify-between tw-items-center tw-px-16-px tw-pb-12-px tw-pt-10-px">
         <div>
             <span *ngIf="totalPageCount">Page {{ ((offset - 1) / limit) + 1 | number: '1.0-0' }} of {{ totalPageCount | number: '1.0-0' }}</span>

@@ -32,7 +32,7 @@ export type ClientResponse = {
   data: Client[];
 };
 
-export interface ClientCardMap {
+export type ClientCardMap = {
   [ClientRedirectionType.INCOMPLETE_EXPENSES]: 'incomplete_expenses_count',
   [ClientRedirectionType.REPORTS_TO_APPROVE]: 'approval_pending_reports_count',
   [ClientRedirectionType.PENDING_REIMBURSEMENTS]: 'pending_reimbursement_amount',
@@ -42,8 +42,13 @@ export interface ClientCardMap {
   [ClientRedirectionType.FYLE_ADMIN]: 'id'
 }
 
-export interface TableColumn {
+export type TableColumn = {
   field: string;
   header: string
   sort: boolean;
+}
+
+export type PageScroll = {
+  headerShadow: boolean;
+  footerShadow: boolean;
 }

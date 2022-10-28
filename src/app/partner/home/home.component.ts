@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ClientRedirectionType, ClientView } from 'src/app/core/models/enum/enum.model';
-import { Client } from 'src/app/core/models/home/client.model';
+import { Client, PageScroll } from 'src/app/core/models/home/client.model';
 import { Paginator } from 'src/app/core/models/misc/paginator.model';
 import { PaginatorService } from 'src/app/core/services/core/paginator.service';
 import { HomeService } from 'src/app/core/services/home/home.service';
@@ -14,6 +14,10 @@ import { HomeService } from 'src/app/core/services/home/home.service';
 export class HomeComponent implements OnInit {
 
   isLoading: boolean = true;
+
+  showHeaderShadow: boolean;
+
+  showFooterShadow: boolean = true;
 
   isDetailViewActive: boolean = this.homeService.getActiveView() === ClientView.DETAIL ? true : false;
 
@@ -45,15 +49,26 @@ export class HomeComponent implements OnInit {
     private paginatorService: PaginatorService
   ) { }
 
+  pageScrollHandler(pageScroll: PageScroll) {
+    this.showHeaderShadow = pageScroll.headerShadow;
+    this.showFooterShadow = pageScroll.footerShadow;
+  }
+
   clearSearch(): void {
     this.form.reset();
   }
 
   switchView(clientView: ClientView): void {
+    const presentView = this.isDetailViewActive;
     if (clientView === ClientView.DETAIL) {
       this.isDetailViewActive = true;
     } else {
       this.isDetailViewActive = false;
+    }
+
+    if (this.isDetailViewActive !== presentView) {
+      this.showHeaderShadow = false;
+      this.showFooterShadow = true;
     }
 
     this.homeService.storeActiveView(clientView);

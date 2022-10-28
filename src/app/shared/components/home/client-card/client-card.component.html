@@ -1,4 +1,4 @@
-<div class="max-xl:tw-h-62-vh tw-h-68-vh tw-overflow-y-scroll">
+<div class="max-xl:tw-h-62-vh tw-h-68-vh tw-overflow-y-scroll" (scroll)="onWindowScroll($event)">
     <div *ngIf="!isLoading">
         <div *ngFor="let client of clients; let i = index">
             <div class="client-card--client-header-detail">

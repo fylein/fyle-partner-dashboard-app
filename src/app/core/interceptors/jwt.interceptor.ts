@@ -118,7 +118,7 @@ export class JwtInterceptor implements HttpInterceptor {
 
   private handleError(error: HttpErrorResponse): Observable<never> {
     if (error.status === 401) {
-      this.authService.logout();
+      this.authService.logout(true);
       globalCacheBusterNotifier.next();
     }
     return throwError(error);

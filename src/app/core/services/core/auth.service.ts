@@ -25,10 +25,13 @@ export class AuthService {
     return this.userService.getUserProfile() !== null;
   }
 
-  logout(): void {
+  logout(redirect?: boolean): void {
     Sentry.configureScope(scope => scope.setUser(null));
     this.storageService.remove('user');
-    this.router.navigate(['auth/login']);
+
+    if (redirect) {
+      this.router.navigate(['auth/login']);
+    }
   }
 
   login(code: string): Observable<Token> {

@@ -1,4 +1,4 @@
-<div class="tw-ml-24-px tw-w-[97%] max-xl:tw-h-62-vh tw-h-68-vh tw-overflow-y-scroll">
+<div class="tw-ml-24-px tw-w-[97%] max-xl:tw-h-62-vh tw-h-68-vh tw-overflow-y-scroll" (scroll)="onWindowScroll($event)">
     <p-table *ngIf="!isLoading" [columns]="columns" [value]="clients" [scrollable]="true" [rowHover]="true" sortMode="single" sortField="name">
         <ng-template pTemplate="header">
             <tr class="client-table--client-name">

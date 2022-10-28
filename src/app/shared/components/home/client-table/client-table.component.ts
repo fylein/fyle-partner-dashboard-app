@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ClientRedirectionType } from 'src/app/core/models/enum/enum.model';
-import { Client, TableColumn } from 'src/app/core/models/home/client.model';
+import { Client, PageScroll, TableColumn } from 'src/app/core/models/home/client.model';
 import { HomeService } from 'src/app/core/services/home/home.service';
 
 @Component({
@@ -18,6 +18,8 @@ export class ClientTableComponent implements OnInit {
   @Input() form: FormGroup;
 
   @Input() hideLogo: boolean;
+
+  @Output() pageScrollHandler = new EventEmitter<PageScroll>();
 
   ClientRedirectionType = ClientRedirectionType;
 
@@ -66,6 +68,21 @@ export class ClientTableComponent implements OnInit {
   constructor(
     private homeService: HomeService
   ) { }
+
+  onWindowScroll(event: any) {
+    // Make header and footer active incase of scroll
+    this.pageScrollHandler.emit({headerShadow: true, footerShadow: true});
+
+    if (event.target.offsetHeight + event.target.scrollTop >= event.target.scrollHeight) {
+      // Make footer shadow hidden incase the user reaches to the bottom
+      this.pageScrollHandler.emit({headerShadow: true, footerShadow: false});
+    }
+
+    if (event.target.scrollTop === 0) {
+      // Make header shadow hidden incase the user didn't scroll
+      this.pageScrollHandler.emit({headerShadow: false, footerShadow: true});
+    }
+  }
 
   showOrHideViewInFyle(client: Client, isRowHovered: boolean) {
     client.showViewinFyle = isRowHovered;
