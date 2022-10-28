@@ -5,6 +5,7 @@ import { Client, PageScroll } from 'src/app/core/models/home/client.model';
 import { Paginator } from 'src/app/core/models/misc/paginator.model';
 import { PaginatorService } from 'src/app/core/services/core/paginator.service';
 import { HomeService } from 'src/app/core/services/home/home.service';
+import { TrackingService } from 'src/app/core/services/integration/tracking.service';
 
 @Component({
   selector: 'app-home',
@@ -43,10 +44,15 @@ export class HomeComponent implements OnInit {
 
   hideLogo: boolean;
 
+  isSimpleSearchTracked: boolean;
+
+  private sessionStartTime = new Date();
+
   constructor(
     private formBuilder: FormBuilder,
     private homeService: HomeService,
-    private paginatorService: PaginatorService
+    private paginatorService: PaginatorService,
+    private trackingService: TrackingService
   ) { }
 
   pageScrollHandler(pageScroll: PageScroll) {
@@ -69,6 +75,12 @@ export class HomeComponent implements OnInit {
     if (this.isDetailViewActive !== presentView) {
       this.showHeaderShadow = false;
       this.showFooterShadow = true;
+
+      this.trackingService.onSwitchHomeView(clientView);
+
+      const differenceInMs = new Date().getTime() - this.sessionStartTime.getTime();
+      this.trackingService.trackTimeSpent(clientView, {durationInSeconds: Math.floor(differenceInMs / 1000)});
+      this.sessionStartTime = new Date();
     }
 
     this.homeService.storeActiveView(clientView);
@@ -76,6 +88,12 @@ export class HomeComponent implements OnInit {
 
   private setupSearchListener(): void {
     this.form.controls.search.valueChanges.subscribe((searchTerm: string) => {
+
+      if (!this.isSimpleSearchTracked) {
+        this.trackingService.onSimpleSearch(this.homeService.getActiveView());
+        this.isSimpleSearchTracked = true;
+      }
+
       if (searchTerm) {
         this.clients = this.allClients.filter(client => client.name.toLowerCase().includes(searchTerm.toLowerCase()));
       } else {
