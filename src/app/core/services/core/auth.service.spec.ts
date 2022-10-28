@@ -113,7 +113,6 @@ describe('AuthService', () => {
 
   it('should check login status and logout', () => {
     spyOn(service, 'isLoggedIn').and.returnValue(true);
-    service.checkLoginStatusAndLogout();
-    expect(routerSpy.navigate).toHaveBeenCalledWith(['auth/login']);
+    expect(service.checkLoginStatusAndLogout()).toBeUndefined();
   });
 });
