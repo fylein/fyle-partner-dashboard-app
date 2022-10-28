@@ -4,6 +4,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 import { of } from 'rxjs';
 import { ClientView } from 'src/app/core/models/enum/enum.model';
+import { PageScroll } from 'src/app/core/models/home/client.model';
 import { clientOrgResponse, clientOrgResponseWithoutLogo, paginationProperties } from 'src/app/core/services/home/home.fixture';
 import { HomeService } from 'src/app/core/services/home/home.service';
 
@@ -71,5 +72,28 @@ describe('HomeComponent', () => {
     spyOn(homeService, 'getClients').and.returnValue(of(clientOrgResponseWithoutLogo));
     component.setupPage(paginationProperties);
     expect(component.hideLogo).toBeTrue();
+  });
+
+  it('should show/hide header and footer shadow', () => {
+    expect(component.showHeaderShadow).toBeUndefined();
+    expect(component.showFooterShadow).toBeTrue();
+
+    const pageScroll: PageScroll = {
+      headerShadow: true,
+      footerShadow: true
+    };
+
+    component.pageScrollHandler(pageScroll);
+
+    expect(component.showHeaderShadow).toBeTrue();
+  });
+
+  it('should clear search value', () => {
+    component.form.controls.search.setValue('fyl');
+    expect(component.clients.length).toBe(1);
+
+    component.clearSearch();
+
+    expect(component.form.value.search).toBeNull();
   });
 });
