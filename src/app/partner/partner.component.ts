@@ -6,6 +6,7 @@ import { PartnerService } from '../core/services/core/partner.service';
 import { WindowService } from '../core/services/core/window.service';
 import { UserService } from '../core/services/misc/user.service';
 import * as Sentry from '@sentry/angular';
+import { TrackingService } from '../core/services/integration/tracking.service';
 
 @Component({
   selector: 'app-partner',
@@ -23,6 +24,7 @@ export class PartnerComponent implements OnInit {
   constructor(
     private router: Router,
     private partnerService: PartnerService,
+    private trackingService: TrackingService,
     private userService: UserService,
     private windowService: WindowService
   ) {
@@ -38,9 +40,17 @@ export class PartnerComponent implements OnInit {
 
   private getOrCreatePartnerOrg(): Promise<PartnerOrg | undefined> {
     return this.partnerService.getPartnerOrg(this.user?.org_id).toPromise().then(partnerOrg => {
+      if (partnerOrg) {
+        this.trackingService.onSignIn(this.user?.email, partnerOrg.id, partnerOrg.name, partnerOrg.primary_org_id);
+      }
+
       return partnerOrg;
     }, () => {
       return this.partnerService.createPartnerOrg().toPromise().then(partnerOrg => {
+        if (partnerOrg) {
+          this.trackingService.onSignUp(this.user?.email, partnerOrg.id, partnerOrg.name, partnerOrg.primary_org_id);
+        }
+
         return partnerOrg;
       });
     });

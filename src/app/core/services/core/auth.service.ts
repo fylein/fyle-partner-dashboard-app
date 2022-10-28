@@ -7,6 +7,7 @@ import { MinimalUser } from '../../models/db/user.model';
 import { UserService } from '../misc/user.service';
 import { Router } from '@angular/router';
 import * as Sentry from '@sentry/angular';
+import { TrackingService } from '../integration/tracking.service';
 
 
 @Injectable({
@@ -18,6 +19,7 @@ export class AuthService {
     private apiService: ApiService,
     private router: Router,
     private storageService: StorageService,
+    private trackingService: TrackingService,
     private userService: UserService
   ) {}
 
@@ -27,6 +29,7 @@ export class AuthService {
 
   logout(redirect?: boolean): void {
     Sentry.configureScope(scope => scope.setUser(null));
+    this.trackingService.onSignOut();
     this.storageService.remove('user');
 
     if (redirect) {

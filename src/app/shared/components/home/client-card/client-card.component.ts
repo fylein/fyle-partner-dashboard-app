@@ -4,6 +4,7 @@ import { ClientRedirectionType, RedirectLink } from 'src/app/core/models/enum/en
 import { Client, ClientCardMap, PageScroll } from 'src/app/core/models/home/client.model';
 import { WindowService } from 'src/app/core/services/core/window.service';
 import { HomeService } from 'src/app/core/services/home/home.service';
+import { TrackingService } from 'src/app/core/services/integration/tracking.service';
 import { environment } from 'src/environments/environment';
 
 
@@ -42,6 +43,7 @@ export class ClientCardComponent implements OnInit {
 
   constructor(
     private homeService: HomeService,
+    private trackingService: TrackingService,
     private windowService: WindowService
   ) { }
 
@@ -62,10 +64,12 @@ export class ClientCardComponent implements OnInit {
 
   openOrg(org_id: string): void {
     const url = `${environment.fyle_app_url}${RedirectLink.FYLE_ADMIN}?org_id=${org_id}`;
+    this.trackingService.onClickViewEvent(ClientRedirectionType.FYLE_ADMIN);
     this.windowService.openInNewTab(url);
   }
 
   redirect(clientRedirectionType: ClientRedirectionType, org_id: string): void {
+    this.trackingService.onClickViewEvent(clientRedirectionType);
     this.homeService.redirect(clientRedirectionType, org_id);
   }
 

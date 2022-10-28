@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { ClientRedirectionType } from 'src/app/core/models/enum/enum.model';
 import { Client, PageScroll, TableColumn } from 'src/app/core/models/home/client.model';
 import { HomeService } from 'src/app/core/services/home/home.service';
+import { TrackingService } from 'src/app/core/services/integration/tracking.service';
 
 @Component({
   selector: 'app-client-table',
@@ -66,7 +67,8 @@ export class ClientTableComponent implements OnInit {
   readonly currentMonth: string = this.months[new Date().getMonth()];
 
   constructor(
-    private homeService: HomeService
+    private homeService: HomeService,
+    private trackingService: TrackingService
   ) { }
 
   onWindowScroll(event: any) {
@@ -89,7 +91,9 @@ export class ClientTableComponent implements OnInit {
   }
 
   redirect(clientRedirectionType: ClientRedirectionType, org_id: string): void {
+    this.trackingService.onClickViewEvent(clientRedirectionType);
     this.homeService.redirect(clientRedirectionType, org_id);
+    event?.stopPropagation();
   }
 
   ngOnInit(): void {
