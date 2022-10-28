@@ -26,6 +26,8 @@ export class PaginatorComponent implements OnInit, OnChanges {
 
   @Input() totalCount: number;
 
+  @Input() showFooterShadow: boolean;
+
   form: FormGroup = this.formBuilder.group({
     pageLimit: [],
     offset: [],

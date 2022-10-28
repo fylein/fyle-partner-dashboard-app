@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
+import { By } from '@angular/platform-browser';
 import { ClientRedirectionType } from 'src/app/core/models/enum/enum.model';
 import { WindowService } from 'src/app/core/services/core/window.service';
 
@@ -48,5 +49,13 @@ describe('ClientCardComponent', () => {
 
   it('should open respective resource page in Fyle', () => {
     expect(component.redirect(ClientRedirectionType.PENDING_REIMBURSEMENTS, 'dummy_org_id')).toBeUndefined();
+  });
+
+  it('should emit page scroll handler on scroll', () => {
+    spyOn(component.pageScrollHandler, 'emit');
+    const element = fixture.debugElement.query(By.css('div'));
+    element.nativeElement.dispatchEvent(new Event('scroll'));
+
+    expect(component.pageScrollHandler.emit).toHaveBeenCalled();
   });
 });

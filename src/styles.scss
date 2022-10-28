@@ -66,6 +66,10 @@ p {
   @apply tw-text-14-px tw-border-table-header #{!important};
 }
 
+.p-inputtext:enabled:focus {
+  @apply tw-shadow-none tw-border-sub-text-color #{!important};
+}
+
 .p-input-icon-left > i:first-of-type {
   @apply tw-text-faded-icon #{!important};
 }

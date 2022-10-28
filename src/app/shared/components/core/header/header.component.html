@@ -1,30 +1,30 @@
-<div class="tw-h-60-px tw-flex tw-justify-between">
-    <div class="tw-flex tw-flex-row tw-pl-44-px">
-        <img class="tw-pt-20-px" alt="Fyle" src="assets/icons/fyle.svg" width="60px" height="20px"/>
-        <p class="tw-h-32-px tw-mt-14-px tw-ml-16-px tw-mr-14-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
-        <p class="tw-pt-24-px tw-text-20-px">Home</p>
+<div class="tw-h-60-px tw-flex tw-justify-between tw-items-center">
+    <div class="tw-flex tw-pl-44-px">
+        <img alt="Fyle" src="assets/icons/fyle.svg" width="60px" height="20px"/>
+        <p class="tw-h-32-px tw-ml-16-px tw-mr-14-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
+        <p class="tw-text-20-px">Home</p>
     </div>
-    <div class="tw-flex tw-flex-row tw-pr-28-px">
-        <div>
-            <div #helpSection pTooltip="Help & Support" tooltipPosition="bottom" class="tw-mt-12-px hover:tw-bg-section-hover hover:tw-rounded-8-px hover:tw-cursor-pointer tw-h-42-px tw-w-42-px tw-flex tw-flex-col tw-justify-center tw-items-center" (click)="showOrHideHelpDropDown()">
+    <div class="tw-flex tw-pr-28-px tw-justify-between tw-items-center">
+        <div class="">
+            <div #helpSection pTooltip="Help & Support" tooltipPosition="bottom" class="hover:tw-bg-section-hover hover:tw-rounded-8-px hover:tw-cursor-pointer tw-h-42-px tw-w-42-px tw-flex tw-flex-col tw-justify-center tw-items-center" (click)="showOrHideHelpDropDown()">
                 <svg-icon-sprite src="support" width="22px" height="20px" class="tw-text-sub-text-color"></svg-icon-sprite>
             </div>
             <app-help-dropdown *ngIf="showHelpDropDown" #help></app-help-dropdown>
             <app-profile-dropdown [user]="user" *ngIf="showProfileDropDown" #profile></app-profile-dropdown>
         </div>
-        <p class="tw-h-20-px tw-mt-20-px tw-ml-26-px tw-mr-24-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
-        <div class="tw-flex tw-flex-row hover:tw-cursor-pointer" #profileSection (click)="showOrHideProfileDropDown()">
-            <div class="tw-pt-16-px">
+        <p class="tw-h-20-px tw-ml-26-px tw-mr-24-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
+        <div class="tw-flex tw-justify-between tw-items-center hover:tw-cursor-pointer" #profileSection (click)="showOrHideProfileDropDown()">
+            <div>
                 <div class="tw-bg-slightly-normal-text-color tw-rounded-48-px tw-h-30-px tw-w-30-px tw-text-white tw-text-14-px tw-px-10-px tw-py-5-px">
                     {{ user.full_name[0] }}
                 </div>
             </div>
-            <p class="tw-pl-6-px tw-pt-20-px tw-pr-6-px tw-text-sub-text-color" [pTooltip]="user.full_name" [tooltipDisabled]="user.full_name.length > 20 === false" tooltipPosition="bottom">
+            <p class="tw-pl-6-px tw-pr-6-px tw-text-sub-text-color" [pTooltip]="user.full_name" [tooltipDisabled]="user.full_name.length > 20 === false" tooltipPosition="bottom">
                 {{ user.full_name | trimCharacter: 20 }}
             </p>
 
-            <svg-icon-sprite *ngIf="!showProfileDropDown" src="arrow-down" width="16px" height="10px" class="tw-pt-28-px tw-text-sub-text-color"></svg-icon-sprite>
-            <svg-icon-sprite *ngIf="showProfileDropDown" src="arrow-up" width="16px" height="10px" class="tw-pt-28-px tw-text-sub-text-color"></svg-icon-sprite>
+            <svg-icon-sprite *ngIf="!showProfileDropDown" src="arrow-down" width="16px" height="10px" class="tw-text-sub-text-color"></svg-icon-sprite>
+            <svg-icon-sprite *ngIf="showProfileDropDown" src="arrow-up" width="16px" height="10px" class="tw-text-sub-text-color"></svg-icon-sprite>
         </div>
     </div>
 </div>

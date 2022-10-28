@@ -1,6 +1,6 @@
 .client-table {
     &--view-in-fyle {
-        @apply tw-text-table-row-hover tw-pl-16-px tw-cursor-pointer;
+        @apply tw-text-table-row-hover tw-pl-16-px tw-cursor-pointer tw-flex tw-items-center;
     }
 
     &--header {
@@ -12,7 +12,11 @@
     }
 
     &--active-users {
-        @apply tw-min-w-160-px;
+        @apply tw-min-w-160-px tw-flex;
+    }
+
+    &--pending-reimbursements {
+        @apply tw-min-w-250-px;
     }
 
     &--client-name-col {
@@ -21,5 +25,13 @@
 
     &--shimmer-col {
         @apply tw-w-80-px;
+    }
+
+    &--redirection {
+        visibility: hidden;
+    }
+
+    &--row:hover &--redirection {
+        visibility: visible;
     }
 }

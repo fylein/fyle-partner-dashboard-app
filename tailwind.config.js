@@ -18,7 +18,8 @@ const customColors = {
   'client-logo': '#000000',
   'sort-icon': '#343a40',
   'sort-bg': '#f8f9fa',
-  'table-icon-border': '#EAEAEB'
+  'table-icon-border': '#EAEAEB',
+  'open-org': '#252841'
 };
 
 module.exports = {
@@ -145,6 +146,7 @@ module.exports = {
         '30-px': '30px',
         '32-px': '32px',
         '36-px': '36px',
+        '38-px': '38px',
         '40-px': '40px',
         '42-px': '42px',
         '44-px': '44px',
@@ -180,6 +182,7 @@ module.exports = {
         '30-px': '30px',
         '32-px': '32px',
         '36-px': '36px',
+        '38-px': '38px',
         '40-px': '40px',
         '42-px': '42px',
         '46-px': '46px',
@@ -193,6 +196,7 @@ module.exports = {
         '92-px': '92px',
         '100-px': '100px',
         '120-px': '120px',
+        '150-px': '150px',
         '160-px': '160px',
         '200-px': '200px',
         '246-px': '246px',
@@ -204,6 +208,7 @@ module.exports = {
       },
       minWidth: {
         '160-px': '160px',
+        '250-px': '250px',
         '300-px': '300px'
       },
       borderRadius: {
@@ -228,6 +233,7 @@ module.exports = {
       },
       borderColor: {
         'table-header': customColors['table-header'],
+        'sub-text-color': customColors['sub-text-color']
       },
       backgroundImage: {
         'auth-traingle-left': 'linear-gradient(-83.33deg, #e1eeffba 26.8%, #ffe4fbde 97.18%)',
@@ -243,10 +249,18 @@ module.exports = {
         'btn-cta-shadow': '0px 4px 4px rgba(44, 48, 78, 0.1)',
         'partner-card': '0px 2px 10px rgba(44, 48, 78, 0.1)',
         'expense-stat-card': '0px 4px 4px rgba(0, 0, 0, 0.05);',
-        'help-section': '0px 8px 40px rgba(215, 215, 215, 0.73)'
+        'help-section': '0px 8px 40px rgba(215, 215, 215, 0.73)',
+        'client-header': '0px 12px 20px -10px rgba(65, 69, 98, 0.24)'
+      },
+      dropShadow: {
+        'paginator': '0px 2px 10px rgba(44, 48, 78, 0.1)'
       },
       screens: {
         'max-xl': {'max': '1440px'}
+      },
+      spacing: {
+        '12-px': '12px',
+        '14-px': '14px',
       }
     },
   },

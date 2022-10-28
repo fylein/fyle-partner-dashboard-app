@@ -25,7 +25,7 @@ export class FyleCallbackComponent implements OnInit {
     this.messageService.add({
       severity: 'error',
       summary: 'Login Failed',
-      detail: `You don't have administrator access to login, please contact support@fylehq.com if you need further assistance on this`,
+      detail: `You don't have access to this portal, please contact support@fylehq.com if you need further assistance on this`,
       life: 7000
     });
     this.router.navigate(['auth/login']);

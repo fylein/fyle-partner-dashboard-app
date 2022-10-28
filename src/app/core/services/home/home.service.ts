@@ -20,7 +20,8 @@ export class HomeService {
     [ClientRedirectionType.PENDING_REIMBURSEMENTS]: RedirectLink.PENDING_REIMBURSEMENTS,
     [ClientRedirectionType.ACTIVE_USERS]: RedirectLink.ACTIVE_USERS,
     [ClientRedirectionType.TOTAL_USERS]: RedirectLink.TOTAL_USERS,
-    [ClientRedirectionType.PENDING_INVITATION]: RedirectLink.PENDING_INVITATION
+    [ClientRedirectionType.PENDING_INVITATION]: RedirectLink.PENDING_INVITATION,
+    [ClientRedirectionType.FYLE_ADMIN]: RedirectLink.FYLE_ADMIN
   };
 
   constructor(

@@ -29,7 +29,7 @@ export class ProfileDropdownComponent implements OnInit {
   }
 
   logout(): void {
-    this.authService.logout();
+    this.authService.logout(true);
   }
 
   private setupPage(): void {

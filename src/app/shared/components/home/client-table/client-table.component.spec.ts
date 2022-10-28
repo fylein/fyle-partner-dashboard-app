@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
+import { By } from '@angular/platform-browser';
 import { ClientRedirectionType } from 'src/app/core/models/enum/enum.model';
 import { clientOrgResponse } from 'src/app/core/services/home/home.fixture';
 import { HomeService } from 'src/app/core/services/home/home.service';
@@ -53,5 +54,13 @@ describe('ClientTableComponent', () => {
 
   it('should open Fyle url in new tab', () => {
     expect(component.redirect(ClientRedirectionType.INCOMPLETE_EXPENSES, 'dummy_org_id')).toBeUndefined();
+  });
+
+  it('should emit page scroll handler on scroll', () => {
+    spyOn(component.pageScrollHandler, 'emit');
+    const element = fixture.debugElement.query(By.css('div'));
+    element.nativeElement.dispatchEvent(new Event('scroll'));
+
+    expect(component.pageScrollHandler.emit).toHaveBeenCalled();
   });
 });

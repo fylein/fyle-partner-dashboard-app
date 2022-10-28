@@ -20,7 +20,8 @@ export enum ClientRedirectionType {
     PENDING_REIMBURSEMENTS = 'Pending Reimbursements',
     ACTIVE_USERS = 'Active Users',
     TOTAL_USERS = 'Total Users ',
-    PENDING_INVITATION = 'Pending Invitation'
+    PENDING_INVITATION = 'Pending Invitation',
+    FYLE_ADMIN = 'Fyle Admin'
 }
 
 export enum PageNavigation {
