@@ -54,7 +54,7 @@ describe('ClientCardComponent', () => {
   it('should emit page scroll handler on scroll', () => {
     spyOn(component.pageScrollHandler, 'emit');
     const element = fixture.debugElement.query(By.css('div'));
-    element.nativeElement.dispatchEvent(new Event('scroll'))
+    element.nativeElement.dispatchEvent(new Event('scroll'));
 
     expect(component.pageScrollHandler.emit).toHaveBeenCalled();
   });
