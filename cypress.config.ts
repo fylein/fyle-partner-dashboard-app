@@ -3,7 +3,7 @@ import environment from 'src/environments/environment.json';
 
 export default defineConfig({
   e2e: {
-    projectId: 'ixtuem',
+    projectId: '1umbvb',
     baseUrl: environment.app_url,
     setupNodeEvents(on, config) {
       //
