@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Cacheable } from 'ts-cacheable';
-import { ClientRedirectionType, ClientView, RedirectLink } from '../../models/enum/enum.model.ts';
+import { ClientRedirectionType, ClientView, RedirectLink } from '../../models/enum/enum.model';
 import { ClientResponse } from '../../models/home/client.model';
 import { Paginator } from '../../models/misc/paginator.model';
 import { ApiService } from '../core/api.service';
