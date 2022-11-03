@@ -1,4 +1,4 @@
-import { ClientRedirectionType } from "../enum/enum.model";
+import { ClientRedirectionType } from "../enum/enum.model.ts";
 
 export type ClientLogo = {
   content_type: string;

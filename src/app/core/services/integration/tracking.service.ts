@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ClientRedirectionType, ClientView } from '../../models/enum/enum.model';
+import { ClientRedirectionType, ClientView } from '../../models/enum/enum.model.ts';
 import { TimeTakenAdditionalProperty } from '../../models/misc/tracking.model';
 
 @Injectable({
