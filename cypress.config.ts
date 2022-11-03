@@ -6,7 +6,8 @@ export default defineConfig({
     projectId: '1umbvb',
     baseUrl: environment.app_url,
     setupNodeEvents(on, config) {
-      //
+      require('@cypress/code-coverage/task')(on, config)
+      return config
     },
   },
 });

@@ -46,18 +46,29 @@
     "@angular-eslint/eslint-plugin-template": "14.0.4",
     "@angular-eslint/schematics": "14.0.4",
     "@angular-eslint/template-parser": "14.0.4",
+    "@cypress/code-coverage": "^3.10.0",
     "@types/jasmine": "~4.0.0",
     "@typescript-eslint/eslint-plugin": "5.36.2",
     "@typescript-eslint/parser": "5.36.2",
     "autoprefixer": "^10.4.12",
     "eslint": "^8.23.0",
+    "istanbul-instrumenter-loader": "^3.0.1",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "ngx-build-plus": "^13.0.0",
     "postcss": "^8.4.16",
     "svg2sprite-cli": "^2.0.1"
+  },
+  "nyc": {
+    "report-dir": "cypress/coverage",
+    "reporter": [
+      "text-summary",
+      "html",
+      "json-summary"
+    ]
   }
 }
