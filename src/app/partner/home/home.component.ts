@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ClientRedirectionType, ClientView } from 'src/app/core/models/enum/enum.model';
 import { Client, PageScroll } from 'src/app/core/models/home/client.model';
 import { Paginator } from 'src/app/core/models/misc/paginator.model';
+import { ApiService } from 'src/app/core/services/core/api.service';
 import { PaginatorService } from 'src/app/core/services/core/paginator.service';
 import { HomeService } from 'src/app/core/services/home/home.service';
 import { TrackingService } from 'src/app/core/services/integration/tracking.service';
@@ -49,6 +50,7 @@ export class HomeComponent implements OnInit {
   private sessionStartTime = new Date();
 
   constructor(
+    private apiService: ApiService,
     private formBuilder: FormBuilder,
     private homeService: HomeService,
     private paginatorService: PaginatorService,
@@ -62,6 +64,10 @@ export class HomeComponent implements OnInit {
 
   clearSearch(): void {
     this.form.reset();
+  }
+
+  pos() {
+    this.apiService.postEvent();
   }
 
   switchView(clientView: ClientView): void {

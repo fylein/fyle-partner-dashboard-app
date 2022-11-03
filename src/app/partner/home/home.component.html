@@ -7,7 +7,7 @@
                 <div class="tw-flex tw-justify-between">
                     <div class="tw-flex tw-items-center tw-pt-24-px">
                         <div class="tw-pr-14-px tw-pl-24-px tw-text-20-px tw-font-500">
-                            <p *ngIf="!isLoading">
+                            <p *ngIf="!isLoading" (click)="pos()">
                                 My Clients ({{ clientsCount }})
                             </p>
                             <div *ngIf="isLoading" class="tw-flex">

@@ -25,6 +25,25 @@ export class ApiService {
     private http: HttpClient
   ) { }
 
+  receiveEvents(): void {
+    window.addEventListener(
+      'message',
+      (message) => {
+        // TODO: have additional checks, message.origin === 'fyle'
+        if (message.data) {
+          console.log('received message from fylee', message.data)
+        }
+      },
+      false
+    );
+  }
+
+  postEvent() {
+    console.log('sending to ffyyyy')
+    // TODO: send to fyle app only, and not *
+    window.parent.postMessage({ hehe: true }, '*');
+  }
+
   private handleError(error: HttpErrorResponse, httpMethod: string) {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);
