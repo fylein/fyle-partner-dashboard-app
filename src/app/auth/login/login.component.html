@@ -6,16 +6,16 @@
         </div>
         <div class="tw-bg-white tw-rounded-8-px">
             <div class="tw-p-40-px">
-                <p class="tw-flex tw-justify-center tw-pb-8-px tw-font-700 tw-text-24-px">
+                <p class="tw-flex tw-justify-center tw-pb-8-px tw-font-700 tw-text-24-px" data-cy="head-text">
                     Partner's Portal
                 </p>
-                <p class="tw-flex tw-justify-center tw-text-sub-text-color tw-pb-24-px">
+                <p class="tw-flex tw-justify-center tw-text-sub-text-color tw-pb-24-px" data-cy="login-text">
                     Login to your account
                 </p>
                 <div class="tw-flex tw-justify-center tw-pb-24-px">
                     <img src="assets/illustrations/login.svg" />
                 </div>
-                <button pButton type="button" class="p-button-raised" (click)="redirectToFyleOAuth()">
+                <button pButton type="button" class="p-button-raised" (click)="redirectToFyleOAuth()" data-cy="submit">
                     Signin With Fyle
                 </button>
             </div>
