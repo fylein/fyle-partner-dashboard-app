@@ -6,13 +6,18 @@ declare global {
   namespace Cypress {
     interface Chainable {
       login(): void;
-      getElement(check1: string, check2:string): void;
+      getElement(attributeName: string): void;
+      assertText(attributeName: string, text: string): void;
     }
   }
 }
 
-Cypress.Commands.add('getElement', (check1:string,check2:string) => {
-  cy.get(check1).should('include.text', check2)
+Cypress.Commands.add('assertText', (attributeName: string, text: string) => {
+  cy.getElement(attributeName).should('include.text', text)
+})
+
+Cypress.Commands.add('getElement', (attributeName: string) => {
+  return cy.get(`[data-cy=${attributeName}]`);
 })
 
 Cypress.Commands.add('login', () => {
