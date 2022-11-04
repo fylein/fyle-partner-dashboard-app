@@ -33,7 +33,7 @@ jobs:
         run: npm install --prefix cypress
       - name: Prepare for end to end tests
         if: steps.filter.outputs.src == 'true'
-        run: npm run setup_env
+        run: npm run setup:env
       - name: Cypress run
         if: steps.filter.outputs.src == 'true'
         uses: cypress-io/github-action@v4
