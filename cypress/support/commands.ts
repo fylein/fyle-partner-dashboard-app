@@ -27,8 +27,8 @@ Cypress.Commands.add('login', () => {
     org_id: environment.e2e_tests.org_id,
     org_name: 'XYZ Org'
   };
-  window.localStorage.setItem('user', JSON.stringify(user))
-  window.localStorage.setItem('workspaceId', environment.e2e_tests.workspace_id)
+  // window.localStorage.setItem('user', JSON.stringify(user))
+  // window.localStorage.setItem('workspaceId', environment.e2e_tests.workspace_id)
 
   // cy.login() will be used in all tests, hence adding http listener here
 })
