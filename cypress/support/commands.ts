@@ -6,16 +6,14 @@ declare global {
   namespace Cypress {
     interface Chainable {
       login(): void;
+      getElement(check1: string, check2:string): void;
     }
   }
 }
 
-function setupInterceptor(method: 'GET' | 'POST', url: string, alias: string) {
-  cy.intercept({
-    method: method,
-    url: `**${url}**`,
-  }).as(alias);
-}
+Cypress.Commands.add('getElement', (check1:string,check2:string) => {
+  cy.get(check1).should('include.text', check2)
+})
 
 Cypress.Commands.add('login', () => {
   const user = {
@@ -27,8 +25,4 @@ Cypress.Commands.add('login', () => {
     org_id: environment.e2e_tests.org_id,
     org_name: 'XYZ Org'
   };
-  // window.localStorage.setItem('user', JSON.stringify(user))
-  // window.localStorage.setItem('workspaceId', environment.e2e_tests.workspace_id)
-
-  // cy.login() will be used in all tests, hence adding http listener here
 })
