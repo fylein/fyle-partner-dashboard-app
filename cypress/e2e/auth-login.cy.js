@@ -8,7 +8,6 @@ describe('auth login', () => {
     cy.url().should('include', '/auth/login')
     cy.getElement('[data-cy=heading]',"Partner's Portal")
     cy.getElement('[data-cy=subheading]', "Login to your account")
-    cy.get('[data-cy="submit"]').click()
+    cy.getElement('[data-cy=submit]', "Signin With Fyle")
   })
-
 })
