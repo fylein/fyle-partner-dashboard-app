@@ -6,7 +6,7 @@ declare global {
   namespace Cypress {
     interface Chainable {
       login(): void;
-      getElement(attributeName: string): void;
+      getElement(attributeName: string): Cypress.Chainable<JQuery<HTMLElement>>;
       assertText(attributeName: string, text: string): void;
     }
   }
