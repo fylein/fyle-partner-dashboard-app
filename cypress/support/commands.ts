@@ -10,7 +10,6 @@ declare global {
       assertText(attributeName: string, text: string): void;
       onClick(attributeName: string): void;
       assertImage(attributeName: string): void;
-      
     }
   }
 }
@@ -43,7 +42,4 @@ Cypress.Commands.add('login', () => {
     org_name:"Fyle For Arkham Asylum"
   };
   window.localStorage.setItem('user', JSON.stringify(user))
-
-
 })
-
