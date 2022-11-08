@@ -34,7 +34,6 @@ Cypress.Commands.add('assertImage', (attributeName: string) => {
 Cypress.Commands.add('login', () => {
   const user = {
     email: 'ashwin.t@fyle.in',
-    access_token:environment.e2e_tests.access_token,
     refresh_token:environment.e2e_tests.refresh_token,
     expires_in: 3600,
     full_name: "Ashwin",
