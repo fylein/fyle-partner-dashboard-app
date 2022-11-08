@@ -9,6 +9,11 @@ const environment = {
   app_url: `${process.env.APP_URL ? process.env.APP_URL : '{{APP_URL}}'}`,
   sentry_dsn: `${process.env.SENTRY_DSN ? process.env.SENTRY_DSN : '{{SENTRY_DSN}}'}`,
   sentry_env: `${process.env.SENTRY_ENV ? process.env.SENTRY_ENV : '{{SENTRY_ENV}}'}`,
+  e2e_tests: {
+    env: `${process.env.E2E_TESTS_ENV ? process.env.E2E_TESTS_ENV : '{{E2E_TESTS_ENV}}'}`,
+    refresh_token: `${process.env.E2E_TESTS_REFRESH_TOKEN ? process.env.E2E_TESTS_REFRESH_TOKEN : '{{E2E_TESTS_REFRESH_TOKEN}}'}`,
+    org_id: `${process.env.E2E_TESTS_ORG_ID ? process.env.E2E_TESTS_ORG_ID : '{{E2E_TESTS_ORG_ID}}'}`,
+    }
 };
 
 const targetPath = './src/environments/environment.json';

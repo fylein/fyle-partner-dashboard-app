@@ -23,11 +23,13 @@ Cypress.Commands.add('getElement', (attributeName: string) => {
 Cypress.Commands.add('login', () => {
   const user = {
     email: 'ashwin.t@fyle.in',
-    access_token: environment.e2e_tests.access_token,
-    refresh_token: environment.e2e_tests.refresh_token,
-    full_name: 'Ashwin',
-    user_id: 'xyz',
-    org_id: environment.e2e_tests.org_id,
-    org_name: 'XYZ Org'
+    refresh_token:environment.e2e_tests.refresh_token,
+    expires_in: 3600,
+    full_name: "Ashwin",
+    user_id: "xyz",
+    org_id:environment.e2e_tests.org_id,
+    env:environment.e2e_tests.env,
+    org_name: "XYZ Org"
   };
+  window.localStorage.setItem('user', JSON.stringify(user))
 })
