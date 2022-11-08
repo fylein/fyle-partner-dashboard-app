@@ -39,6 +39,7 @@ Cypress.Commands.add('login', () => {
     full_name: "Ashwin",
     user_id: "xyz",
     org_id:environment.e2e_tests.org_id,
+    env:environment.e2e_tests.env,
     org_name: "XYZ Org"
   };
   window.localStorage.setItem('user', JSON.stringify(user))
