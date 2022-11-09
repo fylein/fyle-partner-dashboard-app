@@ -3,7 +3,6 @@
 describe('simple search', () => {
   beforeEach(() => {
     cy.login()
-    cy.intercept('**/api/partner/orgs/**').as('OrgDetails')
     cy.visit('/')
   })
   

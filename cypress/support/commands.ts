@@ -8,9 +8,22 @@ declare global {
       login(): void;
       getElement(attributeName: string): Cypress.Chainable<JQuery<HTMLElement>>;
       assertText(attributeName: string, text: string): void;
+      setupHttpListeners(): void;
     }
   }
 }
+
+function setupInterceptor(method: 'GET' | 'POST', url: string, alias: string) {
+  cy.intercept({
+    method: method,
+    url: `**${url}**`,
+  }).as(alias);
+}
+Cypress.Commands.add('setupHttpListeners', () => {
+  // This helps cypress to wait for the http requests to complete with 200, regardless of the defaultCommandTimeout (10s)
+  // Usage: cy.wait('@getDestinationAttributes').its('response.statusCode').should('equal', 200)
+  setupInterceptor('GET', '/api/partner/orgs/', 'OrgDetails');
+});
 
 Cypress.Commands.add('assertText', (attributeName: string, text: string) => {
   cy.getElement(attributeName).should('include.text', text)
@@ -32,4 +45,5 @@ Cypress.Commands.add('login', () => {
     org_name: "XYZ Org"
   };
   window.localStorage.setItem('user', JSON.stringify(user))
+  cy.setupHttpListeners();
 })
