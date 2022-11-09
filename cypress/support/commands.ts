@@ -21,7 +21,6 @@ function setupInterceptor(method: 'GET' | 'POST', url: string, alias: string) {
 }
 Cypress.Commands.add('setupHttpListeners', () => {
   // This helps cypress to wait for the http requests to complete with 200, regardless of the defaultCommandTimeout (10s)
-  // Usage: cy.wait('@getDestinationAttributes').its('response.statusCode').should('equal', 200)
   setupInterceptor('GET', '/api/partner/orgs/', 'OrgDetails');
 });
 
