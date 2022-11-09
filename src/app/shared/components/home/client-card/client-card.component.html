@@ -30,10 +30,10 @@
                 </div>
             </div>
 
-            <div class="client-card--stat-section">
+            <div class="client-card--stat-section" data-cy="client-card-rows">
                 <div *ngFor="let clientRedirectionType of clientRedirectionTypes; let i = index;"
                     class="hover:tw-bg-card-hover hover:tw-cursor-pointer client-card--stat-card"
-                    (click)="redirect(clientRedirectionType, client.id)">
+                    (click)="redirect(clientRedirectionType, client.id)" data-cy="client-card">
                     <p class="client-card--resource-name">
                         {{ clientRedirectionType === ClientRedirectionType.PENDING_REIMBURSEMENTS ? (client[clientCardMap[clientRedirectionType]] | currency: client.currency) : client[clientCardMap[clientRedirectionType]] }}
                     </p>
