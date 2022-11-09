@@ -19,6 +19,7 @@ function setupInterceptor(method: 'GET' | 'POST', url: string, alias: string) {
     url: `**${url}**`,
   }).as(alias);
 }
+
 Cypress.Commands.add('setupHttpListeners', () => {
   // This helps cypress to wait for the http requests to complete with 200, regardless of the defaultCommandTimeout (10s)
   setupInterceptor('GET', '/api/partner/orgs/', 'OrgDetails');
