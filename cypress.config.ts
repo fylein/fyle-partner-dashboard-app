@@ -10,4 +10,6 @@ export default defineConfig({
       return config
     },
   },
-});
+  defaultCommandTimeout: environment.e2e_tests.env !== 'staging' ? 15000 : 30000,
+  requestTimeout: environment.e2e_tests.env !== 'staging' ? 15000 : 30000
+}); 
