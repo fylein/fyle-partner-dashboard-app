@@ -24,7 +24,7 @@
                 </div>
 
                 <input (input)="manualPageChangeHandler()" type="text" formControlName="page" 
-                    class="!tw-pl-9-px !tw-pt-0 !tw-pr-0 !tw-pb-0 p-inputtext p-component p-element ng-valid ng-touched ng-dirty !tw-text-12-px !tw-w-32-px tw-h-32-px !tw-rounded-0-px !tw-border-1-px !tw-border-table-header !tw-border-r-0" pInputText>
+                    class="!tw-pl-9-px !tw-pt-0 !tw-pr-0 !tw-pb-0 p-inputtext p-component p-element ng-valid ng-touched ng-dirty !tw-text-12-px !tw-w-32-px tw-h-32-px !tw-rounded-0-px !tw-border-1-px !tw-border-table-header !tw-border-r-0" pInputText data-cy="page-number">
 
                 <div (click)="onPageChangeHandler(PageNavigation.FORWARD)" class="paginator--control paginator--center tw-border-r-0" data-cy="right-button">
                     <svg-icon-sprite width="24px" height="24px" src="arrow-right" [ngClass]="form.value.page >= totalPageCount ? 'tw-text-faded-icon' : 'tw-text-sub-text-color'">
