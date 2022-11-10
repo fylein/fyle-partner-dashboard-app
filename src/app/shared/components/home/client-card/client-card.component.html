@@ -34,7 +34,7 @@
                 <div *ngFor="let clientRedirectionType of clientRedirectionTypes; let i = index;"
                     class="hover:tw-bg-card-hover hover:tw-cursor-pointer client-card--stat-card"
                     (click)="redirect(clientRedirectionType, client.id)" data-cy="client-card">
-                    <p class="client-card--resource-name">
+                    <p class="client-card--resource-name" data-cy="card-data">
                         {{ clientRedirectionType === ClientRedirectionType.PENDING_REIMBURSEMENTS ? (client[clientCardMap[clientRedirectionType]] | currency: client.currency) : client[clientCardMap[clientRedirectionType]] }}
                     </p>
                     <p class="client-card--resource-divider"></p>
