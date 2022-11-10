@@ -42,7 +42,7 @@ describe('ClientTableComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
+
   it('should open org in Fyle', () => {
     expect(component.openOrg('dummy_org_id')).toBeUndefined();
   });
