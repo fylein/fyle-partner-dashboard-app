@@ -45,7 +45,9 @@
                         <svg-icon-sprite src="client" width="20px" height="20px" class="tw-text-sub-text-color">
                         </svg-icon-sprite>
                     </div>
-                    {{ client.name }}
+                    <p class="tw-font-500 tw-pb-4-px hover:tw-text-partner-hover tw-cursor-pointer" (click)="openOrg(client.id)">
+                        {{ client.name }}
+                    </p>
                 </td>
                 <td class="client-table--active-users">
                     {{ client.billed_users_count }}
