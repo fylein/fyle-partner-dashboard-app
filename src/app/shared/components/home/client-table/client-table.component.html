@@ -54,16 +54,16 @@
                 </td>
                 <td class="client-table--row">
                     {{ client.enabled_users_count === 0 ? '-' : client.enabled_users_count }}
-                    <a class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.TOTAL_USERS, client.id)">
-                        View
-                        <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
-                        <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer">
-                        </svg-icon-sprite>
-                    </a>
+                        <a *ngIf="client.enabled_users_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.TOTAL_USERS, client.id)">
+                            View
+                            <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
+                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer">
+                            </svg-icon-sprite>
+                         </a>
                 </td>
                 <td class="client-table--row">
                     {{ client.pending_users_count === 0 ? '-' : client.pending_users_count }}
-                    <a class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.PENDING_INVITATION, client.id)">
+                    <a *ngIf="client.pending_users_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.PENDING_INVITATION, client.id)">
                         View
                         <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
                         <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer">
@@ -72,7 +72,7 @@
                 </td>
                 <td class="client-table--row">
                     {{ client.incomplete_expenses_count === 0 ? '-' : client.incomplete_expenses_count }}
-                    <a class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.INCOMPLETE_EXPENSES, client.id)">
+                    <a *ngIf="client.incomplete_expenses_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.INCOMPLETE_EXPENSES, client.id)">
                         View
                         <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
                         <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer">
@@ -81,7 +81,7 @@
                 </td>
                 <td class="client-table--row">
                     {{ client.approval_pending_reports_count === 0 ? '-' : client.approval_pending_reports_count }}
-                    <a class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.REPORTS_TO_APPROVE, client.id)">
+                    <a *ngIf="client.approval_pending_reports_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.REPORTS_TO_APPROVE, client.id)">
                         View
                         <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
                         <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer">
