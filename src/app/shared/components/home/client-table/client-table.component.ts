@@ -1,9 +1,11 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ClientRedirectionType } from 'src/app/core/models/enum/enum.model';
+import { ClientRedirectionType, RedirectLink } from 'src/app/core/models/enum/enum.model';
 import { Client, PageScroll, TableColumn } from 'src/app/core/models/home/client.model';
 import { HomeService } from 'src/app/core/services/home/home.service';
 import { TrackingService } from 'src/app/core/services/integration/tracking.service';
+import { environment } from 'src/environments/environment';
+import { WindowService } from 'src/app/core/services/core/window.service';
 
 @Component({
   selector: 'app-client-table',
@@ -68,7 +70,8 @@ export class ClientTableComponent implements OnInit {
 
   constructor(
     private homeService: HomeService,
-    private trackingService: TrackingService
+    private trackingService: TrackingService,
+    private windowService: WindowService
   ) { }
 
   onWindowScroll(event: any) {
@@ -88,6 +91,12 @@ export class ClientTableComponent implements OnInit {
 
   showOrHideViewInFyle(client: Client, isRowHovered: boolean) {
     client.showViewinFyle = isRowHovered;
+  }
+
+  openOrg(org_id: string): void {
+    const url = `${environment.fyle_app_url}${RedirectLink.FYLE_ADMIN}?org_id=${org_id}`;
+    this.trackingService.onClickViewEvent(ClientRedirectionType.FYLE_ADMIN);
+    this.windowService.openInNewTab(url);
   }
 
   redirect(clientRedirectionType: ClientRedirectionType, org_id: string): void {
