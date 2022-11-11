@@ -43,10 +43,6 @@ describe('ClientTableComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should open org in Fyle', () => {
-    expect(component.openOrg('dummy_org_id')).toBeUndefined();
-  });
-
   it('should show/hide View button for table rows', () => {
     const client = clientOrgResponse.data[0];
     expect(component.showOrHideViewInFyle(client, true));
