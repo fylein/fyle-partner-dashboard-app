@@ -50,10 +50,10 @@
                     </p>
                 </td>
                 <td class="client-table--active-users">
-                    {{ client.billed_users_count===0 ? '-' : client.billed_users_count }}
+                    {{ client.billed_users_count === 0 ? '-' : client.billed_users_count }}
                 </td>
                 <td class="client-table--row">
-                    {{ client.enabled_users_count===0 ? '-' : client.enabled_users_count }}
+                    {{ client.enabled_users_count === 0 ? '-' : client.enabled_users_count }}
                     <a class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.TOTAL_USERS, client.id)">
                         View
                         <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
@@ -62,7 +62,7 @@
                     </a>
                 </td>
                 <td class="client-table--row">
-                    {{ client.pending_users_count===0 ? '-' : client.pending_users_count }}
+                    {{ client.pending_users_count === 0 ? '-' : client.pending_users_count }}
                     <a class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.PENDING_INVITATION, client.id)">
                         View
                         <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
@@ -71,7 +71,7 @@
                     </a>
                 </td>
                 <td class="client-table--row">
-                    {{ client.incomplete_expenses_count===0 ? '-' : client.incomplete_expenses_count }}
+                    {{ client.incomplete_expenses_count === 0 ? '-' : client.incomplete_expenses_count }}
                     <a class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.INCOMPLETE_EXPENSES, client.id)">
                         View
                         <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
@@ -80,7 +80,7 @@
                     </a>
                 </td>
                 <td class="client-table--row">
-                    {{ client.approval_pending_reports_count===0 ? '-' : client.approval_pending_reports_count }}
+                    {{ client.approval_pending_reports_count === 0 ? '-' : client.approval_pending_reports_count }}
                     <a class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.REPORTS_TO_APPROVE, client.id)">
                         View
                         <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
