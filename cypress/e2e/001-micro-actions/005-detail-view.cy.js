@@ -10,6 +10,9 @@ describe('detail-view', () => {
     cy.wait('@OrgDetails').its('response.statusCode').should('equal', 200)
     cy.getElement('detail-view-tab').click()
     cy.getElement('search-input-area').type('multi')
-    cy.getElement('card-data')
+    cy.getElement('client-name')
+    cy.getElement('active-user-text')
+    cy.getElement('total-users-text')
+    
   })
 })

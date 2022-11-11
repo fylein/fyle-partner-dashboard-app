@@ -10,18 +10,18 @@
                     </div>
                     <img *ngIf="client.logo_file_id" [src]="client.logo_file?.download_url" width="45px" height="45px">
                     <div class="client-card--client-header-detail-section">
-                        <p class="tw-font-500 tw-pb-4-px hover:tw-text-partner-hover tw-cursor-pointer" (click)="openOrg(client.id)">
+                        <p class="tw-font-500 tw-pb-4-px hover:tw-text-partner-hover tw-cursor-pointer" (click)="openOrg(client.id)" data-cy="client-name">
                             {{ client.name }}
                         </p>
                         <div class="tw-flex tw-text-sub-text-color">
-                            <p class="tw-text-14-px">Active Users: <span class="tw-text-16-px tw-text-normal-text-color tw-font-500">
+                            <p class="tw-text-14-px" data-cy="active-user-text">Active Users: <span class="tw-text-16-px tw-text-normal-text-color tw-font-500">
                                 {{ client.billed_users_count }}
                             </span></p>
                             <svg-icon-sprite pTooltip="Active users of {{ currentMonth }}" tooltipPosition="bottom" src="info"
                                 width="16px" height="16px"
                                 class="tw-text-faded-icon tw-mt-4-px tw-ml-4-px tw-mr-12-px hover:tw-text-table-row-hover"></svg-icon-sprite>
                             <p class="tw-mt-[-4px]">.</p>
-                            <p class="tw-text-14-px client-card--client-header-detail-section">Total Users: <span class="tw-text-16-px tw-text-normal-text-color tw-font-500">
+                            <p class="tw-text-14-px client-card--client-header-detail-section" data-cy="total-users-text">Total Users: <span class="tw-text-16-px tw-text-normal-text-color tw-font-500">
                                 {{ client.enabled_users_count }}
                             </span>
                             </p>
