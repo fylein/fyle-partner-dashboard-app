@@ -21,7 +21,6 @@ import { InputTextModule } from 'primeng/inputtext';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { GlobalErrorHandler } from './app.error-handling';
 
-
 @NgModule({
   declarations: [
     AppComponent
