@@ -60,7 +60,8 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "postcss": "^8.4.16",
-    "svg2sprite-cli": "^2.0.1"
+    "svg2sprite-cli": "^2.0.1",
+    "webpack": "^5.75.0"
   },
   "nyc": {
     "report-dir": "cypress/coverage",
