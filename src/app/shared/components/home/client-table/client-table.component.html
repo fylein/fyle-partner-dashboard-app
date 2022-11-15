@@ -1,7 +1,7 @@
 <div class="tw-ml-24-px tw-w-[97%] max-xl:tw-h-62-vh tw-h-68-vh tw-overflow-y-scroll" (scroll)="onWindowScroll($event)">
     <p-table *ngIf="!isLoading" [columns]="columns" [value]="clients" [scrollable]="true" [rowHover]="true" sortMode="single" sortField="name">
         <ng-template pTemplate="header">
-            <tr class="client-table--client-name">
+            <tr class="client-table--client-name" data-cy="data-row-head">
                 <th pSortableColumn="name" class="client-table--client-name-col">
                     Client Name
                     <p-sortIcon field="name"></p-sortIcon>
@@ -38,7 +38,7 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-client>
-            <tr>
+            <tr data-cy="row-data">
                 <td class="client-table--client-name-col">
                     <img *ngIf="!hideLogo && client.logo_file_id" [src]="client.logo_file.download_url" width="46px" height="46px" class="tw-mr-26-px" />
                     <div *ngIf="!hideLogo && !client.logo_file_id" class="tw-p-14-px tw-bg-icon-background tw-rounded-4-px tw-mr-26-px">
@@ -116,7 +116,7 @@
                     <p-sortIcon field="name"></p-sortIcon>
                 </th>
                 <th pSortableColumn="billed_users_count" class="client-table--header client-table--active-users">
-                    <p class="tw-flex">
+                    <p class="tw-flex" data-cy="active-users-text">
                         <span class="tw-pr-10-px">Active Users</span>
                         <svg-icon-sprite pTooltip="Active users of {{ currentMonth }}" tooltipPosition="bottom" src="info"
                             width="16px" height="16px"
