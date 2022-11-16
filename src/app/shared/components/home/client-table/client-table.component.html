@@ -54,10 +54,10 @@
                 </td>
                 <td class="client-table--row">
                     {{ client.enabled_users_count === 0 ? '-' : client.enabled_users_count }}
-                    <a *ngIf="client.enabled_users_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.TOTAL_USERS, client.id)" data-cy="view-hover-total-users">
+                    <a *ngIf="client.enabled_users_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.TOTAL_USERS, client.id)" data-cy="view-hover-total-user">
                         View
                         <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
-                        <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-total-users">
+                        <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-total-user">
                         </svg-icon-sprite>
                     </a>
                 </td>

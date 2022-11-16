@@ -35,8 +35,8 @@ describe('table view', () => {
     //CheckDecreasing
     cy.getElement('total-users-text').click()
     //CheckIncreasing
-    cy.getElement('view-hover-total-users')
-    cy.getElement('view-svg-total-users')
+    cy.getElement('view-hover-total-user')
+    cy.getElement('view-svg-total-user')
     cy.assertText('pending-invitation-text','Pending Invitation').click()
     cy.getElement('sort-icon-pending-invitation')
     //CheckDecreasing
