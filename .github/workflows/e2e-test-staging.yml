@@ -10,6 +10,9 @@ jobs:
   end-to-end-test:
     if: (github.event_name == 'pull_request_review' && github.event.review.state == 'approved') || (github.event_name == 'pull_request' && github.event.action == 'labeled' && github.event.label.name == 'run e2e tests')
     runs-on: macos-latest
+    strategy:
+     matrix:
+      job: [0, 1, 2, 3]
     environment: End to End Test - Staging
     steps:
       - id: skip_check
