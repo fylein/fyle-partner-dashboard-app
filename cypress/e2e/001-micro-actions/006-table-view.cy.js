@@ -35,25 +35,36 @@ describe('table view', () => {
     //CheckDecreasing
     cy.getElement('total-users-text').click()
     //CheckIncreasing
+    cy.getElement('view-hover-total-users')
+    cy.getElement('view-svg-total-users')
     cy.assertText('pending-invitation-text','Pending Invitation').click()
     cy.getElement('sort-icon-pending-invitation')
     //CheckDecreasing
     cy.getElement('pending-invitation-text').click()
     //CheckIncreasing
+    cy.getElement('view-hover-pending-invitation')
+    cy.getElement('view-svg-pending-invitation')
     cy.assertText('incomplete-expenses-text','Incomplete Expenses').click()
     cy.getElement('sort-icon-incomplete-expenses')
     //CheckDecreasing
     cy.getElement('incomplete-expenses-text').click()
     //CheckIncreasing
+    cy.getElement('view-hover-incomplete-expenses')
+    cy.getElement('view-svg-incomplete-expenses')
     cy.assertText('reports-to-approve-text','Reports to Approve').click()
     cy.getElement('sort-icon-reports-to-approve')
     //CheckDecreasing
     cy.getElement('reports-to-approve-text').click()
     //CheckIncreasing
+    cy.getElement('view-hover-pending-reports')
+    cy.getElement('view-svg-pending-reports')
     cy.assertText('pending-reimbursements-text','Pending Reimbursements').click()
     cy.getElement('sort-icon-pending-reimbursements')
     //CheckDecreasing
     cy.getElement('pending-reimbursements-text').click()
     //CheckIncreasing
+    cy.getElement('view-hover-pending-reimbursements')
+    cy.getElement('view-svg-pending-reimbursements')
+    
   })
 })
