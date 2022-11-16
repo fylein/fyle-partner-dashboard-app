@@ -43,6 +43,7 @@ jobs:
         with:
           record: true
           parallel: true
+          group: 'E2E Test Group'
           browser: chrome
           tag: ${{ secrets.E2E_TESTS_ENV }}
       - name: 'Upload screenshots and videos to Slack'
