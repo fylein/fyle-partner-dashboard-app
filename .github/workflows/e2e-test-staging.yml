@@ -22,12 +22,19 @@ jobs:
           concurrent_skipping: 'always'
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.18
       - uses: dorny/paths-filter@v2
         id: filter
         with:
           filters: |
             src:
               - 'src/**'
+      - name: Install dependencies
+        if: steps.filter.outputs.src == 'true'
+        run: npm install --prefix cypress
       - name: Prepare for end to end tests
         if: steps.filter.outputs.src == 'true'
         run: npm run setup:env
