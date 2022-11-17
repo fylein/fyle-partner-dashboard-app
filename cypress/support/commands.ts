@@ -9,6 +9,10 @@ declare global {
       getElement(attributeName: string): Cypress.Chainable<JQuery<HTMLElement>>;
       assertText(attributeName: string, text: string): void;
       setupHttpListeners(): void;
+      checkSortedDesc(attributeName: string): boolean;
+      checkSortedDescending(attributeName: string): void;
+      checkSortedAsce(attributeName: string): boolean;
+      checkSortedAscending(attributeName: string): void;
     }
   }
 }
@@ -31,6 +35,39 @@ Cypress.Commands.add('assertText', (attributeName: string, text: string) => {
 
 Cypress.Commands.add('getElement', (attributeName: string) => {
   return cy.get(`[data-cy=${attributeName}]`);
+})
+
+
+function checkSortedDesc(attributeName: string,temp: Number,flag: boolean){
+  cy.getElement(attributeName).each(($el,index) => {
+    cy.getElement(attributeName).eq(index).then(element=>{
+      var y: number = 0;
+      y=+element.text();
+      y = y || 0
+      cy.wrap(temp).should('be.gte', y);
+      temp=y
+    })
+  })
+}
+
+Cypress.Commands.add('checkSortedDescending', (attributeName: string) => {
+  checkSortedDesc(attributeName,Infinity,true);
+})
+
+function checkSortedAsce(attributeName: string,temp: Number,flag: boolean){
+  cy.getElement(attributeName).each(($el,index) => {
+    cy.getElement(attributeName).eq(index).then(element=>{
+      var y: number = 0;
+      y=+element.text();
+      y = y || 0
+      cy.wrap(temp).should('be.lte', y);
+      temp=y
+    })
+  })
+}
+
+Cypress.Commands.add('checkSortedAscending', (attributeName: string) => {
+  checkSortedAsce(attributeName,0,true);
 })
 
 Cypress.Commands.add('login', () => {
