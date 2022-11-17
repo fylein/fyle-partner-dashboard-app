@@ -1,80 +1,49 @@
 /// <reference types="cypress" />
 
+let assertElementList = ['view-svg-pending-reimbursements', 'view-hover-pending-reimbursements', 'sort-icon-pending-reimbursements', 'view-svg-pending-reports', 'view-hover-pending-reports', 'sort-icon-reports-to-approve', 'view-svg-incomplete-expenses', 'view-hover-incomplete-expenses', 'sort-icon-incomplete-expenses', 'view-svg-pending-invitation', 'view-hover-pending-invitation', 'sort-icon-pending-invitation', 'sort-icon-client-name', 'sort-icon-active-users', 'sort-icon-total-users', 'view-hover-total-user', 'view-svg-total-user'];
+
 describe('table view', () => {
   beforeEach(() => {
     cy.login()
     cy.visit('/')
-  })
-  
-  it('loads partner-dashboard app : check table-view', () => {
     cy.wait('@OrgDetails').its('response.statusCode').should('equal', 200)
     cy.getElement('table-view-tab').click()
     cy.getElement('paginator-dropdown').click()
     cy.get('.p-dropdown-items').within(() => {
-      cy.get('.p-ripple').eq(0).contains('20 Items').click()
+    cy.get('.p-ripple').eq(0).contains('20 Items').click()
     })
-    cy.getElement('search-input-area').type('fyle')
-    cy.getElement('data-row-head')
-    cy.getElement('row-data')
-    cy.getElement('clear-search').click()
-    cy.getElement('search-input-area').type('multi')
-    cy.getElement('row-data')
-    cy.getElement('clear-search').click()
-    cy.getElement('search-input-area').type('invalid')
-    cy.getElement('zero-state-img')
-    cy.getElement('clear-search').click()
-    cy.getElement('row-data')
+  })
+  
+  it('loads partner-dashboard app : check table-view assertions', () => {
     cy.assertText('client-name','Client Name').click()
-    cy.getElement('sort-icon-client-name')
     cy.getElement('client-name').click()
     cy.assertText('active-users-text','Active Users').click()
-    cy.getElement('sort-icon-active-users')
-    //CheckSorting
+    cy.assertText('total-users-text','Total Users').click()
+    cy.getElement('total-users-text').click()
+    cy.assertText('pending-invitation-text','Pending Invitation').click()
+    cy.getElement('pending-invitation-text').click()
+    cy.assertText('incomplete-expenses-text','Incomplete Expenses').click()
+    cy.getElement('incomplete-expenses-text').click()
+    cy.assertText('reports-to-approve-text','Reports to Approve').click()
+    cy.getElement('reports-to-approve-text').click()
+    cy.assertText('pending-reimbursements-text','Pending Reimbursements').click()
+    cy.getElement('pending-reimbursements-text').click()
+    assertElementList.forEach(item => cy.getElement(item));
+  })
+
+  it('loads partner-dashboard app : check table-view sorting', () => {
     cy.getElement('active-users-text').click()
-    //CheckIncreasing
-    cy.getElement('active-users-text').click()
+    // Check ascending sorting
     cy.checkSortedAscending('sort-active-users')
     cy.getElement('active-users-text').click()
-    //CheckDecreasing
+    // Check descending sorting
     cy.checkSortedDescending('sort-active-users')
-    cy.assertText('total-users-text','Total Users').click()
-    cy.getElement('sort-icon-total-users')
+    // Check sorting ascending
     cy.getElement('total-users-text').click()
-    cy.getElement('view-hover-total-user')
-    cy.getElement('view-svg-total-user')
-    //CheckSorting
-    cy.getElement('total-users-text').click()
-    //CheckIncreasing
     cy.checkSortedAscending('sort-total-users')
-    cy.getElement('total-users-text').click()
-    //CheckDecreasing
-    cy.checkSortedDescending('sort-total-users')
-    cy.assertText('pending-invitation-text','Pending Invitation').click()
-    cy.getElement('sort-icon-pending-invitation')
+    // Check sorting descending
     cy.getElement('pending-invitation-text').click()
-    cy.getElement('view-hover-pending-invitation')
-    cy.getElement('view-svg-pending-invitation')
-    //CheckSorting
     cy.getElement('pending-invitation-text').click()
-    //CheckIncreasing
-    cy.checkSortedAscending('sort-pending-users')
-    cy.getElement('pending-invitation-text').click()
-     //CheckDecreasing
     cy.checkSortedDescending('sort-pending-users')
-    cy.assertText('incomplete-expenses-text','Incomplete Expenses').click()
-    cy.getElement('sort-icon-incomplete-expenses')
-    cy.getElement('incomplete-expenses-text').click()
-    cy.getElement('view-hover-incomplete-expenses')
-    cy.getElement('view-svg-incomplete-expenses')
-    cy.assertText('reports-to-approve-text','Reports to Approve').click()
-    cy.getElement('sort-icon-reports-to-approve')
-    cy.getElement('reports-to-approve-text').click()
-    cy.getElement('view-hover-pending-reports')
-    cy.getElement('view-svg-pending-reports')
-    cy.assertText('pending-reimbursements-text','Pending Reimbursements').click()
-    cy.getElement('sort-icon-pending-reimbursements')
-    cy.getElement('pending-reimbursements-text').click()
-    cy.getElement('view-hover-pending-reimbursements')
-    cy.getElement('view-svg-pending-reimbursements')
   })
 })

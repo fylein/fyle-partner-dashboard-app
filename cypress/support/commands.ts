@@ -9,9 +9,8 @@ declare global {
       getElement(attributeName: string): Cypress.Chainable<JQuery<HTMLElement>>;
       assertText(attributeName: string, text: string): void;
       setupHttpListeners(): void;
-      checkSortedDesc(attributeName: string): boolean;
+      checkSorted(attributeName: string): boolean;
       checkSortedDescending(attributeName: string): void;
-      checkSortedAsce(attributeName: string): boolean;
       checkSortedAscending(attributeName: string): void;
     }
   }
@@ -37,37 +36,27 @@ Cypress.Commands.add('getElement', (attributeName: string) => {
   return cy.get(`[data-cy=${attributeName}]`);
 })
 
-
-function checkSortedDesc(attributeName: string,temp: Number,flag: boolean){
+function checkSorted(attributeName: string, temp: Number, flag: boolean, type: string){
   cy.getElement(attributeName).each(($el,index) => {
     cy.getElement(attributeName).eq(index).then(element=>{
-      var y: number = 0;
-      y=+element.text();
-      y = y || 0
-      cy.wrap(temp).should('be.gte', y);
-      temp=y
+      var current_element: number = 0;
+      current_element =+ element.text();
+      current_element = current_element || 0;
+      if(type==='d')
+        cy.wrap(temp).should('be.gte', current_element);
+      else if(type==='a')
+        cy.wrap(temp).should('be.lte', current_element);
+      temp=current_element;
     })
   })
 }
 
 Cypress.Commands.add('checkSortedDescending', (attributeName: string) => {
-  checkSortedDesc(attributeName,Infinity,true);
+  checkSorted(attributeName,Infinity,true,'d');
 })
 
-function checkSortedAsce(attributeName: string,temp: Number,flag: boolean){
-  cy.getElement(attributeName).each(($el,index) => {
-    cy.getElement(attributeName).eq(index).then(element=>{
-      var y: number = 0;
-      y=+element.text();
-      y = y || 0
-      cy.wrap(temp).should('be.lte', y);
-      temp=y
-    })
-  })
-}
-
 Cypress.Commands.add('checkSortedAscending', (attributeName: string) => {
-  checkSortedAsce(attributeName,0,true);
+  checkSorted(attributeName,0,true,'a');
 })
 
 Cypress.Commands.add('login', () => {

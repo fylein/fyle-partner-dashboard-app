@@ -1,9 +1,6 @@
 {
   "name": "fyle-partner-dashboard-app-e2e-test",
   "version": "0.0.0",
-  "scripts": {
-    "cy:record:parallel:qa": "node runner.js cypress run --env TAGS=\"@API\" configFile=qa --record --parallel --key ${{ secrets.CYPRESS_RECORD_KEY }} --tag \"release,v1.10\""
-  },
   "private": true,
   "dependencies": {
     "cypress": "^10.3.0"
