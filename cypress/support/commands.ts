@@ -9,6 +9,9 @@ declare global {
       getElement(attributeName: string): Cypress.Chainable<JQuery<HTMLElement>>;
       assertText(attributeName: string, text: string): void;
       setupHttpListeners(): void;
+      checkSorted(attributeName: string): boolean;
+      checkSortedDescending(attributeName: string): void;
+      checkSortedAscending(attributeName: string): void;
     }
   }
 }
@@ -31,6 +34,29 @@ Cypress.Commands.add('assertText', (attributeName: string, text: string) => {
 
 Cypress.Commands.add('getElement', (attributeName: string) => {
   return cy.get(`[data-cy=${attributeName}]`);
+})
+
+function checkSorted(attributeName: string, temp: Number, flag: boolean, type: 'descending' | 'ascending'){
+  cy.getElement(attributeName).each(($el,index) => {
+    cy.getElement(attributeName).eq(index).then(element=>{
+      var current_element: number = 0;
+      current_element =+ element.text();
+      current_element = current_element || 0;
+      if(type==='descending')
+        cy.wrap(temp).should('be.gte', current_element);
+      else if(type==='ascending')
+        cy.wrap(temp).should('be.lte', current_element);
+      temp=current_element;
+    })
+  })
+}
+
+Cypress.Commands.add('checkSortedDescending', (attributeName: string) => {
+  checkSorted(attributeName,Infinity,true,'descending');
+})
+
+Cypress.Commands.add('checkSortedAscending', (attributeName: string) => {
+  checkSorted(attributeName,0,true,'ascending');
 })
 
 Cypress.Commands.add('login', () => {
