@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-let assertElementList = ['view-svg-pending-reimbursements', 'view-hover-pending-reimbursements', 'sort-icon-pending-reimbursements', 'view-svg-pending-reports', 'view-hover-pending-reports', 'sort-icon-reports-to-approve', 'view-svg-incomplete-expenses', 'view-hover-incomplete-expenses', 'sort-icon-incomplete-expenses', 'view-svg-pending-invitation', 'view-hover-pending-invitation', 'sort-icon-pending-invitation', 'sort-icon-client-name', 'sort-icon-active-users', 'sort-icon-total-users', 'view-hover-total-user', 'view-svg-total-user'];
+const assertElementList = ['view-svg-pending-reimbursements', 'view-hover-pending-reimbursements', 'sort-icon-pending-reimbursements', 'view-svg-pending-reports', 'view-hover-pending-reports', 'sort-icon-reports-to-approve', 'view-svg-incomplete-expenses', 'view-hover-incomplete-expenses', 'sort-icon-incomplete-expenses', 'view-svg-pending-invitation', 'view-hover-pending-invitation', 'sort-icon-pending-invitation', 'sort-icon-client-name', 'sort-icon-active-users', 'sort-icon-total-users', 'view-hover-total-user', 'view-svg-total-user'];
 
 describe('table view', () => {
   beforeEach(() => {
