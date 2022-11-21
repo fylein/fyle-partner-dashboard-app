@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --extra-webpack-config ./cypress/coverage.webpack.js",
     "build": "npm run setup:env && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -11,6 +11,8 @@
     "lint": "ng lint",
     "generate:svg-sprite": "svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg --stripAttrs fill --stripAttrs stroke --stripAttrs id",
     "setup:env": "node scripts/setup_env.js",
+    "setup_e2e_test": "npm run setup_env && node scripts/setup_e2e_test.js",
+    "remove_existing_code_coverage": "rm -rf .nyc_output cypress/coverage",
     "cypress:open": "cypress open"
   },
   "private": true,
