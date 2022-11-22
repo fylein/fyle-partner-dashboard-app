@@ -2,7 +2,7 @@ name: ci
 on: [push]
 jobs:
   test:
-    uses: .github/workflows/parallel.yml@v1
+    uses: bahmutov/cypress-workflows/.github/workflows/parallel.yml@v1
     with:
       n: 4
       group: 'All tests'
