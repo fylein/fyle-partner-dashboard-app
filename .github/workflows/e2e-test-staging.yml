@@ -1,6 +1,10 @@
 name: End to End Tests on PR Approval - Staging
 
-on: [push]
+on:
+  pull_request_review:
+    types: [submitted]
+  pull_request:
+    types: [labeled]
 
 jobs:
   end-to-end-test:
