@@ -2,14 +2,8 @@ name: ci
 on: [push]
 jobs:
   test:
-    # use the reusable workflow to check out the code, install dependencies
-    # and run the Cypress tests
-    # https://github.com/bahmutov/cypress-workflows
-    # Watch the video "Run Wordle E2E Tests On GitHub Actions Using A Workflow"
-    # https://youtu.be/fJmNyMnBvbs for details
-    uses: e2e-test-staging.yml@v1
+    uses: .github/workflows/parallel.yml@v1
     with:
-      # we do not need many machines to run the hint spec
       n: 4
       group: 'All tests'
     secrets:
