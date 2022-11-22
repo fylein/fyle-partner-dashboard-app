@@ -1,6 +1,7 @@
 name: End to End Tests on PR Approval - Staging
 
 on:
+  [push]
   pull_request_review:
     types: [submitted]
   pull_request:
