@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: npm install --prefix cypress
       - name: Prepare for end to end tests
-        run: npm run setup_e2e_test
+        run: npm run setup:env
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
@@ -32,15 +32,9 @@ jobs:
         with:
           token: ${{ secrets.SLACK_TOKEN }}
           channels: 'integration_github_events'
-          message-text: ':pepe-dance: End to End tests (on prod) just got completed. I have placed the screenshots and videos in this thread :pepe-dance:'
+          message-text: ':pepe-dance: End to End tests End to End tests for Partner Dashboard (on prod) just got completed. I have placed the screenshots and videos in this thread :pepe-dance:'
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-      COMMIT_INFO_MESSAGE: ${{github.event.pull_request.title}}
-      COMMIT_INFO_SHA: ${{github.event.pull_request.head.sha}}
-      APP_URL: ${{ secrets.APP_URL }}
-      API_URL: ${{ secrets.API_URL }}
-      E2E_TESTS_ENV: ${{ secrets.E2E_TESTS_ENV }}
-      E2E_TESTS_CLIENT_ID: ${{ secrets.E2E_TESTS_CLIENT_ID }}
       E2E_TESTS_REFRESH_TOKEN: ${{ secrets.E2E_TESTS_REFRESH_TOKEN }}
       E2E_TESTS_ORG_ID: ${{ secrets.E2E_TESTS_ORG_ID }}
