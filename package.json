@@ -11,8 +11,7 @@
     "lint": "ng lint",
     "generate:svg-sprite": "svg2sprite ./src/assets/icons ./src/assets/sprites/sprite.svg --stripAttrs fill --stripAttrs stroke --stripAttrs id",
     "setup:env": "node scripts/setup_env.js",
-    "cypress:open": "cypress open --parallel",
-    "cy:run": "cypress run --parallel"
+    "cypress:open": "cypress open"
   },
   "private": true,
   "dependencies": {
