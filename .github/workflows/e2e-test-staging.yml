@@ -42,13 +42,11 @@ jobs:
             ~/.cache/Cypress
             node_modules
           key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-      - name: Install dependencies
-        run: npm install --prefix cypress
       - name: Cypress run
         if: steps.filter.outputs.src == 'true'
         uses: cypress-io/github-action@v4
         with:
-          install: false
+          install-command: npm install --prefix cypress
           record: true
           browser: chrome
           tag: ${{ secrets.E2E_TESTS_ENV }}
