@@ -12,7 +12,6 @@ describe('simple search', () => {
     cy.getElement('client-card')
     cy.getElement('clear-search').click()
     cy.getElement('search-input-area').type('multi')
-    cy.getElement('client-card-rows').should('have.length', 3)
     cy.getElement('clear-search').click()
     cy.getElement('search-input-area').type('invalid')
     cy.getElement('zero-state-img')
