@@ -15,7 +15,15 @@ jobs:
       with:
         node-version: 14.18
     - name: Install dependencies
+      if: steps.filter.outputs.src == 'true' && steps.cache.outputs.cache-hit != 'true'
       run: npm install
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: |
+            node_modules
+          key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
     - name: Test
       run: npm run unit_test:ci
       env:
