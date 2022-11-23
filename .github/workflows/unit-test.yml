@@ -22,7 +22,15 @@ jobs:
         FYLE_CLIENT_ID: ${{secrets.FYLE_CLIENT_ID}} 
         CALLBACK_URI: ${{secrets.CALLBACK_URI}} 
         API_URL: ${{secrets.API_URL}} 
-        FYLE_APP_URL: ${{secrets.FYLE_APP_URL}} 
+        FYLE_APP_URL: ${{secrets.FYLE_APP_URL}}
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: |
+            ~/.cache/
+            node_modules
+          key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }} 
     - name: Unit Test Coverage
       uses: fylein/comment-test-coverage@master
       with:
