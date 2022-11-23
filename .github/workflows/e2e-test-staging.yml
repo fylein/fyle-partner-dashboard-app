@@ -46,7 +46,7 @@ jobs:
         run: npm install --prefix cypress
       - name: Cypress run
         if: steps.filter.outputs.src == 'true'
-        uses: ./
+        uses: cypress-io/github-action@v4
         with:
           install: false
           record: true
