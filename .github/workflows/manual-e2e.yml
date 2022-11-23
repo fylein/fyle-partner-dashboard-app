@@ -35,7 +35,7 @@ jobs:
             node_modules
           key: manual-trigger-e2e-test-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
       - name: Cypress install
-        if: steps.filter.outputs.src == 'true' && steps.cache.outputs.cache-hit != 'true'
+        if: steps.cache.outputs.cache-hit != 'true'
         uses: cypress-io/github-action@v4
         with:
           install: true
