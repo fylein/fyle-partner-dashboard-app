@@ -14,9 +14,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 14
-    - name: Install dependencies
-      if: steps.filter.outputs.src == 'true' && steps.cache.outputs.cache-hit != 'true'
-      run: npm install
     - name: Cache Dependencies
       uses: actions/cache@v3
       id: cache
@@ -24,6 +21,9 @@ jobs:
         path: |
           node_modules
         key: unit-test-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+    - name: Install dependencies
+      if: steps.filter.outputs.src == 'true' && steps.cache.outputs.cache-hit != 'true'
+      run: npm install
     - name: Test
       run: npm run unit_test:ci
       env:
