@@ -106,6 +106,7 @@ jobs:
           install: false
           record: true
           browser: chrome
+          parallel: true
           tag: ${{ secrets.E2E_TESTS_ENV }}
       - name: 'Upload screenshots and videos to Slack'
         uses: trymbill/cypress-slack-video-upload-action@v1.3.0
