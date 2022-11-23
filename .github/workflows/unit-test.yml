@@ -22,7 +22,7 @@ jobs:
       id: cache
       with:
         path: |
-          node_modules
+          ~/.cache/node_modules
         key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
     - name: Test
       run: npm run unit_test:ci
