@@ -35,11 +35,20 @@ jobs:
       - name: Prepare for end to end tests
         if: steps.filter.outputs.src == 'true'
         run: npm run setup:env
+      - name: Cache NPM and Cypress
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/Cypress
+            node_modules
+          key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - name: Install dependencies
+        run: npm install --prefix cypress
       - name: Cypress run
         if: steps.filter.outputs.src == 'true'
-        uses: cypress-io/github-action@v4
+        uses: ./
         with:
-          install: true
+          install: false
           record: true
           browser: chrome
           tag: ${{ secrets.E2E_TESTS_ENV }}
