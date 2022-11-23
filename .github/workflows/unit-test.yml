@@ -20,7 +20,7 @@ jobs:
       with:
         path: |
           ~/.cache/node_modules
-        key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+        key: unit-test-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
     - name: Install dependencies
       if: steps.filter.outputs.src == 'true' && steps.cache.outputs.cache-hit != 'true'
       run: npm install

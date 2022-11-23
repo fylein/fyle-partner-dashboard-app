@@ -25,7 +25,7 @@ jobs:
           path: |
             ~/.cache/Cypress
             node_modules
-          key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          key: e2e-test-prod-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
       - name: Cypress install
         if: steps.filter.outputs.src == 'true' && steps.cache.outputs.cache-hit != 'true'
         uses: cypress-io/github-action@v4
