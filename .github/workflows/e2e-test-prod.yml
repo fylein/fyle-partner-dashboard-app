@@ -6,7 +6,7 @@ on:
     - cron:  '30 8 * * 2,4'
 
 jobs:
-  end-to-end-test-prod:
+  install:
     runs-on: macos-latest
     environment: End to End Test - Production
     steps:
@@ -15,16 +15,55 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: 14.18
-      - name: Install dependencies
-        run: npm install --prefix cypress
+          node-version: 14
       - name: Prepare for end to end tests
         run: npm run setup:env
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: |
+            ~/.cache/Cypress
+            node_modules
+          key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - name: Cypress install
+        if: steps.filter.outputs.src == 'true' && steps.cache.outputs.cache-hit != 'true'
+        uses: cypress-io/github-action@v4
+        with:
+          install: true
+          runTests: false
+  end-to-end-test:
+    runs-on: macos-latest
+    environment: End to End Test - Staging
+    needs: install
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3, 4, 5]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Prepare for end to end tests
+        run: npm run setup:env
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: |
+            ~/.cache/Cypress
+            node_modules
+          key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
+          install: false
           record: true
           browser: chrome
+          parallel: true
           tag: ${{ secrets.E2E_TESTS_ENV }}
       - name: 'Upload screenshots and videos to Slack'
         uses: trymbill/cypress-slack-video-upload-action@v1.3.0
