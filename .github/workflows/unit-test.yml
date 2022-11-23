@@ -13,7 +13,7 @@ jobs:
     - name: Setup GitHub Action
       uses: actions/setup-node@v1
       with:
-        node-version: 14
+        node-version: 14.18
     - name: Install dependencies
       run: npm install
     - name: Test
@@ -28,7 +28,6 @@ jobs:
         id: cache
         with:
           path: |
-            ~/.cache/
             node_modules
           key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }} 
     - name: Unit Test Coverage
