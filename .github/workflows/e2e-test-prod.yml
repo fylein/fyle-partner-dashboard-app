@@ -32,9 +32,9 @@ jobs:
         with:
           install: true
           runTests: false
-  end-to-end-test:
+  end-to-end-test-prod:
     runs-on: macos-latest
-    environment: End to End Test - Staging
+    environment: End to End Test - Production
     needs: install
     strategy:
       fail-fast: false
