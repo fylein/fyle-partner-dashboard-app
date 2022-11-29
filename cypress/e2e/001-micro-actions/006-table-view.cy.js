@@ -32,6 +32,7 @@ describe('table view', () => {
   })
 
   it('loads partner-dashboard app : check table-view sorting', () => {
+    cy.wait('@OrgDetails').its('response.statusCode').should('equal', 200)
     cy.getElement('active-users-text').click()
     // Check ascending sorting
     cy.checkSortedAscending('sort-active-users')
