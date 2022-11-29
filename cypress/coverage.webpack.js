@@ -5,7 +5,7 @@ module.exports = {
         test: /\.(js|ts)$/,
         loader: 'istanbul-instrumenter-loader',
         options: {
-          esModules: true,
+
           reporters: [ 'progress', 'coverage-istanbul' ]
         },
         enforce: 'post',
