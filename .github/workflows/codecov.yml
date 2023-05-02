@@ -1,8 +1,11 @@
-name: Unit Test
+name: Codecov Report Upload
 
 on:
+  push:
+    branches:
+      - master
   pull_request:
-    types: [assigned,  opened,  synchronize,  reopened]
+    types: [labeled]
 
 jobs:
   unit-test:
@@ -27,9 +30,9 @@ jobs:
     - name: Test
       run: npm run unit_test:ci
       env:
-        FYLE_CLIENT_ID: ${{secrets.FYLE_CLIENT_ID}} 
-        CALLBACK_URI: ${{secrets.CALLBACK_URI}} 
-        API_URL: ${{secrets.API_URL}} 
+        FYLE_CLIENT_ID: ${{secrets.FYLE_CLIENT_ID}}
+        CALLBACK_URI: ${{secrets.CALLBACK_URI}}
+        API_URL: ${{secrets.API_URL}}
         FYLE_APP_URL: ${{secrets.FYLE_APP_URL}}
     - name: Unit Test Coverage
       uses: fylein/comment-test-coverage@master
