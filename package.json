@@ -1,6 +1,6 @@
 {
   "name": "fyle-partner-dashboard-app",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -28,8 +28,8 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
     "@auth0/angular-jwt": "^5.0.2",
-    "@sentry/angular": "^7.17.0",
-    "@sentry/tracing": "^7.17.0",
+    "@sentry/angular": "^7.16.0",
+    "@sentry/tracing": "^7.16.0",
     "ng-svg-icon-sprite": "^1.12.0",
     "primeicons": "6.0.1",
     "primeng": "14.1.1",
@@ -37,8 +37,8 @@
     "tailwindcss": "3.1.8",
     "ts-cacheable": "^1.0.6",
     "tslib": "^2.3.0",
-    "typescript": "~4.7.3",
-    "webpack": "^5.75.3",
+    "typescript": "~4.7.2",
+    "webpack": "^5.75.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -51,7 +51,7 @@
     "@types/jasmine": "~4.0.0",
     "@typescript-eslint/eslint-plugin": "5.36.2",
     "@typescript-eslint/parser": "5.36.2",
-    "cypress": "^10.11.1",
+    "cypress": "^10.11.0",
     "autoprefixer": "^10.4.12",
     "eslint": "^8.23.0",
     "istanbul-instrumenter-loader": "^3.0.1",
