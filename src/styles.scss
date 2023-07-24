@@ -96,7 +96,7 @@ p {
 }
 
 .p-datatable .p-datatable-tbody > tr > td {
-  @apply tw-h-70-px tw-py-26-px tw-pl-22-px tw-text-14-px #{!important};
+  @apply tw-h-70-px tw-p-0 tw-text-14-px #{!important};
 }
 
 .p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover {

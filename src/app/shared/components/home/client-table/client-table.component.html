@@ -7,13 +7,13 @@
                     <p-sortIcon field="name" data-cy="sort-icon-client-name"></p-sortIcon>
                 </th>
                 <th pSortableColumn="billed_users_count" class="client-table--header client-table--active-users">
-                    <p class="tw-flex">
+                    <div class="tw-flex">
                         <span class="tw-pr-10-px" data-cy="active-users-text">Active Users</span>
                         <svg-icon-sprite pTooltip="Active users of {{ currentMonth }}" tooltipPosition="bottom" src="info"
                             width="16px" height="16px"
                             class="tw-text-faded-icon hover:tw-text-table-row-hover"></svg-icon-sprite>
-                    </p>
-                    <p-sortIcon field="billed_users_count" data-cy="sort-icon-active-users"></p-sortIcon>
+                        <p-sortIcon field="billed_users_count" data-cy="sort-icon-active-users"></p-sortIcon>
+                    </div>
                 </th>
                 <th pSortableColumn="enabled_users_count" class="client-table--header" data-cy="total-users-text">
                     Total Users
@@ -40,68 +40,82 @@
         <ng-template pTemplate="body" let-client>
             <tr data-cy="row-data">
                 <td class="client-table--client-name-col">
-                    <img *ngIf="!hideLogo && client.logo_file_id" [src]="client.logo_file.download_url" width="46px" height="46px" class="tw-mr-26-px" />
-                    <div *ngIf="!hideLogo && !client.logo_file_id" class="tw-p-14-px tw-bg-icon-background tw-rounded-4-px tw-mr-26-px">
-                        <svg-icon-sprite src="client" width="20px" height="20px" class="tw-text-sub-text-color">
-                        </svg-icon-sprite>
+                    <div class="tw-flex tw-items-center">
+                        <img *ngIf="!hideLogo && client.logo_file_id" [src]="client.logo_file.download_url" width="46px" height="46px" class="tw-mr-26-px" />
+                        <div *ngIf="!hideLogo && !client.logo_file_id" class="tw-p-14-px tw-bg-icon-background tw-rounded-4-px tw-mr-26-px">
+                            <svg-icon-sprite src="client" width="20px" height="20px" class="tw-text-sub-text-color">
+                            </svg-icon-sprite>
+                        </div>
+                        <p class="tw-font-500 tw-pb-4-px hover:tw-text-partner-hover tw-cursor-pointer" (click)="openOrg(client.id)" data-cy="sort-client-name">
+                            {{ client.name }}
+                        </p>
                     </div>
-                    <p class="tw-font-500 tw-pb-4-px hover:tw-text-partner-hover tw-cursor-pointer" (click)="openOrg(client.id)" data-cy="sort-client-name">
-                        {{ client.name }}
-                    </p>
                 </td>
                 <td class="client-table--active-users" data-cy="sort-active-users">
-                    {{ client.billed_users_count === 0 ? '-' : client.billed_users_count }}
+                    <div class="tw-flex tw-justify-center">
+                        {{ client.billed_users_count === 0 ? '-' : client.billed_users_count }}
+                    </div>
                 </td>
                 <td class="client-table--row">
-                    <span data-cy="sort-total-users">{{ client.enabled_users_count === 0 ? '-' : client.enabled_users_count }}</span>
-                    <a *ngIf="client.enabled_users_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.TOTAL_USERS, client.id)" data-cy="view-hover-total-user">
-                        View
-                        <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
-                        <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-total-user">
-                        </svg-icon-sprite>
-                    </a>
-                </td>
-                <td class="client-table--row">
-                    <span data-cy="sort-pending-users">{{ client.pending_users_count === 0 ? '-' : client.pending_users_count }}</span>
-                    <a *ngIf="client.pending_users_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.PENDING_INVITATION, client.id)" data-cy="view-hover-pending-invitation">
-                        View
-                        <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
-                        <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-pending-invitation">
-                        </svg-icon-sprite>
-                    </a>
-                </td>
-                <td class="client-table--row">
-                    {{ client.incomplete_expenses_count === 0 ? '-' : client.incomplete_expenses_count }}
-                    <a *ngIf="client.incomplete_expenses_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.INCOMPLETE_EXPENSES, client.id)" data-cy="view-hover-incomplete-expenses">
-                        View
-                        <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
-                        <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-incomplete-expenses">
-                        </svg-icon-sprite>
-                    </a>
-                </td>
-                <td class="client-table--row">
-                    {{ client.approval_pending_reports_count === 0 ? '-' : client.approval_pending_reports_count }}
-                    <a *ngIf="client.approval_pending_reports_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.REPORTS_TO_APPROVE, client.id)" data-cy="view-hover-pending-reports">
-                        View
-                        <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
-                        <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-pending-reports">
-                        </svg-icon-sprite>
-                    </a>
-                </td>
-                <td class="client-table--pending-reimbursements client-table--row">
-                    {{ client.pending_reimbursement_amount | currency: client.currency }}
-                    <a class="client-table--redirection client-table--view-in-fyle tw-justify-between tw-w-150-px" (click)="redirect(ClientRedirectionType.PENDING_REIMBURSEMENTS, client.id)" data-cy="view-hover-pending-reimbursements">
-                        <div class="tw-flex tw-items-center">
+                    <div class="tw-flex tw-justify-center">
+                        <span data-cy="sort-total-users">{{ client.enabled_users_count === 0 ? '-' : client.enabled_users_count }}</span>
+                        <a *ngIf="client.enabled_users_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.TOTAL_USERS, client.id)" data-cy="view-hover-total-user">
                             View
                             <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
-                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-pending-reimbursements">
+                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-total-user">
                             </svg-icon-sprite>
-                        </div>
-                        <div class="tw-border-table-header tw-border-1-px tw-bg-white tw-rounded-4-px tw-w-38-px tw-h-38-px tw-flex tw-items-center tw-justify-center" (click)="redirect(ClientRedirectionType.FYLE_ADMIN, client.id)">
-                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-open-org tw-cursor-pointer">
+                        </a>
+                    </div>
+                </td>
+                <td class="client-table--row">
+                    <div class="tw-flex tw-justify-center">
+                        <span data-cy="sort-pending-users">{{ client.pending_users_count === 0 ? '-' : client.pending_users_count }}</span>
+                        <a *ngIf="client.pending_users_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.PENDING_INVITATION, client.id)" data-cy="view-hover-pending-invitation">
+                            View
+                            <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
+                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-pending-invitation">
                             </svg-icon-sprite>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                </td>
+                <td class="client-table--row">
+                    <div class="tw-flex tw-justify-center">
+                        {{ client.incomplete_expenses_count === 0 ? '-' : client.incomplete_expenses_count }}
+                        <a *ngIf="client.incomplete_expenses_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.INCOMPLETE_EXPENSES, client.id)" data-cy="view-hover-incomplete-expenses">
+                            View
+                            <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
+                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-incomplete-expenses">
+                            </svg-icon-sprite>
+                        </a>
+                    </div>
+                </td>
+                <td class="client-table--row">
+                    <div class="tw-flex tw-justify-center">
+                        {{ client.approval_pending_reports_count === 0 ? '-' : client.approval_pending_reports_count }}
+                        <a *ngIf="client.approval_pending_reports_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.REPORTS_TO_APPROVE, client.id)" data-cy="view-hover-pending-reports">
+                            View
+                            <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
+                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-pending-reports">
+                            </svg-icon-sprite>
+                        </a>
+                    </div>
+                </td>
+                <td class="client-table--pending-reimbursements client-table--row">
+                    <div class="tw-flex tw-justify-center tw-items-center">
+                        {{ client.pending_reimbursement_amount | currency: client.currency }}
+                        <a class="client-table--redirection client-table--view-in-fyle tw-justify-between tw-w-150-px" (click)="redirect(ClientRedirectionType.PENDING_REIMBURSEMENTS, client.id)" data-cy="view-hover-pending-reimbursements">
+                            <div class="tw-flex tw-items-center">
+                                View
+                                <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
+                                <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-pending-reimbursements">
+                                </svg-icon-sprite>
+                            </div>
+                            <div class="tw-border-table-header tw-border-1-px tw-bg-white tw-rounded-4-px tw-w-38-px tw-h-38-px tw-flex tw-items-center tw-justify-center" (click)="redirect(ClientRedirectionType.FYLE_ADMIN, client.id)">
+                                <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-open-org tw-cursor-pointer">
+                                </svg-icon-sprite>
+                            </div>
+                        </a>
+                    </div>
                 </td>
             </tr>
         </ng-template>
