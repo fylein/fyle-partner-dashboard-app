@@ -36,7 +36,7 @@ export class TrackingService {
 }
 
   get tracking() {
-    return (window as any).analytics;
+    return (window as any).mixpanel;
   }
 
   eventTrack(action: string, properties: any = {}): void {
@@ -52,7 +52,8 @@ export class TrackingService {
 
   onSignIn(email: string | undefined, partnerOrgId: number, partnerOrgName: string, orgId: string): void {
     if (this.tracking) {
-      this.tracking.identify(email, {
+      this.tracking.identify(email);
+      this.tracking.people.set({
         partnerOrgId,
         partnerOrgName,
         orgId
@@ -64,7 +65,8 @@ export class TrackingService {
 
   onSignUp(email: string | undefined, partnerOrgId: number, partnerOrgName: string, orgId: string): void {
     if (this.tracking) {
-      this.tracking.identify(email, {
+      this.tracking.identify(email);
+      this.tracking.people.set({
         partnerOrgId,
         partnerOrgName,
         orgId
