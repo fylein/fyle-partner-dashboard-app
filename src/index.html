@@ -31,7 +31,9 @@
           track_pageview: true,
           persistence: 'localStorage'
         });
-      } catch(e) {}
+      } catch(e) {
+        console.error('Tracking error:', e);
+      }
     }
   </script>
 </head>
