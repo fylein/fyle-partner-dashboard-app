@@ -47,7 +47,7 @@
     "@angular-eslint/eslint-plugin-template": "14.0.4",
     "@angular-eslint/schematics": "^1.2.0",
     "@angular-eslint/template-parser": "14.0.4",
-    "@cypress/code-coverage": "^1.14.0",
+    "@cypress/code-coverage": "^3.13.10",
     "@types/jasmine": "~4.0.0",
     "@typescript-eslint/eslint-plugin": "5.37.0",
     "@typescript-eslint/parser": "5.37.0",
