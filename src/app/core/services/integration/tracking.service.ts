@@ -36,7 +36,7 @@ export class TrackingService {
 }
 
   get tracking() {
-    return (window as any).analytics;
+    return (window as any).mixpanel;
   }
 
   eventTrack(action: string, properties: any = {}): void {
@@ -45,31 +45,45 @@ export class TrackingService {
       ...flattenedObject,
       Asset: 'Partner Dashboard Web'
     };
-    if (this.tracking) {
-      this.tracking.track(action, properties);
+    try {
+      if (this.tracking) {
+        this.tracking.track(action, properties);
+      }
+    } catch (e) {
+      console.error('Tracking error:', e);
     }
   }
 
   onSignIn(email: string | undefined, partnerOrgId: number, partnerOrgName: string, orgId: string): void {
-    if (this.tracking) {
-      this.tracking.identify(email, {
-        partnerOrgId,
-        partnerOrgName,
-        orgId
-      });
-      this.identityEmail = email;
+    try {
+      if (this.tracking) {
+        this.tracking.identify(email);
+        this.tracking.people.set({
+          partnerOrgId,
+          partnerOrgName,
+          orgId
+        });
+        this.identityEmail = email;
+      }
+    } catch (e) {
+      console.error('Tracking error:', e);
     }
     this.eventTrack('Sign In');
   }
 
   onSignUp(email: string | undefined, partnerOrgId: number, partnerOrgName: string, orgId: string): void {
-    if (this.tracking) {
-      this.tracking.identify(email, {
-        partnerOrgId,
-        partnerOrgName,
-        orgId
-      });
-      this.identityEmail = email;
+    try {
+      if (this.tracking) {
+        this.tracking.identify(email);
+        this.tracking.people.set({
+          partnerOrgId,
+          partnerOrgName,
+          orgId
+        });
+        this.identityEmail = email;
+      }
+    } catch (e) {
+      console.error('Tracking error:', e);
     }
     this.eventTrack('Sign Up');
   }

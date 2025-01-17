@@ -8,9 +8,12 @@ describe('TrackingService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(TrackingService);
-    (window as any).analytics = {
+    (window as any).mixpanel = {
       track: () => undefined,
-      identify: () => undefined
+      identify: () => undefined,
+      people: {
+        set: () => undefined
+      }
     };
   });
 
