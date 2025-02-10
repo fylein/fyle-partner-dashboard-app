@@ -54,16 +54,15 @@ export class TrackingService {
     }
   }
 
-  onSignIn(email: string | undefined, partnerOrgId: number, partnerOrgName: string, orgId: string): void {
+  onSignIn(userId: string | undefined, partnerOrgId: number, orgId: string): void {
     try {
       if (this.tracking) {
-        this.tracking.identify(email);
+        this.tracking.identify(userId);
         this.tracking.people.set({
           partnerOrgId,
-          partnerOrgName,
           orgId
         });
-        this.identityEmail = email;
+        this.identityEmail = userId;
       }
     } catch (e) {
       console.error('Tracking error:', e);
@@ -71,16 +70,15 @@ export class TrackingService {
     this.eventTrack('Sign In');
   }
 
-  onSignUp(email: string | undefined, partnerOrgId: number, partnerOrgName: string, orgId: string): void {
+  onSignUp(userId: string | undefined, partnerOrgId: number, orgId: string): void {
     try {
       if (this.tracking) {
-        this.tracking.identify(email);
+        this.tracking.identify(userId);
         this.tracking.people.set({
           partnerOrgId,
-          partnerOrgName,
           orgId
         });
-        this.identityEmail = email;
+        this.identityEmail = userId;
       }
     } catch (e) {
       console.error('Tracking error:', e);

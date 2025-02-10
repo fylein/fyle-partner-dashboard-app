@@ -41,14 +41,14 @@ export class PartnerComponent implements OnInit {
   private getOrCreatePartnerOrg(): Promise<PartnerOrg | undefined> {
     return this.partnerService.getPartnerOrg(this.user?.org_id).toPromise().then(partnerOrg => {
       if (partnerOrg) {
-        this.trackingService.onSignIn(this.user?.email, partnerOrg.id, partnerOrg.name, partnerOrg.primary_org_id);
+        this.trackingService.onSignIn(this.user?.user_id, partnerOrg.id, partnerOrg.primary_org_id);
       }
 
       return partnerOrg;
     }, () => {
       return this.partnerService.createPartnerOrg().toPromise().then(partnerOrg => {
         if (partnerOrg) {
-          this.trackingService.onSignUp(this.user?.email, partnerOrg.id, partnerOrg.name, partnerOrg.primary_org_id);
+          this.trackingService.onSignUp(this.user?.user_id, partnerOrg.id, partnerOrg.primary_org_id);
         }
 
         return partnerOrg;
