@@ -22,11 +22,11 @@ describe('TrackingService', () => {
   });
 
   it('should track Sign In event', () => {
-    expect(service.onSignIn('ashwin.t@fyle.in', 1, 'Fyle org', 'ora2d3afg4g')).toBeUndefined();
+    expect(service.onSignIn('us8as7diuh', 1, 'ora2d3afg4g')).toBeUndefined();
   });
 
   it('should track Sign Up event', () => {
-    expect(service.onSignUp('ashwin.t@fyle.in', 1, 'Fyle org', 'ora2d3afg4g')).toBeUndefined();
+    expect(service.onSignUp('us8as7diuh', 1, 'ora2d3afg4g')).toBeUndefined();
   });
 
   it('should flatten the payload', () => {
