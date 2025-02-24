@@ -2,9 +2,10 @@ import { getTestBed, TestBed } from '@angular/core/testing';
 
 import { PartnerService } from './partner.service';
 
-import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { partnerOrgResponse } from './partner.fixture';
 import { environment } from 'src/environments/environment';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('PartnerService', () => {
   let service: PartnerService;
@@ -14,11 +15,13 @@ describe('PartnerService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [
-        PartnerService
-      ]
-    });
+    imports: [],
+    providers: [
+        PartnerService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+});
     injector = getTestBed();
     service = injector.inject(PartnerService);
     httpMock = injector.inject(HttpTestingController);
