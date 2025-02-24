@@ -1,5 +1,5 @@
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { Renderer2, Type } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
@@ -25,13 +25,15 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule, HttpClientTestingModule],
-      declarations: [ HeaderComponent, TrimCharacterPipe ],
-      providers: [
+    declarations: [HeaderComponent, TrimCharacterPipe],
+    imports: [],
+    providers: [
         { provide: UserService, useValue: service1 },
-        { provide: Renderer2, useValue: service2}
-      ]
-    })
+        { provide: Renderer2, useValue: service2 },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);

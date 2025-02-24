@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -28,24 +28,23 @@ describe('FyleCallbackComponent', () => {
     };
 
     await TestBed.configureTestingModule({
-      imports: [
-        HttpClientModule, RouterTestingModule
-      ],
-      declarations: [ FyleCallbackComponent ],
-      providers: [
+    declarations: [FyleCallbackComponent],
+    imports: [RouterTestingModule],
+    providers: [
         MessageService,
         { provide: Router, useValue: routerSpy },
         {
-          provide: ActivatedRoute,
-          useValue: {
-            queryParams: of({
-              code: 'wrong-code'
-            })
-          }
+            provide: ActivatedRoute,
+            useValue: {
+                queryParams: of({
+                    code: 'wrong-code'
+                })
+            }
         },
-        { provide: AuthService, useValue: service1}
-      ]
-    })
+        { provide: AuthService, useValue: service1 },
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(FyleCallbackComponent);

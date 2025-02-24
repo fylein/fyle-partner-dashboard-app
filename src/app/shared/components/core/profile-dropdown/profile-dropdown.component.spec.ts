@@ -1,5 +1,5 @@
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
@@ -29,14 +29,16 @@ describe('ProfileDropdownComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule, HttpClientTestingModule],
-      declarations: [ ProfileDropdownComponent, TrimCharacterPipe ],
-      providers: [
+    declarations: [ProfileDropdownComponent, TrimCharacterPipe],
+    imports: [],
+    providers: [
         { provide: PartnerService, useValue: service1 },
         { provide: WindowService, useValue: service2 },
-        { provide: Router, useValue: routerSpy }
-      ]
-    })
+        { provide: Router, useValue: routerSpy },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(ProfileDropdownComponent);

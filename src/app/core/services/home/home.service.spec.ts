@@ -1,10 +1,11 @@
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { getTestBed, TestBed } from '@angular/core/testing';
 import { environment } from 'src/environments/environment';
 import { ClientView } from '../../models/enum/enum.model';
 import { StorageService } from '../core/storage.service';
 import { clientOrgResponse, paginationProperties } from './home.fixture';
 import { HomeService } from './home.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('HomeService', () => {
   let service: HomeService;
@@ -20,12 +21,14 @@ describe('HomeService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [
+    imports: [],
+    providers: [
         HomeService,
-        { provide: StorageService, useValue: service1 }
-      ]
-    });
+        { provide: StorageService, useValue: service1 },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+});
     injector = getTestBed();
     service = TestBed.inject(HomeService);
     storageService = injector.inject(StorageService);

@@ -1,5 +1,5 @@
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 import { By } from '@angular/platform-browser';
@@ -21,13 +21,15 @@ describe('ClientTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule, HttpClientTestingModule],
-      declarations: [ ClientTableComponent ],
-      providers: [
+    declarations: [ClientTableComponent],
+    imports: [],
+    providers: [
         FormBuilder,
-        { provide: HomeService, useValue: service1 }
-      ]
-    })
+        { provide: HomeService, useValue: service1 },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(ClientTableComponent);
