@@ -14,8 +14,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 23
-      - uses: satackey/action-docker-layer-caching@v0.0.11
-        continue-on-error: true
       - name: push to dockerhub
         uses: fylein/docker-release-action@master
         env:
