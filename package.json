@@ -1,9 +1,6 @@
 {
   "name": "fyle-partner-dashboard-app",
   "version": "0.0.0",
-  "engines": {
-    "node": ">=18.19.0"
-  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
