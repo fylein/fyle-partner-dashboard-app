@@ -18,10 +18,15 @@ if (environment.sentry_dsn && env && hostname !== 'localhost') {
     ignoreErrors: [
       'Non-Error exception captured'
     ],
-    integrations: [new TracingIntegrations.BrowserTracing({
-      routingInstrumentation: Sentry.routingInstrumentation,
-      tracingOrigins: ['*']
-    })],
+    integrations: [
+      // Registers and configures the Tracing integration,
+      // Which automatically instruments your application to monitor its
+      // Performance, including custom Angular routing instrumentation
+      Sentry.browserTracingIntegration(),
+      // Registers the Replay integration,
+      // Which automatically captures Session Replays
+      Sentry.replayIntegration()
+    ],
     tracesSampleRate: 1
   });
 }
