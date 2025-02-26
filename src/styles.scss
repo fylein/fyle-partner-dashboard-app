@@ -17,11 +17,11 @@ p {
 
 // Button CTA
 .p-button {
-  @apply tw-w-[100%] tw-text-14-px tw-shadow-none tw-border-none tw-bg-btn-cta #{!important};
+  @apply tw-w-[100%] tw-text-14-px tw-shadow-none tw-border-none tw-bg-btn-cta tw-text-white tw-py-12-px tw-px-24-px #{!important};
 }
 
 .p-button.p-button-raised {
-  @apply tw-justify-center #{!important};
+  @apply tw-justify-center  #{!important};
 }
 
 .p-button-label {
@@ -88,7 +88,7 @@ p {
 }
 
 .p-datatable .p-datatable-thead > tr > th {
-  @apply tw-pt-12-px tw-pr-0 tw-pb-12-px tw-pl-22-px tw-text-12-px tw-text-slightly-normal-text-color tw-bg-section-hover tw-border-1-px tw-border-r-0 tw-border-table-header #{!important};
+  @apply tw-py-12-px tw-px-22-px tw-text-12-px tw-text-slightly-normal-text-color tw-bg-section-hover tw-border-1-px tw-border-r-0 tw-border-table-header #{!important};
 }
 
 .pi-sort-alt:before {

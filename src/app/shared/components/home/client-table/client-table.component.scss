@@ -4,7 +4,7 @@
     }
 
     &--header {
-        @apply tw-flex-row tw-whitespace-nowrap;
+        @apply tw-flex-row tw-whitespace-nowrap tw-items-end tw-justify-center;
     }
 
     &--client-name {
