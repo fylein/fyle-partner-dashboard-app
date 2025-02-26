@@ -10,7 +10,7 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import * as Sentry from '@sentry/angular';
 
 // Angular libraries
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // External libraries
@@ -21,44 +21,38 @@ import { InputTextModule } from 'primeng/inputtext';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { GlobalErrorHandler } from './app.error-handling';
 
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    ToastModule,
-    InputTextModule,
-    IconSpriteModule.forRoot({ path: 'assets/sprites/sprite.svg' })
-  ],
-  providers: [
-    CurrencyPipe,
-    MessageService,
-    {
-      provide: JWT_OPTIONS,
-      useValue: JWT_OPTIONS
-    },
-    JwtHelperService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptor,
-      multi: true
-    },
-    {
-      provide: ErrorHandler,
-      useClass: GlobalErrorHandler
-    },
-    {
-      provide: ErrorHandler,
-      useValue: Sentry.createErrorHandler({
-        showDialog: false
-      })
-    }
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        ToastModule,
+        InputTextModule,
+        IconSpriteModule.forRoot({ path: 'assets/sprites/sprite.svg' })], providers: [
+        CurrencyPipe,
+        MessageService,
+        {
+            provide: JWT_OPTIONS,
+            useValue: JWT_OPTIONS
+        },
+        JwtHelperService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: JwtInterceptor,
+            multi: true
+        },
+        {
+            provide: ErrorHandler,
+            useClass: GlobalErrorHandler
+        },
+        {
+            provide: ErrorHandler,
+            useValue: Sentry.createErrorHandler({
+                showDialog: false
+            })
+        },
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
 

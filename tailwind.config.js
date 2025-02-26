@@ -19,7 +19,8 @@ const customColors = {
   'sort-icon': '#343a40',
   'sort-bg': '#f8f9fa',
   'table-icon-border': '#EAEAEB',
-  'open-org': '#252841'
+  'open-org': '#252841',
+  'input-box-border': '#ced4da'
 };
 
 module.exports = {
@@ -117,6 +118,7 @@ module.exports = {
         '12-px': '12px',
         '14-px': '14px',
         '16-px': '16px',
+        '18-px': '18px',
         '20-px': '20px',
         '22-px': '22px',
         '24-px': '24px',

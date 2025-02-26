@@ -2,7 +2,7 @@
     <p-table *ngIf="!isLoading" [columns]="columns" [value]="clients" [scrollable]="true" [rowHover]="true" sortMode="single" sortField="name">
         <ng-template pTemplate="header">
             <tr class="client-table--client-name" data-cy="data-row-head">
-                <th pSortableColumn="name" class="client-table--client-name-col" data-cy="client-name">
+                <th pSortableColumn="name" class="client-table--client-name-col tw-flex" data-cy="client-name">
                     Client Name
                     <p-sortIcon field="name" data-cy="sort-icon-client-name"></p-sortIcon>
                 </th>
@@ -12,28 +12,28 @@
                         <svg-icon-sprite pTooltip="Active users of {{ currentMonth }}" tooltipPosition="bottom" src="info"
                             width="16px" height="16px"
                             class="tw-text-faded-icon hover:tw-text-table-row-hover"></svg-icon-sprite>
-                        <p-sortIcon field="billed_users_count" data-cy="sort-icon-active-users"></p-sortIcon>
+                        <!-- <p-sortIcon field="billed_users_count" data-cy="sort-icon-active-users"></p-sortIcon> -->
                     </div>
                 </th>
                 <th pSortableColumn="enabled_users_count" class="client-table--header" data-cy="total-users-text">
                     Total Users
-                    <p-sortIcon field="enabled_users_count" data-cy="sort-icon-total-users"></p-sortIcon>
+                    <!-- <p-sortIcon field="enabled_users_count" data-cy="sort-icon-total-users"></p-sortIcon> -->
                 </th>
                 <th pSortableColumn="pending_users_count" class="client-table--header" data-cy="pending-invitation-text">
                     Pending Invitation
-                    <p-sortIcon field="pending_users_count" data-cy="sort-icon-pending-invitation"></p-sortIcon>
+                    <!-- <p-sortIcon field="pending_users_count" data-cy="sort-icon-pending-invitation"></p-sortIcon> -->
                 </th>
                 <th pSortableColumn="incomplete_expenses_count" class="client-table--header" data-cy="incomplete-expenses-text">
                     Incomplete Expenses
-                    <p-sortIcon field="incomplete_expenses_count" class="client-table--header" data-cy="sort-icon-incomplete-expenses"></p-sortIcon>
+                    <!-- <p-sortIcon field="incomplete_expenses_count" class="client-table--header" data-cy="sort-icon-incomplete-expenses"></p-sortIcon> -->
                 </th>
                 <th pSortableColumn="approval_pending_reports_count" class="client-table--header" data-cy="reports-to-approve-text">
                     Reports to Approve
-                    <p-sortIcon field="approval_pending_reports_count" class="client-table--header" data-cy="sort-icon-reports-to-approve"></p-sortIcon>
+                    <!-- <p-sortIcon field="approval_pending_reports_count" class="client-table--header" data-cy="sort-icon-reports-to-approve"></p-sortIcon> -->
                 </th>
                 <th pSortableColumn="pending_reimbursement_amount" class="client-table--header client-table--pending-reimbursements" data-cy="pending-reimbursements-text">
                     Pending Reimbursements
-                    <p-sortIcon field="pending_reimbursement_amount" data-cy="sort-icon-pending-reimbursements"></p-sortIcon>
+                    <!-- <p-sortIcon field="pending_reimbursement_amount" data-cy="sort-icon-pending-reimbursements"></p-sortIcon> -->
                 </th>
             </tr>
         </ng-template>

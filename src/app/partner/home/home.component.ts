@@ -48,6 +48,8 @@ export class HomeComponent implements OnInit {
 
   private sessionStartTime = new Date();
 
+  isSearchFocused: boolean = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private homeService: HomeService,
