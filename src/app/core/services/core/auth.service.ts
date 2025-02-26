@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   logout(redirect?: boolean): void {
-    Sentry.configureScope(scope => scope.setUser(null));
+    Sentry.setUser(null);
     this.trackingService.onSignOut();
     this.storageService.remove('user');
 

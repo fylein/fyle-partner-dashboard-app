@@ -2,7 +2,6 @@ import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import * as Sentry from '@sentry/angular';
-import { Integrations as TracingIntegrations } from '@sentry/tracing';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
@@ -18,10 +17,7 @@ if (environment.sentry_dsn && env && hostname !== 'localhost') {
     ignoreErrors: [
       'Non-Error exception captured'
     ],
-    integrations: [new TracingIntegrations.BrowserTracing({
-      routingInstrumentation: Sentry.routingInstrumentation,
-      tracingOrigins: ['*']
-    })],
+    integrations: [Sentry.browserTracingIntegration()],
     tracesSampleRate: 1
   });
 }
