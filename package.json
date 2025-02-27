@@ -53,6 +53,7 @@
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "autoprefixer": "^10.4.12",
+    "esbuild": "^0.25.0",
     "eslint": "^8.23.1",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
@@ -62,5 +63,8 @@
     "karma-jasmine-html-reporter": "~2.0.0",
     "postcss": "^8.4.18",
     "svg2sprite-cli": "^2.0.1"
-  }
+  },
+  "overrides": {
+  "esbuild": "^0.25.0"
+}
 }
