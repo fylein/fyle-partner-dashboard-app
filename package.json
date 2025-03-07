@@ -29,6 +29,7 @@
     "@angular/router": "^18.2.13",
     "@auth0/angular-jwt": "^5.1.0",
     "@sentry/angular": "^8.18.0",
+    "@sentry/cli": "^2.32.2",
     "eslint": "^8.57.0",
     "ng-svg-icon-sprite": "^1.14.0",
     "primeicons": "^7.0.0",
