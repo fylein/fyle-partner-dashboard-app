@@ -125,7 +125,7 @@
     <p-table *ngIf="isLoading" [columns]="columns" [value]="[0, 1, 2, 3, 4, 5, 6, 7, 8]" [scrollable]="true" [rowHover]="true" sortMode="single" sortField="name">
         <ng-template pTemplate="header">
             <tr class="client-table--client-name">
-                <th pSortableColumn="name" class="client-table--client-name-col">
+                <th pSortableColumn="name" class="client-table--client-name-col tw-flex">
                     Client Name
                     <p-sortIcon field="name"></p-sortIcon>
                 </th>
@@ -136,26 +136,20 @@
                             width="16px" height="16px"
                             class="tw-text-faded-icon hover:tw-text-table-row-hover"></svg-icon-sprite>
                     </p>
-                    <p-sortIcon field="billed_users_count"></p-sortIcon>
                 <th pSortableColumn="enabled_users_count" class="client-table--header">
                     Total Users
-                    <p-sortIcon field="enabled_users_count"></p-sortIcon>
                 </th>
                 <th pSortableColumn="pending_users_count" class="client-table--header">
                     Pending Invitation
-                    <p-sortIcon field="pending_users_count"></p-sortIcon>
                 </th>
                 <th pSortableColumn="incomplete_expenses_count" class="client-table--header">
                     Incomplete Expenses
-                    <p-sortIcon field="incomplete_expenses_count" class="client-table--header"></p-sortIcon>
                 </th>
                 <th pSortableColumn="approval_pending_reports_count" class="client-table--header">
                     Reports to Approve
-                    <p-sortIcon field="approval_pending_reports_count" class="client-table--header"></p-sortIcon>
                 </th>
                 <th pSortableColumn="pending_reimbursement_amount" class="client-table--header client-table--pending-reimbursements">
                     Pending Reimbursements
-                    <p-sortIcon field="pending_reimbursement_amount"></p-sortIcon>
                 </th>
             </tr>
         </ng-template>
