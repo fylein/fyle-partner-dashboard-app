@@ -69,6 +69,12 @@
     "vite": "5.4.12",
     "karma": {
       "minimatch": "^3.0.5"
+    },
+    "@angular-devkit/build-angular": {
+      "@babel/runtime": "^7.26.10"
+    },
+    "@babel/core": {
+      "@babel/helpers": "^7.26.10"
     }
   }
 }
