@@ -43,7 +43,7 @@ ARG SERVICE_GID=1001
 #================================================================
 RUN groupadd -r -g ${SERVICE_GID} partner_app_service && \
     useradd -r -g partner_app_service partner_app_user && \
-    chown -R partner_app_user:partner_app_service /usr/share/nginx/html /etc/nginx/nginx.conf /run.sh /var/cache/nginx
+    chown -R partner_app_user:partner_app_service /usr/share/nginx/html /etc/nginx/nginx.conf /run.sh
 
 # Switch to non-root user
 USER partner_app_user
