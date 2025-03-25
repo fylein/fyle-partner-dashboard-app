@@ -33,23 +33,8 @@ COPY --from=build /app/nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=build /app/run.sh ./
 
-#================================================================
-# Set default GID if not provided during build
-#================================================================
-ARG SERVICE_GID=1001
-
-#================================================================
-# Setup non-root user and permissions
-#================================================================
-RUN groupadd -r -g ${SERVICE_GID} partner_app_service && \
-    useradd -r -g partner_app_service partner_app_user && \
-    chown -R partner_app_user:partner_app_service /usr/share/nginx/html /etc/nginx/nginx.conf /run.sh
-
-# Switch to non-root user
-USER partner_app_user
-
-# expose port 5050
-EXPOSE 5050
+# expose port 80
+EXPOSE 80
 
 # run nginx
 CMD bash run.sh
