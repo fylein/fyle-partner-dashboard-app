@@ -60,3 +60,10 @@ cypress/screenshots
 cypress/coverage/*
 !cypress/coverage/coverage-summary.json
 dependency-check-report.csv
+
+
+**/i18n/services
+**/i18n/components
+**/i18n/pipes
+**/i18n/directives
+**/i18n/.env

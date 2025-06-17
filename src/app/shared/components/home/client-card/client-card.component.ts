@@ -6,6 +6,7 @@ import { WindowService } from 'src/app/core/services/core/window.service';
 import { HomeService } from 'src/app/core/services/home/home.service';
 import { TrackingService } from 'src/app/core/services/integration/tracking.service';
 import { environment } from 'src/environments/environment';
+import { TranslocoService } from '@jsverse/transloco';
 
 
 @Component({
@@ -29,6 +30,12 @@ export class ClientCardComponent implements OnInit {
     [ClientRedirectionType.FYLE_ADMIN]: 'id'
   };
 
+  redirectionTypeKeyMap: Partial<Record<ClientRedirectionType, string>> = {
+    [ClientRedirectionType.INCOMPLETE_EXPENSES]: 'clientCard.incompleteExpenses',
+    [ClientRedirectionType.REPORTS_TO_APPROVE]: 'clientCard.reportsToApprove',
+    [ClientRedirectionType.PENDING_REIMBURSEMENTS]: 'clientCard.pendingReimbursements'
+  };
+
   @Input() clients: Client[];
 
   @Input() isLoading: boolean;
@@ -37,14 +44,13 @@ export class ClientCardComponent implements OnInit {
 
   @Output() pageScrollHandler = new EventEmitter<PageScroll>();
 
-  private readonly months: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-  readonly currentMonth: string = this.months[new Date().getMonth()];
+  currentMonth: string;
 
   constructor(
     private homeService: HomeService,
     private trackingService: TrackingService,
-    private windowService: WindowService
+    private windowService: WindowService,
+    private translocoService: TranslocoService
   ) { }
 
   onWindowScroll(event: any) {
@@ -74,6 +80,9 @@ export class ClientCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const monthKeys = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+    const currentMonthKey = monthKeys[new Date().getMonth()];
+    this.currentMonth = this.translocoService.translate(`clientCard.${currentMonthKey}`);
   }
 
 }

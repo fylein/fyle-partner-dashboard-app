@@ -1,0 +1,90 @@
+{
+  "auth": {
+    "tagline": "NEVER LOSE TRACK"
+  },
+  "fyleCallback": {
+    "loginFailedSummary": "Login Failed",
+    "loginFailedDetail": "You don't have access to this portal, please contact support@fylehq.com if you need further assistance on this"
+  },
+  "profileDropdown": {
+    "partnerDashboard": "Partner Dashboard",
+    "primaryOrgLabel": "Primary",
+    "signOut": "Sign Out"
+  },
+  "helpDropdown": {
+    "visitHelpCenter": "Visit Help Centre",
+    "stillFacingIssues": "Still facing issues?",
+    "writeYourQuery": "Write your query to us along with screenshots (if any) at",
+    "copyToClipboardAltText": "Copy to clipboard",
+    "supportEmailCopied": "Support Email copied to clipboard"
+  },
+  "header": {
+    "fyleLogoAltText": "Fyle",
+    "home": "Home",
+    "helpAndSupportTooltip": "Help & Support"
+  },
+  "login": {
+    "portalTitle": "Partner's Portal",
+    "loginSubTitle": "Login to your account",
+    "signInWithFyle": "Signin With Fyle"
+  },
+  "clientCard": {
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December",
+    "activeUsers": "Active Users:",
+    "activeUsersTooltip": "Active users of {{month}}",
+    "totalUsers": "Total Users:",
+    "incompleteExpenses": "Incomplete Expenses",
+    "reportsToApprove": "Reports to Approve",
+    "pendingReimbursements": "Pending Reimbursements"
+  },
+  "clientTable": {
+    "clientName": "Client Name",
+    "activeUsers": "Active Users",
+    "activeUsersTooltip": "Active users of {{currentMonth}}",
+    "totalUsers": "Total Users",
+    "pendingInvitation": "Pending Invitation",
+    "incompleteExpenses": "Incomplete Expenses",
+    "reportsToApprove": "Reports to Approve",
+    "pendingReimbursements": "Pending Reimbursements",
+    "view": "View",
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December"
+  },
+  "simpleSearchText": {
+    "works": "simple-search-text works!"
+  },
+  "paginator": {
+    "pageStatus": "Page {{currentPage}} of {{totalPageCount}}",
+    "showLabel": "Show",
+    "pageLabel": "Page",
+    "itemsPerPage": "{{count}} Items"
+  },
+  "home": {
+    "myClients": "My Clients",
+    "activeUsers": "Active users",
+    "searchPlaceholder": "Search",
+    "detail": "Detail",
+    "table": "Table"
+  }
+}
