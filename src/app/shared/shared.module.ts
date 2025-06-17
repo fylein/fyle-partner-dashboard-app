@@ -35,7 +35,7 @@ import { TranslocoModule } from '@jsverse/transloco';
     ClientCardComponent,
     ClientTableComponent,
     TrimCharacterPipe,
-    FyCurrencyPipe,
+    FyCurrencyPipe
   ],
   imports: [
     CommonModule,

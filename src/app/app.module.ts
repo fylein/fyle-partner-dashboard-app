@@ -42,21 +42,21 @@ import { provideTranslocoMessageformat } from '@jsverse/transloco-messageformat'
                 availableLangs: ['en'],
                 defaultLang: 'en',
                 reRenderOnLangChange: true,
-                prodMode: !isDevMode(),
+                prodMode: !isDevMode()
             },
-            loader: TranslocoHttpLoader,
+            loader: TranslocoHttpLoader
         }),
         provideTranslocoMessageformat(),
         {
-        provide: APP_INITIALIZER,
-        useFactory: (transloco: TranslocoService) => {
-            return () =>
-            firstValueFrom(transloco.load('en')).then(() => {
-                transloco.setActiveLang('en');
-            });
-        },
-        deps: [TranslocoService],
-        multi: true,
+            provide: APP_INITIALIZER,
+            useFactory: (transloco: TranslocoService) => {
+                return () =>
+                firstValueFrom(transloco.load('en')).then(() => {
+                    transloco.setActiveLang('en');
+                });
+            },
+            deps: [TranslocoService],
+            multi: true
         },
         {
             provide: JWT_OPTIONS,
