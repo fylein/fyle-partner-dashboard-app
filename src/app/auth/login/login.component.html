@@ -7,16 +7,16 @@
         <div class="tw-bg-white tw-rounded-8-px">
             <div class="tw-p-40-px">
                 <p class="tw-flex tw-justify-center tw-pb-8-px tw-font-700 tw-text-24-px" data-cy="heading">
-                    Partner's Portal
+                    {{ 'login.portalTitle' | transloco }}
                 </p>
                 <p class="tw-flex tw-justify-center tw-text-sub-text-color tw-pb-24-px" data-cy="subheading">
-                    Login to your account
+                    {{ 'login.loginSubTitle' | transloco }}
                 </p>
                 <div class="tw-flex tw-justify-center tw-pb-24-px">
                     <img src="assets/illustrations/login.svg" />
                 </div>
                 <button pButton type="button" class="p-button-raised" (click)="redirectToFyleOAuth()" data-cy="submit">
-                    Signin With Fyle
+                    {{ 'login.signInWithFyle' | transloco }}
                 </button>
             </div>
         </div>

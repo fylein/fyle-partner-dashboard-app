@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { RedirectLink } from 'src/app/core/models/enum/enum.model';
 import { WindowService } from 'src/app/core/services/core/window.service';
+import { TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-help-dropdown',
@@ -14,7 +15,8 @@ export class HelpDropdownComponent implements OnInit {
 
   constructor(
     private messageService: MessageService,
-    public windowService: WindowService
+    public windowService: WindowService,
+    private translocoService: TranslocoService
   ) { }
 
   copyToClipboard(): void {
@@ -27,7 +29,7 @@ export class HelpDropdownComponent implements OnInit {
 
     this.messageService.add({
       severity: 'success',
-      summary: 'Support Email copied to clipboard'
+      summary: this.translocoService.translate('helpDropdown.supportEmailCopied')
     });
 
     document.body.removeChild(selBox);

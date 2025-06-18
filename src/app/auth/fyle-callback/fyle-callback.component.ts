@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/core/services/core/auth.service';
 import { MessageService } from 'primeng/api';
 import { MinimalUser } from 'src/app/core/models/db/user.model';
 import { UserService } from 'src/app/core/services/misc/user.service';
+import { TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-fyle-callback',
@@ -17,15 +18,16 @@ export class FyleCallbackComponent implements OnInit {
     private messageService: MessageService,
     private route: ActivatedRoute,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private translocoService: TranslocoService
   ) { }
 
   private redirectToLogin(): void {
     this.authService.logout();
     this.messageService.add({
       severity: 'error',
-      summary: 'Login Failed',
-      detail: `You don't have access to this portal, please contact support@fylehq.com if you need further assistance on this`,
+      summary: this.translocoService.translate('fyleCallback.loginFailedSummary'),
+      detail: this.translocoService.translate('fyleCallback.loginFailedDetail'),
       life: 7000
     });
     this.router.navigate(['auth/login']);

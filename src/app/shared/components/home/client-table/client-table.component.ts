@@ -6,6 +6,7 @@ import { HomeService } from 'src/app/core/services/home/home.service';
 import { TrackingService } from 'src/app/core/services/integration/tracking.service';
 import { environment } from 'src/environments/environment';
 import { WindowService } from 'src/app/core/services/core/window.service';
+import { TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-client-table',
@@ -26,52 +27,15 @@ export class ClientTableComponent implements OnInit {
 
   ClientRedirectionType = ClientRedirectionType;
 
-  columns: TableColumn[] = [
-    {
-      field: 'name',
-      header: 'Client Name',
-      sort: true
-    },
-    {
-      field: 'billed_users_count',
-      header: 'Active Users',
-      sort: true
-    },
-    {
-      field: 'enabled_users_count',
-      header: 'Total Users',
-      sort: true
-    },
-    {
-      field: 'pending_users_count',
-      header: 'Pending Invitation',
-      sort: true
-    },
-    {
-      field: 'incomplete_expenses_count',
-      header: 'Incomplete Expenses',
-      sort: true
-    },
-    {
-      field: 'approval_pending_reports_count',
-      header: 'Reports to Approve',
-      sort: true
-    },
-    {
-      field: 'pending_reimbursement_amount',
-      header: 'Pending Reimbursements',
-      sort: true
-    }
-  ];
+  columns: TableColumn[];
 
-  private readonly months: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-  readonly currentMonth: string = this.months[new Date().getMonth()];
+  currentMonth: string;
 
   constructor(
     private homeService: HomeService,
     private trackingService: TrackingService,
-    private windowService: WindowService
+    private windowService: WindowService,
+    private translocoService: TranslocoService
   ) { }
 
   onWindowScroll(event: any) {
@@ -106,6 +70,46 @@ export class ClientTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const monthNames = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+    this.currentMonth = this.translocoService.translate(`clientTable.${monthNames[new Date().getMonth()]}`);
+
+    this.columns = [
+      {
+        field: 'name',
+        header: this.translocoService.translate('clientTable.clientName'),
+        sort: true
+      },
+      {
+        field: 'billed_users_count',
+        header: this.translocoService.translate('clientTable.activeUsers'),
+        sort: true
+      },
+      {
+        field: 'enabled_users_count',
+        header: this.translocoService.translate('clientTable.totalUsers'),
+        sort: true
+      },
+      {
+        field: 'pending_users_count',
+        header: this.translocoService.translate('clientTable.pendingInvitation'),
+        sort: true
+      },
+      {
+        field: 'incomplete_expenses_count',
+        header: this.translocoService.translate('clientTable.incompleteExpenses'),
+        sort: true
+      },
+      {
+        field: 'approval_pending_reports_count',
+        header: this.translocoService.translate('clientTable.reportsToApprove'),
+        sort: true
+      },
+      {
+        field: 'pending_reimbursement_amount',
+        header: this.translocoService.translate('clientTable.pendingReimbursements'),
+        sort: true
+      }
+    ];
   }
 
 }

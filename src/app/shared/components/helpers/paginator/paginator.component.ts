@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { TranslocoService } from '@jsverse/transloco';
 import { PageNavigation } from 'src/app/core/models/enum/enum.model';
 import { PageSize, Paginator } from 'src/app/core/models/misc/paginator.model';
 
@@ -10,9 +11,7 @@ import { PageSize, Paginator } from 'src/app/core/models/misc/paginator.model';
 })
 export class PaginatorComponent implements OnInit, OnChanges {
 
-  pageSizeOptions: PageSize[] = [20, 50, 100].map(pageSize => {
-    return { label: `${pageSize} Items`, value: pageSize };
-  });
+  pageSizeOptions: PageSize[];
 
   totalPageCount: number;
 
@@ -35,7 +34,8 @@ export class PaginatorComponent implements OnInit, OnChanges {
   });
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private translocoService: TranslocoService
   ) { }
 
   private onPageSizeChangeWatcher(): void {
@@ -140,6 +140,9 @@ export class PaginatorComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    this.pageSizeOptions = [20, 50, 100].map(pageSize => {
+      return { label: this.translocoService.translate('paginator.itemsPerPage', { count: pageSize }), value: pageSize };
+    });
     this.setupForm();
   }
 

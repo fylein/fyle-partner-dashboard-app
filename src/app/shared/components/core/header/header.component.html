@@ -1,12 +1,12 @@
 <div class="tw-h-60-px tw-flex tw-justify-between tw-items-center">
     <div class="tw-flex tw-pl-44-px">
-        <img alt="Fyle" src="assets/icons/fyle.svg" width="60px" height="20px" data-cy="fyle-logo"/>
+        <img [alt]="'header.fyleLogoAltText' | transloco" src="assets/icons/fyle.svg" width="60px" height="20px" data-cy="fyle-logo"/>
         <p class="tw-h-32-px tw-ml-16-px tw-mr-14-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
-        <p class="tw-text-20-px" data-cy="header-home-text">Home</p>
+        <p class="tw-text-20-px" data-cy="header-home-text">{{ 'header.home' | transloco }}</p>
     </div>
     <div class="tw-flex tw-pr-28-px tw-justify-between tw-items-center">
         <div class="">
-            <div #helpSection pTooltip="Help & Support" tooltipPosition="bottom" class="hover:tw-bg-section-hover hover:tw-rounded-8-px hover:tw-cursor-pointer tw-h-42-px tw-w-42-px tw-flex tw-flex-col tw-justify-center tw-items-center" (click)="showOrHideHelpDropDown()">
+            <div #helpSection [pTooltip]="'header.helpAndSupportTooltip' | transloco" tooltipPosition="bottom" class="hover:tw-bg-section-hover hover:tw-rounded-8-px hover:tw-cursor-pointer tw-h-42-px tw-w-42-px tw-flex tw-flex-col tw-justify-center tw-items-center" (click)="showOrHideHelpDropDown()">
                 <svg-icon-sprite src="support" width="22px" height="20px" class="tw-text-sub-text-color"></svg-icon-sprite>
             </div>
             <app-help-dropdown *ngIf="showHelpDropDown" #help></app-help-dropdown>

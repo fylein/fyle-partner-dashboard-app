@@ -3,36 +3,36 @@
         <ng-template pTemplate="header">
             <tr class="client-table--client-name" data-cy="data-row-head">
                 <th pSortableColumn="name" class="client-table--client-name-col tw-flex" data-cy="client-name">
-                    Client Name
+                    {{ 'clientTable.clientName' | transloco }}
                     <p-sortIcon field="name" data-cy="sort-icon-client-name"></p-sortIcon>
                 </th>
                 <th pSortableColumn="billed_users_count" class="client-table--header client-table--active-users">
                     <div class="tw-flex">
-                        <span class="tw-pr-10-px" data-cy="active-users-text">Active Users</span>
-                        <svg-icon-sprite pTooltip="Active users of {{ currentMonth }}" tooltipPosition="bottom" src="info"
+                        <span class="tw-pr-10-px" data-cy="active-users-text">{{ 'clientTable.activeUsers' | transloco }}</span>
+                        <svg-icon-sprite [pTooltip]="'clientTable.activeUsersTooltip' | transloco: { currentMonth: currentMonth }" tooltipPosition="bottom" src="info"
                             width="16px" height="16px"
                             class="tw-text-faded-icon hover:tw-text-table-row-hover"></svg-icon-sprite>
                         <!-- <p-sortIcon field="billed_users_count" data-cy="sort-icon-active-users"></p-sortIcon> -->
                     </div>
                 </th>
                 <th pSortableColumn="enabled_users_count" class="client-table--header" data-cy="total-users-text">
-                    Total Users
+                    {{ 'clientTable.totalUsers' | transloco }}
                     <!-- <p-sortIcon field="enabled_users_count" data-cy="sort-icon-total-users"></p-sortIcon> -->
                 </th>
                 <th pSortableColumn="pending_users_count" class="client-table--header" data-cy="pending-invitation-text">
-                    Pending Invitation
+                    {{ 'clientTable.pendingInvitation' | transloco }}
                     <!-- <p-sortIcon field="pending_users_count" data-cy="sort-icon-pending-invitation"></p-sortIcon> -->
                 </th>
                 <th pSortableColumn="incomplete_expenses_count" class="client-table--header" data-cy="incomplete-expenses-text">
-                    Incomplete Expenses
+                    {{ 'clientTable.incompleteExpenses' | transloco }}
                     <!-- <p-sortIcon field="incomplete_expenses_count" class="client-table--header" data-cy="sort-icon-incomplete-expenses"></p-sortIcon> -->
                 </th>
                 <th pSortableColumn="approval_pending_reports_count" class="client-table--header" data-cy="reports-to-approve-text">
-                    Reports to Approve
+                    {{ 'clientTable.reportsToApprove' | transloco }}
                     <!-- <p-sortIcon field="approval_pending_reports_count" class="client-table--header" data-cy="sort-icon-reports-to-approve"></p-sortIcon> -->
                 </th>
                 <th pSortableColumn="pending_reimbursement_amount" class="client-table--header client-table--pending-reimbursements" data-cy="pending-reimbursements-text">
-                    Pending Reimbursements
+                    {{ 'clientTable.pendingReimbursements' | transloco }}
                     <!-- <p-sortIcon field="pending_reimbursement_amount" data-cy="sort-icon-pending-reimbursements"></p-sortIcon> -->
                 </th>
             </tr>
@@ -60,7 +60,7 @@
                     <div class="tw-flex tw-justify-center">
                         <span data-cy="sort-total-users">{{ client.enabled_users_count === 0 ? '-' : client.enabled_users_count }}</span>
                         <a *ngIf="client.enabled_users_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.TOTAL_USERS, client.id)" data-cy="view-hover-total-user">
-                            View
+                            {{ 'clientTable.view' | transloco }}
                             <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
                             <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-total-user">
                             </svg-icon-sprite>
@@ -71,7 +71,7 @@
                     <div class="tw-flex tw-justify-center">
                         <span data-cy="sort-pending-users">{{ client.pending_users_count === 0 ? '-' : client.pending_users_count }}</span>
                         <a *ngIf="client.pending_users_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.PENDING_INVITATION, client.id)" data-cy="view-hover-pending-invitation">
-                            View
+                            {{ 'clientTable.view' | transloco }}
                             <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
                             <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-pending-invitation">
                             </svg-icon-sprite>
@@ -82,7 +82,7 @@
                     <div class="tw-flex tw-justify-center">
                         {{ client.incomplete_expenses_count === 0 ? '-' : client.incomplete_expenses_count }}
                         <a *ngIf="client.incomplete_expenses_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.INCOMPLETE_EXPENSES, client.id)" data-cy="view-hover-incomplete-expenses">
-                            View
+                            {{ 'clientTable.view' | transloco }}
                             <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
                             <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-incomplete-expenses">
                             </svg-icon-sprite>
@@ -93,7 +93,7 @@
                     <div class="tw-flex tw-justify-center">
                         {{ client.approval_pending_reports_count === 0 ? '-' : client.approval_pending_reports_count }}
                         <a *ngIf="client.approval_pending_reports_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.REPORTS_TO_APPROVE, client.id)" data-cy="view-hover-pending-reports">
-                            View
+                            {{ 'clientTable.view' | transloco }}
                             <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
                             <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-pending-reports">
                             </svg-icon-sprite>
@@ -105,7 +105,7 @@
                         {{ client.pending_reimbursement_amount | currency: client.currency }}
                         <a class="client-table--redirection client-table--view-in-fyle tw-justify-between tw-w-150-px" (click)="redirect(ClientRedirectionType.PENDING_REIMBURSEMENTS, client.id)" data-cy="view-hover-pending-reimbursements">
                             <div class="tw-flex tw-items-center">
-                                View
+                                {{ 'clientTable.view' | transloco }}
                                 <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
                                 <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-pending-reimbursements">
                                 </svg-icon-sprite>
@@ -126,30 +126,30 @@
         <ng-template pTemplate="header">
             <tr class="client-table--client-name">
                 <th pSortableColumn="name" class="client-table--client-name-col tw-flex">
-                    Client Name
+                    {{ 'clientTable.clientName' | transloco }}
                     <p-sortIcon field="name"></p-sortIcon>
                 </th>
                 <th pSortableColumn="billed_users_count" class="client-table--header client-table--active-users">
                     <p class="tw-flex">
-                        <span class="tw-pr-10-px">Active Users</span>
-                        <svg-icon-sprite pTooltip="Active users of {{ currentMonth }}" tooltipPosition="bottom" src="info"
+                        <span class="tw-pr-10-px">{{ 'clientTable.activeUsers' | transloco }}</span>
+                        <svg-icon-sprite [pTooltip]="'clientTable.activeUsersTooltip' | transloco: { currentMonth: currentMonth }" tooltipPosition="bottom" src="info"
                             width="16px" height="16px"
                             class="tw-text-faded-icon hover:tw-text-table-row-hover"></svg-icon-sprite>
                     </p>
                 <th pSortableColumn="enabled_users_count" class="client-table--header">
-                    Total Users
+                    {{ 'clientTable.totalUsers' | transloco }}
                 </th>
                 <th pSortableColumn="pending_users_count" class="client-table--header">
-                    Pending Invitation
+                    {{ 'clientTable.pendingInvitation' | transloco }}
                 </th>
                 <th pSortableColumn="incomplete_expenses_count" class="client-table--header">
-                    Incomplete Expenses
+                    {{ 'clientTable.incompleteExpenses' | transloco }}
                 </th>
                 <th pSortableColumn="approval_pending_reports_count" class="client-table--header">
-                    Reports to Approve
+                    {{ 'clientTable.reportsToApprove' | transloco }}
                 </th>
                 <th pSortableColumn="pending_reimbursement_amount" class="client-table--header client-table--pending-reimbursements">
-                    Pending Reimbursements
+                    {{ 'clientTable.pendingReimbursements' | transloco }}
                 </th>
             </tr>
         </ng-template>

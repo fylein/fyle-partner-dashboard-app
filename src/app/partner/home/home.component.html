@@ -8,11 +8,11 @@
                     <div class="tw-flex tw-items-center tw-pt-24-px">
                         <div class="tw-pr-14-px tw-pl-24-px tw-text-20-px tw-font-500">
                             <p *ngIf="!isLoading">
-                                My Clients ({{ clientsCount }})
+                                {{ 'home.myClients' | transloco }} ({{ clientsCount }})
                             </p>
                             <div *ngIf="isLoading" class="tw-flex">
                                 <p class="tw-w-92-px tw-whitespace-nowrap">
-                                    My Clients
+                                    {{ 'home.myClients' | transloco }}
                                 </p>
                                 <p-skeleton class="tw-pl-10-px tw-w-40-px" height="25px" shape="rectangle"></p-skeleton>
                             </div>
@@ -21,14 +21,14 @@
                         <p class="tw-mr-24-px tw-h-30-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
 
                         <div class="tw-text-sub-text-color tw-flex">
-                            <span *ngIf="!isLoading">{{ totalActiveUsers }} Active users</span>
+                            <span *ngIf="!isLoading">{{ totalActiveUsers }} {{ 'home.activeUsers' | transloco }}</span>
                             <p-skeleton *ngIf="isLoading" class="tw-pr-10-px tw-w-120-px" height="25px" shape="rectangle"></p-skeleton>
                         </div>
                     </div>
                     <div class="tw-flex tw-pt-16-px">
                         <div class="tw-py-12-px tw-px-12-px tw-border-solid tw-rounded-4-px tw-border tw-w-302-px tw-h-42-px tw-flex tw-items-center" [ngClass]="isSearchFocused ? 'tw-border-sub-text-color' : 'tw-border-input-box-border'">
                             <i class="pi pi-search tw-mr-18-px tw-text-faded-icon"></i>
-                            <input type="text" placeholder="Search"
+                            <input type="text" [placeholder]="'home.searchPlaceholder' | transloco"
                                 class="p-inputtext p-component p-element ng-valid ng-touched ng-dirty tw-w-302-px" formControlName="search" data-cy="search-input-area" (focus)="isSearchFocused = true" (blur)="isSearchFocused = false">
                             <svg-icon-sprite *ngIf="form.value.search && form.value.search.length > 0" src="clear" width="14px" height="14px" class="tw-text-faded-icon tw-absolute tw-top-14-px tw-right-12-px tw-cursor-pointer" (click)="clearSearch()" data-cy="clear-search">
                             </svg-icon-sprite>
@@ -46,7 +46,7 @@
                                         </div>
                                         <div [ngClass]="isDetailViewActive ? 'tw-text-normal-text-color' : 'tw-text-sub-text-color'"
                                             class="tw-text-12-px tw-pl-6-px tw-pr-8-px" data-cy="detail-view-tab">
-                                            Detail
+                                            {{ 'home.detail' | transloco }}
                                         </div>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@
                                         </div>
                                         <div [ngClass]="!isDetailViewActive ? 'tw-text-normal-text-color' : 'tw-text-sub-text-color'"
                                             class="tw-text-12-px tw-pl-6-px tw-pr-8-px" data-cy="table-view-tab">
-                                            Table
+                                            {{ 'home.table' | transloco }}
                                         </div>
                                     </div>
                                 </div>

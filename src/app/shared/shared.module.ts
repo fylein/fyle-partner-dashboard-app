@@ -20,6 +20,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { TrimCharacterPipe } from './pipes/trim-character.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FyCurrencyPipe } from './pipes/fy-currency.pipe';
+import { TranslocoModule } from '@jsverse/transloco';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { FyCurrencyPipe } from './pipes/fy-currency.pipe';
     DropdownModule,
     FormsModule,
     ReactiveFormsModule,
-    IconSpriteModule.forRoot({ path: 'assets/sprites/sprite.svg' })
+    IconSpriteModule.forRoot({ path: 'assets/sprites/sprite.svg' }),
+    TranslocoModule
   ],
   exports: [
     LoaderComponent,
@@ -55,7 +57,8 @@ import { FyCurrencyPipe } from './pipes/fy-currency.pipe';
     ZeroStateWithIllustrationComponent,
     PaginatorComponent,
     TrimCharacterPipe,
-    FyCurrencyPipe
+    FyCurrencyPipe,
+    TranslocoModule
   ]
 })
 export class SharedModule { }

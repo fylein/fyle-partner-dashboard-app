@@ -14,14 +14,14 @@
                             {{ client.name }}
                         </p>
                         <div class="tw-flex tw-text-sub-text-color">
-                            <p class="tw-text-14-px" data-cy="active-user-text">Active Users: <span class="tw-text-16-px tw-text-normal-text-color tw-font-500">
+                            <p class="tw-text-14-px" data-cy="active-user-text">{{ 'clientCard.activeUsers' | transloco }} <span class="tw-text-16-px tw-text-normal-text-color tw-font-500">
                                 {{ client.billed_users_count }}
                             </span></p>
-                            <svg-icon-sprite pTooltip="Active users of {{ currentMonth }}" tooltipPosition="bottom" src="info"
+                            <svg-icon-sprite [pTooltip]="'clientCard.activeUsersTooltip' | transloco: { month: currentMonth }" tooltipPosition="bottom" src="info"
                                 width="16px" height="16px"
                                 class="tw-text-faded-icon tw-mt-4-px tw-ml-4-px tw-mr-12-px hover:tw-text-table-row-hover"></svg-icon-sprite>
                             <p class="tw-mt-[-4px]">.</p>
-                            <p class="tw-text-14-px client-card--client-header-detail-section" data-cy="total-users-text">Total Users: <span class="tw-text-16-px tw-text-normal-text-color tw-font-500">
+                            <p class="tw-text-14-px client-card--client-header-detail-section" data-cy="total-users-text">{{ 'clientCard.totalUsers' | transloco }} <span class="tw-text-16-px tw-text-normal-text-color tw-font-500">
                                 {{ client.enabled_users_count }}
                             </span>
                             </p>
@@ -39,7 +39,7 @@
                     </p>
                     <p class="client-card--resource-divider"></p>
                     <div class="client-card--resource-redirection">
-                        <p>{{ clientRedirectionType }}</p>
+                        <p>{{ redirectionTypeKeyMap[clientRedirectionType] | transloco }}</p>
                         <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px"
                             class="tw-ml-6-px tw-mt-2-px tw-text-faded-icon tw-cursor-pointer"></svg-icon-sprite>
                     </div>

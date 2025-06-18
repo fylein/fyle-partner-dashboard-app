@@ -1,7 +1,7 @@
 <div class="max-xl:tw-right-[13.5%] tw-right-[10%] tw-absolute tw-rounded-4-px tw-shadow-help-section tw-text-slightly-normal-text-color tw-text-14-px tw-w-246-px tw-bg-white tw-z-[2]">
     <div class="tw-flex hover:tw-bg-section-hover hover:tw-cursor-pointer" (click)="windowService.openInNewTab(RedirectLink.FYLE_HELP)">
         <p class="tw-pt-24-px tw-pr-10-px tw-pb-16-px tw-pl-16-px">
-            Visit Help Centre
+            {{ 'helpDropdown.visitHelpCenter' | transloco }}
         </p>
         <svg-icon-sprite src="open-in-new-tab" width="14px" class="tw-pt-26-px tw-text-slightly-normal-text-color"></svg-icon-sprite>
     </div>
@@ -9,15 +9,15 @@
     <div class="tw-flex hover:tw-bg-section-hover hover:tw-cursor-pointer" (click)="windowService.redirect('mailto:support@fylehq.com')">
         <div>
             <p class="tw-pt-16-px tw-pb-8-px tw-pl-16-px">
-                Still facing issues?
+                {{ 'helpDropdown.stillFacingIssues' | transloco }}
             </p>
             <p class="tw-text-sub-text-color tw-text-12-px tw-pl-16-px tw-pb-4-px">
-                Write your query to us along with screenshots (if any) at
+                {{ 'helpDropdown.writeYourQuery' | transloco }}
             </p>
             <p class="tw-cursor-pointer tw-pl-16-px tw-pb-16-px tw-text-hyper-link">support&#64;fylehq.com</p>
         </div>
         <div class="tw-flex tw-pr-30-px" (click)="copyToClipboard()">
-            <img src="assets/icons/copy-to-clipboard.svg" width="22px" height="16px"/>
+            <img src="assets/icons/copy-to-clipboard.svg" width="22px" height="16px" [alt]="'helpDropdown.copyToClipboardAltText' | transloco"/>
         </div>
     </div>
 </div>
