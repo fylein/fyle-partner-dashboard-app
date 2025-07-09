@@ -29,7 +29,7 @@ export class HelpDropdownComponent implements OnInit {
 
     this.messageService.add({
       severity: 'success',
-      summary: this.translocoService.translate('helpDropdo1wn.supportEmailCopied')
+      summary: this.translocoService.translate('helpDropdown.supportEmailCopied')
     });
 
     document.body.removeChild(selBox);
