@@ -118,7 +118,7 @@
         "comma-style": ["error"],
         "computed-property-spacing": ["error"],
         "switch-colon-spacing": ["error"],
-        "@fyle/i18n-key-naming-convention": ["error", { "ignoredPrefixes": ["1.0-0"] }],
+        "@fyle/i18n-key-naming-convention": "error",
         "@fyle/no-hardcoded-strings": "warn"
       }
     },
@@ -130,7 +130,7 @@
         "plugin:@angular-eslint/template/recommended"
       ],
       "rules": {
-        "@fyle/i18n-key-naming-convention": ["error", { "ignoredPrefixes": ["1.0-0"] }],
+        "@fyle/i18n-key-naming-convention": "error",
         "@fyle/no-hardcoded-strings": "warn"
       }
     }
