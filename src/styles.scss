@@ -76,11 +76,11 @@ p {
 
 // Table
 .p-datatable .p-sortable-column:focus {
-  @apply tw-shadow-none #{!important};
+  @apply tw-shadow-none tw-bg-grid-heading #{!important};
 }
 
 .p-datatable .p-sortable-column.p-highlight {
-  @apply tw-text-sort-icon tw-bg-sort-bg #{!important};
+  @apply tw-text-sort-icon tw-bg-grid-heading  #{!important};
 }
 
 .p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
@@ -99,10 +99,6 @@ p {
   @apply tw-h-70-px tw-p-0 tw-text-14-px #{!important};
 }
 
-.p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover {
-  @apply tw-bg-card-hover #{!important};
-}
-
 .p-dropdown .p-dropdown-label {
   @apply tw-h-32-px tw-text-12-px #{!important};
 
@@ -117,4 +113,19 @@ p {
 
 .p-dropdown-panel .p-dropdown-items {
   @apply tw-text-12-px #{!important};
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  background-color: #E6EBED !important;
+}
+.p-datatable .p-datatable-tbody > tr:nth-child(even) {
+  background-color: #FAFBFB !important;
+}
+
+.p-datatable .p-datatable-tbody > tr:nth-child(even):hover {
+  background-color: #FAFBFB !important;
+}
+
+.p-datatable .p-datatable-tbody > tr:nth-child(odd):hover {
+  background-color: transparent!important;
 }
