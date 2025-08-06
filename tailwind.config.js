@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 const customColors = {
+  'primary-color': '#007E45',
   white: '#FFFFFF',
   'table-header': '#DFDFE2',
   'table-row-hover': '#5C98E5',
@@ -30,7 +31,9 @@ module.exports = {
   ],
   theme: {
     textColor: {
-      ...customColors
+      ...customColors,
+      'primary-text-color': '#1A1A1A',
+      'secondary-text-color': '#737373',
     },
     backgroundColor: {
       ...customColors
@@ -245,7 +248,8 @@ module.exports = {
         'partner-bg-2': 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)'
       },
       fontFamily: {
-        'aktiv-grotesk': '"aktiv-grotesk", sans-serif'
+        'aktiv-grotesk': '"aktiv-grotesk", sans-serif',
+        'sage-ui': '"sage-ui", sans-serif'
       },
       boxShadow: {
         'btn-cta-shadow': '0px 4px 4px rgba(44, 48, 78, 0.1)',

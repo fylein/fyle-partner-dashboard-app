@@ -5,13 +5,13 @@
 
     &--bg-triangle-left {
       @extend .auth--bg-triangle;
-      @apply tw-bg-auth-traingle-left;
+      @apply tw-bg-client-logo;
       clip-path: polygon(0 0, 100% 0, 0 100%, 0 0%);
     }
 
     &--bg-triangle-right {
       @extend .auth--bg-triangle;
-      @apply tw-bg-auth-traingle-right;
+      @apply tw-bg-client-logo;
       clip-path: polygon(100% 100%, 0 100%, 100% 0, 100% 100%);
     }
 }
