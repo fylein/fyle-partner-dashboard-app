@@ -83,7 +83,7 @@
   "home": {
     "myClients": "My Clients",
     "activeUsers": "Active users",
-    "searchPlaceholder": "Search",
+    "searchPlaceholder": "Search...",
     "detail": "Detail",
     "table": "Table"
   }
