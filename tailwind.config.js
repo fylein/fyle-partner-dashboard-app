@@ -22,7 +22,10 @@ const customColors = {
   'sort-bg': '#f8f9fa',
   'table-icon-border': '#EAEAEB',
   'open-org': '#252841',
-  'input-box-border': '#ced4da'
+  'input-box-border': '#ced4da',
+  'border-brand': '#007E45',
+  'btn-focus-shadow': '#ffbc19',
+  'black': '#000000'
 };
 
 module.exports = {
@@ -43,7 +46,7 @@ module.exports = {
       'grid-heading': '#E6EBED',
       'transparent': 'transparent',
       'danger-toast': '#CB374A',
-      'cross-icon-bg': '#335B70'
+      'cross-icon': '#335B70'
     },
     fontSize: {
       '12-px': '12px',
@@ -245,7 +248,8 @@ module.exports = {
       },
       borderColor: {
         'table-header': customColors['table-header'],
-        'sub-text-color': customColors['sub-text-color']
+        'sub-text-color': customColors['sub-text-color'],
+        'border-brand': customColors['border-brand']
       },
       backgroundImage: {
         'auth-traingle-left': 'linear-gradient(-83.33deg, #e1eeffba 26.8%, #ffe4fbde 97.18%)',
@@ -263,7 +267,8 @@ module.exports = {
         'partner-card': '0px 2px 10px rgba(44, 48, 78, 0.1)',
         'expense-stat-card': '0px 4px 4px rgba(0, 0, 0, 0.05);',
         'help-section': '0px 8px 40px rgba(215, 215, 215, 0.73)',
-        'client-header': '0px 12px 20px -10px rgba(65, 69, 98, 0.24)'
+        'client-header': '0px 12px 20px -10px rgba(65, 69, 98, 0.24)',
+        'btn-focus': '0px 0px 0px 3px #ffbc19, 0px 0px 0px 6px #000000'
       },
       dropShadow: {
         'paginator': '0px 2px 10px rgba(44, 48, 78, 0.1)'

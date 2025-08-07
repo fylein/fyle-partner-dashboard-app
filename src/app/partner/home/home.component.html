@@ -24,12 +24,11 @@
                         </div>
                     </div>
                     <div class="tw-flex tw-pt-16-px">
-                        <div class="tw-py-12-px tw-px-12-px tw-border-solid tw-rounded-4-px tw-border tw-w-302-px tw-h-42-px tw-flex tw-items-center tw-relative" [ngClass]="isSearchFocused ? 'tw-border-sub-text-color' : 'tw-border-input-box-border'">
-                            <i class="pi pi-search tw-mr-18-px tw-text-faded-icon"></i>
+                        <div class="tw-py-12-px tw-px-12-px tw-border-solid tw-border tw-w-302-px tw-h-42-px tw-flex tw-items-center tw-relative" [ngClass]="isSearchFocused ? 'focus-state' : 'tw-border-b-[#668494ff] tw-border-b-2-px tw-border-t-0 tw-border-l-0 tw-border-r-0'">
+                            <i class="pi pi-search tw-mr-18-px tw-text-[000000a6]"></i>
                             <input type="text" [placeholder]="'home.searchPlaceholder' | transloco"
-                                class="p-inputtext p-component p-element ng-valid ng-touched ng-dirty tw-w-full tw-bg-transparent tw-border-none tw-outline-none" formControlName="search" data-cy="search-input-area" (focus)="isSearchFocused = true" (blur)="isSearchFocused = false">
-                            <svg-icon-sprite *ngIf="form.value.search && form.value.search.length > 0" src="clear" width="14px" height="14px" class="tw-text-faded-icon tw-cursor-pointer tw-ml-auto" (click)="clearSearch()" data-cy="clear-search">
-                            </svg-icon-sprite>
+                                class="p-inputtext p-component p-element ng-valid ng-touched ng-dirty tw-w-full tw-bg-transparent tw-border-none tw-outline-none tw-text-[000000a6]" formControlName="search" data-cy="search-input-area" (focus)="isSearchFocused = true" (blur)="isSearchFocused = false">
+                            <img *ngIf="form.value.search && form.value.search.length > 0" src="assets/icons/toast-cross.svg" alt="clear" class="tw-cursor-pointer tw-ml-auto" (click)="clearSearch()" data-cy="clear-search">
                         </div>
                         <div class="tw-pl-22-px tw-pr-24-px tw-text-12-px">
                             <div class="tw-bg-section-hover tw-rounded-8-px tw-h-40-px tw-flex tw-items-center">
