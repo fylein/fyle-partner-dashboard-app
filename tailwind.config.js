@@ -41,7 +41,9 @@ module.exports = {
       'bg-primary': '#000000',
       'bg-tertiary': '#f5f5f5',
       'grid-heading': '#E6EBED',
-      'transparent': 'transparent'
+      'transparent': 'transparent',
+      'danger-toast': '#CB374A',
+      'cross-icon-bg': '#335B70'
     },
     fontSize: {
       '12-px': '12px',

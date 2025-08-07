@@ -138,3 +138,7 @@ p {
 .p-dropdown.p-focus {
   @apply tw-outline-none tw-shadow-none #{!important};
 }
+
+.p-toast .p-toast-icon-close {
+  @apply tw-hidden #{!important};
+}
