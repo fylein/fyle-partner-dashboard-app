@@ -76,14 +76,14 @@
   },
   "paginator": {
     "pageStatus": "Page {{currentPage}} of {{totalPageCount}}",
-    "showLabel": "Show",
+    "showLabel": "Items per page:",
     "pageLabel": "Page",
     "itemsPerPage": "{{count}} Items"
   },
   "home": {
     "myClients": "My Clients",
     "activeUsers": "Active users",
-    "searchPlaceholder": "Search",
+    "searchPlaceholder": "Search...",
     "detail": "Detail",
     "table": "Table"
   }

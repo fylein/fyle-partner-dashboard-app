@@ -141,7 +141,7 @@ export class PaginatorComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.pageSizeOptions = [20, 50, 100].map(pageSize => {
-      return { label: this.translocoService.translate('paginator.itemsPerPage', { count: pageSize }), value: pageSize };
+      return { label: pageSize.toString(), value: pageSize };
     });
     this.setupForm();
   }

@@ -9,6 +9,7 @@ import { SimpleSearchTextComponent } from './components/helpers/simple-search-te
 import { PaginatorComponent } from './components/helpers/paginator/paginator.component';
 import { ClientCardComponent } from './components/home/client-card/client-card.component';
 import { ClientTableComponent } from './components/home/client-table/client-table.component';
+import { CallbackLoaderComponent } from './components/core/callback-loader/callback-loader.component';
 
 // External libraries
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
@@ -26,6 +27,7 @@ import { TranslocoModule } from '@jsverse/transloco';
 @NgModule({
   declarations: [
     LoaderComponent,
+    CallbackLoaderComponent,
     HelpDropdownComponent,
     ZeroStateWithIllustrationComponent,
     HeaderComponent,
@@ -51,6 +53,7 @@ import { TranslocoModule } from '@jsverse/transloco';
   ],
   exports: [
     LoaderComponent,
+    CallbackLoaderComponent,
     HeaderComponent,
     ClientCardComponent,
     ClientTableComponent,

@@ -9,9 +9,10 @@ const customColors = {
   'sub-text-color': '#5A5D72',
   'normal-text-color': '#161528',
   'slightly-normal-text-color': '#2C304E',
+  'slightly-normal-text-color-2': '#00141E',
   'faded-icon': '#A9ACBC',
   'icon-background': '#EFF5FC',
-  'partner-hover': '#FF668C',
+  'partner-hover': '#007E45',
   'section-hover': '#F5F5F5',
   'hyper-link': '#0062FF',
   'sign-out': '#DA1E28',
@@ -36,7 +37,11 @@ module.exports = {
       'secondary-text-color': '#737373',
     },
     backgroundColor: {
-      ...customColors
+      ...customColors,
+      'bg-primary': '#000000',
+      'bg-tertiary': '#f5f5f5',
+      'grid-heading': '#E6EBED',
+      'transparent': 'transparent'
     },
     fontSize: {
       '12-px': '12px',

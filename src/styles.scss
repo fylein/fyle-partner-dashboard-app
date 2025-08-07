@@ -49,7 +49,7 @@ p {
   tw-break-words
   tw-whitespace-normal
   tw-overflow-visible
-  tw-font-500 #{!important}
+  tw-font-500 tw-font-sage-ui #{!important}
 }
 
 .p-tooltip {
@@ -76,11 +76,11 @@ p {
 
 // Table
 .p-datatable .p-sortable-column:focus {
-  @apply tw-shadow-none #{!important};
+  @apply tw-shadow-none tw-bg-grid-heading #{!important};
 }
 
 .p-datatable .p-sortable-column.p-highlight {
-  @apply tw-text-sort-icon tw-bg-sort-bg #{!important};
+  @apply tw-text-sort-icon tw-bg-grid-heading  #{!important};
 }
 
 .p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
@@ -88,7 +88,7 @@ p {
 }
 
 .p-datatable .p-datatable-thead > tr > th {
-  @apply tw-py-12-px tw-px-22-px tw-text-12-px tw-text-slightly-normal-text-color tw-bg-section-hover tw-border-1-px tw-border-r-0 tw-border-table-header #{!important};
+  @apply tw-py-12-px tw-px-22-px tw-text-12-px tw-text-slightly-normal-text-color tw-bg-bg-tertiary tw-border-1-px tw-border-r-0 tw-border-table-header #{!important};
 }
 
 .pi-sort-alt:before {
@@ -97,10 +97,6 @@ p {
 
 .p-datatable .p-datatable-tbody > tr > td {
   @apply tw-h-70-px tw-p-0 tw-text-14-px #{!important};
-}
-
-.p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover {
-  @apply tw-bg-card-hover #{!important};
 }
 
 .p-dropdown .p-dropdown-label {
@@ -117,4 +113,25 @@ p {
 
 .p-dropdown-panel .p-dropdown-items {
   @apply tw-text-12-px #{!important};
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  @apply tw-bg-bg-tertiary tw-text-primary-color #{!important};
+}
+
+.p-datatable .p-datatable-tbody > tr:nth-child(even) {
+  @apply tw-bg-bg-tertiary #{!important};
+}
+
+.p-datatable .p-datatable-tbody > tr:nth-child(even):hover {
+  @apply tw-bg-bg-tertiary #{!important};
+}
+
+.p-datatable .p-datatable-tbody > tr:nth-child(odd):hover {
+  @apply tw-bg-transparent #{!important};
+}
+
+.p-dropdown:focus,
+.p-dropdown.p-focus {
+  @apply tw-outline-none tw-shadow-none #{!important};
 }
