@@ -8,7 +8,7 @@ html, body {
 }
 
 body {
-  @apply tw-m-0-px tw-text-normal-text-color tw-font-aktiv-grotesk tw-text-16-px;
+  @apply tw-m-0-px tw-text-normal-text-color tw-font-sage-ui tw-text-16-px;
 }
 
 p {
@@ -17,7 +17,7 @@ p {
 
 // Button CTA
 .p-button {
-  @apply tw-w-[100%] tw-text-14-px tw-shadow-none tw-border-none tw-bg-btn-cta tw-text-white tw-py-12-px tw-px-24-px #{!important};
+  @apply tw-w-[100%] tw-rounded-[32px] tw-text-14-px tw-shadow-none tw-border-none tw-bg-primary-color tw-text-white tw-py-8-px tw-px-24-px #{!important};
 }
 
 .p-button.p-button-raised {
