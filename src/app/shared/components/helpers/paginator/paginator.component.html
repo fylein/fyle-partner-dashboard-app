@@ -11,11 +11,11 @@
                 <p-dropdown formControlName="pageLimit" [options]="pageSizeOptions" optionLabel="label" optionValue="value" styleClass="tw-ml-8-px tw-w-70-px tw-border !tw-border-table-header" data-cy="paginator-dropdown"></p-dropdown>
             </div>
             <div class="paginator--center">
-                <div (click)="onPageChangeHandler(PageNavigation.FIRST)" class="paginator--control paginator--center tw-border-r-0 tw-rounded-t-4-px tw-rounded-r-0-px tw-rounded-b-0-px tw-rounded-l-4-px" data-cy="first-page-button">
+                <div (click)="onPageChangeHandler(PageNavigation.FIRST)" class="paginator--control paginator--center tw-rounded-tl-4-px tw-rounded-bl-4-px tw-border-l-1-px tw-border-y-1-px" data-cy="first-page-button">
                     <svg-icon-sprite [ngClass]="form.value.page === 1 ? 'tw-text-faded-icon' : 'tw-text-sub-text-color'" width="24px" height="24px" src="first-page"></svg-icon-sprite>
                 </div>
 
-                <div (click)="onPageChangeHandler(PageNavigation.BACKWARD)" class="paginator--control paginator--center tw-border-r-0" data-cy="left-button">
+                <div (click)="onPageChangeHandler(PageNavigation.BACKWARD)" class="paginator--control paginator--center tw-border-l-1-px tw-border-y-1-px" data-cy="left-button">
                     <svg-icon-sprite width="24px" height="24px" src="arrow-left" [ngClass]="form.value.page <= 1 ? 'tw-text-faded-icon' : 'tw-text-sub-text-color'">
                     </svg-icon-sprite>
                 </div>
@@ -23,12 +23,12 @@
                 <input (input)="manualPageChangeHandler()" type="text" formControlName="page" 
                     class="!tw-pl-9-px !tw-pt-0 !tw-pr-0 !tw-pb-0 p-inputtext p-component p-element ng-valid ng-touched ng-dirty !tw-text-12-px !tw-w-32-px tw-h-32-px !tw-rounded-0-px !tw-border-1-px !tw-border-table-header !tw-border-r-0" pInputText data-cy="page-number">
 
-                <div (click)="onPageChangeHandler(PageNavigation.FORWARD)" class="paginator--control paginator--center tw-border-r-0" data-cy="right-button">
+                <div (click)="onPageChangeHandler(PageNavigation.FORWARD)" class="paginator--control paginator--center tw-border-l-1-px tw-border-y-1-px" data-cy="right-button">
                     <svg-icon-sprite width="24px" height="24px" src="arrow-right" [ngClass]="form.value.page >= totalPageCount ? 'tw-text-faded-icon' : 'tw-text-sub-text-color'">
                     </svg-icon-sprite>
                 </div>
 
-                <div (click)="onPageChangeHandler(PageNavigation.LAST)" class="paginator--control paginator--center tw-rounded-t-0-px tw-rounded-r-4-px tw-rounded-b-4-px tw-rounded-l-0-px" data-cy="last-page-button">
+                <div (click)="onPageChangeHandler(PageNavigation.LAST)" class="paginator--control paginator--center tw-rounded-tr-4-px tw-rounded-br-4-px tw-border-x-1-px tw-border-y-1-px" data-cy="last-page-button">
                     <svg-icon-sprite width="24px" height="24px" src="last-page" [ngClass]="form.value.page === totalPageCount ? 'tw-text-faded-icon' : 'tw-text-sub-text-color'"></svg-icon-sprite>
                 </div>
             </div>
