@@ -4,7 +4,9 @@
   },
   "fyleCallback": {
     "loginFailedSummary": "Login Failed",
-    "loginFailedDetail": "You don't have access to this portal, please contact support@fylehq.com if you need further assistance on this"
+    "loginFailedDetail": "You don't have access to this portal.",
+    "loginFailedDetailLine2": "Please contact ",
+    "loginFailedDetailLine3": "if you need further assistance on this."
   },
   "profileDropdown": {
     "partnerDashboard": "Partner Dashboard",
