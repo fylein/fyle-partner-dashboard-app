@@ -119,9 +119,6 @@ p {
   @apply tw-bg-bg-tertiary tw-text-primary-color #{!important};
 }
 
-.p-datatable .p-datatable-thead > tr > th {
-  @apply tw-bg-bg-tertiary #{!important};
-}
 .p-datatable .p-datatable-tbody > tr:nth-child(even) {
   @apply tw-bg-bg-tertiary #{!important};
 }
