@@ -25,7 +25,8 @@ const customColors = {
   'input-box-border': '#ced4da',
   'border-brand': '#007E45',
   'btn-focus-shadow': '#ffbc19',
-  'black': '#000000'
+  'black': '#000000',
+  'search-input-border': '#668494ff'
 };
 
 module.exports = {
@@ -38,6 +39,7 @@ module.exports = {
       ...customColors,
       'primary-text-color': '#1A1A1A',
       'secondary-text-color': '#737373',
+      'search-input-text': '#000000a6',
     },
     backgroundColor: {
       ...customColors,
@@ -249,7 +251,8 @@ module.exports = {
       borderColor: {
         'table-header': customColors['table-header'],
         'sub-text-color': customColors['sub-text-color'],
-        'border-brand': customColors['border-brand']
+        'border-brand': customColors['border-brand'],
+        'search-input-border': customColors['search-input-border']  
       },
       backgroundImage: {
         'auth-traingle-left': 'linear-gradient(-83.33deg, #e1eeffba 26.8%, #ffe4fbde 97.18%)',
