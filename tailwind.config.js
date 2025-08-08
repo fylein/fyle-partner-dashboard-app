@@ -26,7 +26,9 @@ const customColors = {
   'border-brand': '#007E45',
   'btn-focus-shadow': '#ffbc19',
   'black': '#000000',
-  'search-input-border': '#668494ff'
+  'search-input-border': '#668494ff',
+  'loader-neutral-track': '#CCE6DA',
+  'loader-action-track': '#d4dde1'
 };
 
 module.exports = {
@@ -85,14 +87,47 @@ module.exports = {
       '1.8': '1.8'
     },
     extend: {
+      fill: theme => theme('colors'),
+      stroke: theme => theme('colors'),
       animation: {
-        'progress-spinner': 'p-progress-spinner-dash 1.5s ease-in-out infinite, p-progress-spinner-color 6s ease-in-out infinite'
+        'progress-spinner':
+          'p-progress-spinner-dash 1.5s ease-in-out infinite, p-progress-spinner-color 6s ease-in-out infinite',
+        'progress-spinner-cta':
+          'p-progress-spinner-dash 1.5s ease-in-out infinite, p-progress-spinner-cta-color 6s ease-in-out infinite',
+        'loader-spin': 'loader-spin 2s linear infinite',
+      },
+      colors: {
+        'loader-neutral': customColors['primary-color'],
+        'loader-neutral-track': customColors['loader-neutral-track'],
+        'loader-action': customColors['primary-color'],
+        'loader-action-track': customColors['loader-action-track'],
       },
       keyframes: {
         'p-progress-spinner-color': {
-          '0%': { 'stroke': '#ff3863'},
-          '100%': { 'stroke': '#ff3863'}
-        }
+          '0%': { stroke: 'var(--mandatory-field-color)' },
+          '100%': { stroke: 'var(--mandatory-field-color)' },
+        },
+        'p-progress-spinner-cta-color': {
+          '0%': { stroke: '#ffffff' },
+          '100%': { stroke: '#ffffff' },
+        },
+        'loader-spin': {
+          '0%': {
+            'stroke-dasharray': '1, 200',
+            'stroke-dashoffset': '0',
+            transform: 'rotate(0deg)',
+          },
+          '50%': {
+            'stroke-dasharray': '89, 200',
+            'stroke-dashoffset': '-35px',
+            transform: 'rotate(180deg)',
+          },
+          '100%': {
+            'stroke-dasharray': '1, 200',
+            'stroke-dashoffset': '-124px',
+            transform: 'rotate(360deg)',
+          },
+        },
       },
       padding: {
         '2-px': '2px',
@@ -285,5 +320,14 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        '.stroke-round': {
+          'stroke-linecap': 'round',
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 }
