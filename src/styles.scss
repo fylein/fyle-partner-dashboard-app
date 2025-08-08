@@ -75,6 +75,10 @@ p {
 }
 
 // Table
+.p-datatable .p-sortable-column {
+  @apply tw-shadow-none tw-bg-grid-heading #{!important};
+}
+
 .p-datatable .p-sortable-column:focus {
   @apply tw-shadow-none tw-bg-grid-heading #{!important};
 }
