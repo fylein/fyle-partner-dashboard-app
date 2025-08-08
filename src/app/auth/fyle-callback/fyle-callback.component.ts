@@ -28,7 +28,7 @@ export class FyleCallbackComponent implements OnInit {
       severity: 'error',
       summary: this.translocoService.translate('fyleCallback.loginFailedSummary'),
       detail: this.translocoService.translate('fyleCallback.loginFailedDetail'),
-      life: 700000,
+      life: 7000,
       styleClass: 'tw-bg-white tw-max-w-[440px]',
       contentStyleClass: 'tw-p-0',
       data: {

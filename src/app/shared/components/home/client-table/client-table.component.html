@@ -11,7 +11,7 @@
                         <span class="tw-pr-10-px" data-cy="active-users-text">{{ 'clientTable.activeUsers' | transloco }}</span>
                         <svg-icon-sprite [pTooltip]="'clientTable.activeUsersTooltip' | transloco: { currentMonth: currentMonth }" tooltipPosition="bottom" src="info"
                             width="16px" height="16px"
-                            class="tw-text-faded-icon hover:tw-text-table-row-hover"></svg-icon-sprite>
+                            class="tw-text-faded-icon hover:tw-text-primary-color"></svg-icon-sprite>
                         <!-- <p-sortIcon field="billed_users_count" data-cy="sort-icon-active-users"></p-sortIcon> -->
                     </div>
                 </th>
@@ -62,7 +62,7 @@
                         <a *ngIf="client.enabled_users_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.TOTAL_USERS, client.id)" data-cy="view-hover-total-user">
                             {{ 'clientTable.view' | transloco }}
                             <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
-                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-total-user">
+                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-primary-color tw-cursor-pointer" data-cy="view-svg-total-user">
                             </svg-icon-sprite>
                         </a>
                     </div>
@@ -73,7 +73,7 @@
                         <a *ngIf="client.pending_users_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.PENDING_INVITATION, client.id)" data-cy="view-hover-pending-invitation">
                             {{ 'clientTable.view' | transloco }}
                             <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
-                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-pending-invitation">
+                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-primary-color tw-cursor-pointer" data-cy="view-svg-pending-invitation">
                             </svg-icon-sprite>
                         </a>
                     </div>
@@ -84,7 +84,7 @@
                         <a *ngIf="client.incomplete_expenses_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.INCOMPLETE_EXPENSES, client.id)" data-cy="view-hover-incomplete-expenses">
                             {{ 'clientTable.view' | transloco }}
                             <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
-                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-incomplete-expenses">
+                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-primary-color tw-cursor-pointer" data-cy="view-svg-incomplete-expenses">
                             </svg-icon-sprite>
                         </a>
                     </div>
@@ -95,7 +95,7 @@
                         <a *ngIf="client.approval_pending_reports_count !== 0" class="client-table--redirection client-table--view-in-fyle" (click)="redirect(ClientRedirectionType.REPORTS_TO_APPROVE, client.id)" data-cy="view-hover-pending-reports">
                             {{ 'clientTable.view' | transloco }}
                             <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
-                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-pending-reports">
+                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-primary-color tw-cursor-pointer" data-cy="view-svg-pending-reports">
                             </svg-icon-sprite>
                         </a>
                     </div>
@@ -107,7 +107,7 @@
                             <div class="tw-flex tw-items-center">
                                 {{ 'clientTable.view' | transloco }}
                                 <p class="tw-mx-8-px tw-h-16-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
-                                <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-table-row-hover tw-cursor-pointer" data-cy="view-svg-pending-reimbursements">
+                                <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px" class="tw-mt-2-px tw-text-primary-color tw-cursor-pointer" data-cy="view-svg-pending-reimbursements">
                                 </svg-icon-sprite>
                             </div>
                             <div class="tw-border-table-header tw-border-1-px tw-bg-white tw-rounded-4-px tw-w-38-px tw-h-38-px tw-flex tw-items-center tw-justify-center" (click)="redirect(ClientRedirectionType.FYLE_ADMIN, client.id)">
@@ -134,7 +134,7 @@
                         <span class="tw-pr-10-px">{{ 'clientTable.activeUsers' | transloco }}</span>
                         <svg-icon-sprite [pTooltip]="'clientTable.activeUsersTooltip' | transloco: { currentMonth: currentMonth }" tooltipPosition="bottom" src="info"
                             width="16px" height="16px"
-                            class="tw-text-faded-icon hover:tw-text-table-row-hover"></svg-icon-sprite>
+                            class="tw-text-faded-icon hover:tw-text-primary-color"></svg-icon-sprite>
                     </p>
                 <th pSortableColumn="enabled_users_count" class="client-table--header">
                     {{ 'clientTable.totalUsers' | transloco }}
