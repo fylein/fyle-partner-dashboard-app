@@ -12,7 +12,7 @@ const DEFAULT_VARIANT: LoaderSpinnerVariants = "neutral";
 @Component({
   selector: "app-loader",
   templateUrl: "./loader.component.html",
-  styleUrls: ["./loader.component.scss"],
+  styleUrls: ["./loader.component.scss"]
 })
 export class LoaderComponent implements OnInit {
   size: LoaderSpinnerSizes = "vertical-md";
@@ -68,7 +68,7 @@ export class LoaderComponent implements OnInit {
       "tw-stroke-[6px]",
       "tw-stroke-round",
       "tw-origin-[25px_25px]",
-      "tw-animate-loader-spin",
+      "tw-animate-loader-spin"
     ];
 
     // Variant-specific colors
@@ -95,28 +95,28 @@ export class LoaderComponent implements OnInit {
       "horizontal-sm": {
         containerClasses: ["tw-flex-row"],
         spinnerClasses: ["tw-w-20-px", "tw-h-20-px"],
-        titleClasses: ["tw-ml-8-px", "tw-mt-0"],
+        titleClasses: ["tw-ml-8-px", "tw-mt-0"]
       },
       "vertical-sm": {
         containerClasses: ["tw-flex-col"],
         spinnerClasses: ["tw-w-32-px", "tw-h-32-px"],
-        titleClasses: ["tw-mt-12-px"],
+        titleClasses: ["tw-mt-12-px"]
       },
       "vertical-md": {
         containerClasses: ["tw-flex-col"],
         spinnerClasses: ["tw-w-56-px", "tw-h-56-px"],
-        titleClasses: ["tw-mt-16-px"],
+        titleClasses: ["tw-mt-16-px"]
       },
       "vertical-lg": {
         containerClasses: ["tw-flex-col"],
         spinnerClasses: ["tw-w-80-px", "tw-h-80-px"],
-        titleClasses: ["tw-mt-22-px"],
+        titleClasses: ["tw-mt-22-px"]
       },
       "vertical-xl": {
         containerClasses: ["tw-flex-col"],
         spinnerClasses: ["tw-w-[104px]", "tw-h-[104px]"],
-        titleClasses: ["tw-mt-26-px"],
-      },
+        titleClasses: ["tw-mt-26-px"]
+      }
     };
 
     return configs[size] || configs['vertical-md'];
