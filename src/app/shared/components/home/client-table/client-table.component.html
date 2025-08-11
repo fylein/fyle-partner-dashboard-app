@@ -2,9 +2,11 @@
     <p-table *ngIf="!isLoading" [columns]="columns" [value]="clients" [scrollable]="true" [rowHover]="true" sortMode="single" sortField="name">
         <ng-template pTemplate="header">
             <tr class="client-table--client-name" data-cy="data-row-head">
-                <th pSortableColumn="name" class="client-table--client-name-col tw-flex" data-cy="client-name">
-                    {{ 'clientTable.clientName' | transloco }}
-                    <p-sortIcon field="name" data-cy="sort-icon-client-name"></p-sortIcon>
+                <th pSortableColumn="name" class="client-table--client-name-col client-table--header" data-cy="client-name">
+                    <div class="tw-flex">
+                        {{ 'clientTable.clientName' | transloco }}
+                        <p-sortIcon field="name" data-cy="sort-icon-client-name"></p-sortIcon>
+                    </div>
                 </th>
                 <th pSortableColumn="billed_users_count" class="client-table--header client-table--active-users">
                     <div class="tw-flex">

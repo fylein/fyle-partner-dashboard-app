@@ -8,11 +8,15 @@
                         <svg-icon-sprite src="client" width="20px" height="20px" class="tw-text-sub-text-color">
                         </svg-icon-sprite>
                     </div>
-                    <img *ngIf="client.logo_file_id" [src]="client.logo_file?.download_url" width="45px" height="45px">
+                    <img *ngIf="client.logo_file_id" [src]="client.logo_file?.download_url" class="tw-w-[45px] tw-h-[45px]">
                     <div class="client-card--client-header-detail-section">
-                        <p class="tw-font-500 tw-pb-4-px hover:tw-text-partner-hover tw-cursor-pointer" (click)="openOrg(client.id)" data-cy="client-name">
-                            {{ client.name }}
-                        </p>
+                        <div class="tw-flex tw-items-center" (click)="openOrg(client.id)">
+                            <p class="tw-font-500 tw-pb-4-px hover:tw-text-partner-hover tw-cursor-pointer" data-cy="client-name">
+                                {{ client.name }}
+                            </p>
+                            <svg-icon-sprite src="open-in-new-tab" width="16px" height="16px"
+                            class="tw-ml-6-px tw-mt-2-px tw-text-faded-icon tw-cursor-pointer"></svg-icon-sprite>
+                        </div>
                         <div class="tw-flex tw-text-sub-text-color">
                             <p class="tw-text-14-px" data-cy="active-user-text">{{ 'clientCard.activeUsers' | transloco }} <span class="tw-text-16-px tw-text-normal-text-color tw-font-500">
                                 {{ client.billed_users_count }}

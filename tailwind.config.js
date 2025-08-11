@@ -28,7 +28,8 @@ const customColors = {
   'black': '#000000',
   'search-input-border': '#668494ff',
   'loader-neutral-track': '#CCE6DA',
-  'loader-action-track': '#d4dde1'
+  'loader-action-track': '#d4dde1',
+  'table-header-border': '#ccd6db'
 };
 
 module.exports = {
@@ -287,7 +288,8 @@ module.exports = {
         'table-header': customColors['table-header'],
         'sub-text-color': customColors['sub-text-color'],
         'border-brand': customColors['border-brand'],
-        'search-input-border': customColors['search-input-border']  
+        'search-input-border': customColors['search-input-border'],
+        'table-header-border': customColors['table-header-border']
       },
       backgroundImage: {
         'auth-traingle-left': 'linear-gradient(-83.33deg, #e1eeffba 26.8%, #ffe4fbde 97.18%)',

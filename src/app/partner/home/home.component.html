@@ -19,7 +19,7 @@
                         <p class="tw-mr-24-px tw-h-30-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
 
                         <div class="tw-text-sub-text-color tw-flex">
-                            <span *ngIf="!isLoading">{{ totalActiveUsers }} {{ 'home.activeUsers' | transloco }}</span>
+                            <span *ngIf="!isLoading">{{ totalActiveUsers }} {{ (totalActiveUsers === 1 ? 'home.activeUser' : 'home.activeUsers') | transloco }}</span>
                             <p-skeleton *ngIf="isLoading" class="tw-pr-10-px tw-w-120-px" height="25px" shape="rectangle"></p-skeleton>
                         </div>
                     </div>
