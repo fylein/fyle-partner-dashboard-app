@@ -14,7 +14,7 @@
     "signOut": "Sign Out"
   },
   "helpDropdown": {
-    "visitHelpCenter": "Visit Help Centre",
+    "visitHelpCenter": "Visit help center",
     "stillFacingIssues": "Still facing issues?",
     "writeYourQuery": "Write your query to us along with screenshots (if any) at",
     "copyToClipboardAltText": "Copy to clipboard",
@@ -26,7 +26,7 @@
     "helpAndSupportTooltip": "Help & Support"
   },
   "login": {
-    "portalTitle": "Partner's Portal",
+    "portalTitle": "Partner's portal",
     "loginSubTitle": "Login to your account",
     "signInWithFyle": "Sign in with Fyle"
   },
@@ -43,22 +43,22 @@
     "october": "October",
     "november": "November",
     "december": "December",
-    "activeUsers": "Active Users:",
-    "activeUsersTooltip": "Active users of {{month}}",
-    "totalUsers": "Total Users:",
-    "incompleteExpenses": "Incomplete Expenses",
-    "reportsToApprove": "Reports to Approve",
-    "pendingReimbursements": "Pending Reimbursements"
+    "activeUsers": "Active users:",
+    "activeUsersTooltip": "Active users as of {{month}}",
+    "totalUsers": "Total users:",
+    "incompleteExpenses": "Incomplete expenses",
+    "reportsToApprove": "Reports to approve",
+    "pendingReimbursements": "Pending reimbursements"
   },
   "clientTable": {
-    "clientName": "Client Name",
-    "activeUsers": "Active Users",
-    "activeUsersTooltip": "Active users of {{currentMonth}}",
-    "totalUsers": "Total Users",
-    "pendingInvitation": "Pending Invitation",
-    "incompleteExpenses": "Incomplete Expenses",
-    "reportsToApprove": "Reports to Approve",
-    "pendingReimbursements": "Pending Reimbursements",
+    "clientName": "Client name",
+    "activeUsers": "Active users",
+    "activeUsersTooltip": "Active users as of {{currentMonth}}",
+    "totalUsers": "Total users",
+    "pendingInvitation": "Pending invitation",
+    "incompleteExpenses": "Incomplete expenses",
+    "reportsToApprove": "Reports to approve",
+    "pendingReimbursements": "Pending reimbursements",
     "view": "View",
     "january": "January",
     "february": "February",
@@ -84,7 +84,8 @@
   },
   "home": {
     "myClients": "My Clients",
-    "activeUsers": "Active users",
+    "activeUsers": "active users",
+    "activeUser": "active user",
     "searchPlaceholder": "Search...",
     "detail": "Detail",
     "table": "Table"
