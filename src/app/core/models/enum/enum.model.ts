@@ -3,7 +3,7 @@ export enum RedirectLink {
     FYLE_ADMIN = '/app/admin/#/admin_tasks',
     INCOMPLETE_EXPENSES = '/app/admin/#/company_expenses?search_model=W3siZXhwZW5zZV9zdGF0ZSI6W3sibGFiZWwiOiJJbmNvbXBsZXRlIiwidmFsdWUiOiJEUkFGVCIsIiQkaGFzaEtleSI6Im9iamVjdDo4MzQifV19XQ%3D%3D&org_id=$ORG_ID&search_query=#list-view-content-header-id',
     REPORTS_TO_APPROVE = '/app/admin/#/reports/submitted?',
-    PENDING_REIMBURSEMENTS = '/app/admin/#/reports/processing?',
+    PENDING_REIMBURSEMENTS = '/app/admin/#/reports/approved?',
     ACTIVE_USERS = '/app/settings/#/employees/manage_employees?search_model=W3sib3Vfc3RhdHVzIjpbeyJsYWJlbCI6IkFjdGl2ZSIsInZhbHVlIjoiXCJBQ1RJVkVcIiIsIiQkaGFzaEtleSI6Im9iamVjdDo2MTEifV19XQ%3D%3D',
     TOTAL_USERS = '/app/settings/#/employees/manage_employees?search_model=W3sib3Vfc3RhdHVzIjpbeyJsYWJlbCI6IkFjdGl2ZSIsInZhbHVlIjoiXCJBQ1RJVkVcIiIsIiQkaGFzaEtleSI6Im9iamVjdDo4NDUifSx7ImxhYmVsIjoiUGVuZGluZyIsInZhbHVlIjoiXCJQRU5ESU5HX0RFVEFJTFNcIiIsIiQkaGFzaEtleSI6Im9iamVjdDo4NTIifV19XQ%3D%3D',
     PENDING_INVITATION = '/app/settings/#/employees/manage_employees?search_model=W3sib3Vfc3RhdHVzIjpbeyJsYWJlbCI6IlBlbmRpbmciLCJ2YWx1ZSI6IlwiUEVORElOR19ERVRBSUxTXCIiLCIkJGhhc2hLZXkiOiJvYmplY3Q6MTI0MiJ9XX1d'
