@@ -14,7 +14,7 @@
     "signOut": "Sign Out"
   },
   "helpDropdown": {
-    "visitHelpCenter": "Visit Help Centre",
+    "visitHelpCenter": "Visit help center",
     "stillFacingIssues": "Still facing issues?",
     "writeYourQuery": "Write your query to us along with screenshots (if any) at",
     "copyToClipboardAltText": "Copy to clipboard",
@@ -26,7 +26,7 @@
     "helpAndSupportTooltip": "Help & Support"
   },
   "login": {
-    "portalTitle": "Partner's Portal",
+    "portalTitle": "Partner's portal",
     "loginSubTitle": "Login to your account",
     "signInWithFyle": "Sign in with Fyle"
   },

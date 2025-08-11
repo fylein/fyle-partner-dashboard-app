@@ -8,4 +8,8 @@ import { MessageService } from 'primeng/api';
 })
 export class AppComponent {
   constructor(public messageService: MessageService) {}
+
+  clearToast() {
+    this.messageService.clear();
+  }
 }
