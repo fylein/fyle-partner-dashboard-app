@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { MinimalUser } from 'src/app/core/models/db/user.model';
+import { PartnerService } from 'src/app/core/services/core/partner.service';
 import { UserService } from 'src/app/core/services/misc/user.service';
 
 @Component({
@@ -25,7 +26,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private renderer: Renderer2,
-    private userService: UserService
+    private userService: UserService,
+    public partnerService: PartnerService
   ) {
     this.renderer.listen('window', 'click', (e: Event) => {
       if (e && e?.target !== this.helpSection?.nativeElement) {

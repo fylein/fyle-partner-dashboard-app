@@ -7,6 +7,7 @@ import { WindowService } from '../core/services/core/window.service';
 import { UserService } from '../core/services/misc/user.service';
 import * as Sentry from '@sentry/angular';
 import { TrackingService } from '../core/services/integration/tracking.service';
+import { StorageService } from '../core/services/core/storage.service';
 
 @Component({
   selector: 'app-partner',
@@ -26,7 +27,8 @@ export class PartnerComponent implements OnInit {
     private partnerService: PartnerService,
     private trackingService: TrackingService,
     private userService: UserService,
-    private windowService: WindowService
+    private windowService: WindowService,
+    private storageService: StorageService
   ) {
     this.windowReference = this.windowService.nativeWindow;
   }
@@ -42,6 +44,14 @@ export class PartnerComponent implements OnInit {
     return this.partnerService.getPartnerOrg(this.user?.org_id).toPromise().then(partnerOrg => {
       if (partnerOrg) {
         this.trackingService.onSignIn(this.user?.user_id, partnerOrg.id, partnerOrg.primary_org_id);
+
+        if (partnerOrg.is_org_rebranded) {
+          if (!this.storageService.get('is_org_rebranded')) {
+            this.partnerService.setIsRebranded(true);
+          }
+        } else {
+          this.storageService.remove('is_org_rebranded');
+        }
       }
 
       return partnerOrg;
@@ -58,6 +68,9 @@ export class PartnerComponent implements OnInit {
 
   private setupPartnerOrg(): void {
     this.user = this.userService.getUserProfile();
+    if (this.storageService.get('is_org_rebranded')) {
+      this.partnerService.setIsRebranded(true);
+    }
     this.getOrCreatePartnerOrg().then((partnerOrg: PartnerOrg | void) => {
       if (partnerOrg) {
         Sentry.setUser({
