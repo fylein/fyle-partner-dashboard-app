@@ -1,6 +1,6 @@
 <div class="tw-h-60-px tw-flex tw-justify-between tw-items-center tw-bg-bg-primary">
     <div class="tw-flex tw-pl-44-px">
-        <img [alt]="'header.fyleLogoAltText' | transloco" src="assets/icons/{{ partnerService.getAssetsBrandId() }}-logo-light.svg" width="80px" data-cy="fyle-logo"/>
+        <img [alt]="'header.fyleLogoAltText' | transloco" src="assets/icons/{{ partnerService.getAssetsBrandId() }}-logo-light.svg" [ngClass]="partnerService.getIsRebranded() ? 'tw-w-120-px' : 'tw-w-80-px'" data-cy="fyle-logo"/>
         <p class="tw-h-32-px tw-ml-16-px tw-mr-14-px tw-w-1-px tw-rounded-4-px tw-bg-table-header"></p>
         <p class="tw-text-20-px tw-text-white" data-cy="header-home-text">{{ 'header.home' | transloco }}</p>
     </div>
