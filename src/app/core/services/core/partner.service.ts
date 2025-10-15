@@ -9,6 +9,8 @@ import { ApiService } from './api.service';
 })
 export class PartnerService {
 
+  isRebranded: boolean = false;
+
   constructor(
     private apiService: ApiService
   ) { }
@@ -18,6 +20,18 @@ export class PartnerService {
     return this.apiService.get(`/partner/`, {
       primary_org_id: orgId
     });
+  }
+
+  setIsRebranded(isRebranded: boolean): void {
+    this.isRebranded = isRebranded;
+  }
+
+  getIsRebranded(): boolean {
+    return this.isRebranded;
+  }
+
+  getAssetsBrandId(): string {
+    return this.isRebranded ? 'sage' : 'fyle';
   }
 
   createPartnerOrg(): Observable<PartnerOrg> {
