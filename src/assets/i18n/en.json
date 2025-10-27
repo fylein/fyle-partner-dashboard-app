@@ -21,14 +21,14 @@
     "supportEmailCopied": "Support Email copied to clipboard"
   },
   "header": {
-    "fyleLogoAltText": "Fyle",
+    "fyleLogoAltText": "Sage Expense Management",
     "home": "Home",
     "helpAndSupportTooltip": "Help & Support"
   },
   "login": {
     "portalTitle": "Partner's portal",
     "loginSubTitle": "Login to your account",
-    "signInWithFyle": "Sign in with Fyle"
+    "signInWithFyle": "Sign in with Sage Expense Management"
   },
   "clientCard": {
     "january": "January",
